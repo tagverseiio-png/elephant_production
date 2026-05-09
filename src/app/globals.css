@@ -1,0 +1,81 @@
+/* ===== FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  /* ── Palette ── */
+  --color-bg:        #F5F2EE;          /* warm off-white */
+  --color-bg-dark:   #0E0E0E;          /* near-black */
+  --color-cream:     #F0EBE3;
+  --color-text-dark: #0E0E0E;
+  --color-text-mid:  #4A4540;
+  --color-text-muted:#8A847C;
+  --color-text-light:#F5F2EE;
+
+  --color-accent:    #C8622A;          /* warm amber-orange */
+  --color-accent2:   #2C4A3E;          /* deep forest green */
+  --color-accent3:   #1D3A50;          /* midnight blue */
+
+  --color-red:       #C8622A;
+  --color-green:     #2C4A3E;
+  --color-blue:      #1D3A50;
+
+  --color-border:       rgba(14,14,14,0.12);
+  --color-border-light: rgba(245,242,238,0.15);
+
+  /* ── Typography ── */
+  --font-serif:   'Fraunces', Georgia, serif;    /* editorial serif for headings */
+  --font-display: 'Fraunces', Georgia, serif;    /* same family, different weight */
+  --font-hero:    'Syne', sans-serif;            /* geometric for hero & display */
+  --font-sans:    'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* ── Spacing ── */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  4rem;
+  --space-xl:  6rem;
+  --space-2xl: 9rem;
+
+  --nav-height:     70px;
+  --container-max: 1280px;
+
+  --transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+a:hover { opacity: 0.72; }
+
+img { max-width: 100%; display: block; }
+
+ul, ol { list-style: none; }
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}

@@ -1,0 +1,317 @@
+.pageHero {
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--nav-height) + var(--space-xl)) var(--space-md) var(--space-lg);
+  background: var(--color-bg);
+  position: relative;
+}
+
+.pageHero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+.heroContent {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.heroLabel {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.heroTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+/* ===== MISSION ===== */
+.missionSection {
+  padding: var(--space-2xl) var(--space-md);
+  background: var(--color-bg);
+}
+
+.missionContainer {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-lg);
+}
+
+.missionLeft {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.labelLine {
+  width: 30px;
+  height: 1px;
+  background: var(--color-accent);
+  margin-top: 0.5em;
+  flex-shrink: 0;
+}
+
+.sectionLabel {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.sectionLabelWrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.missionRight {
+  max-width: 700px;
+}
+
+.missionText {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text-dark);
+  margin-bottom: 1.5rem;
+}
+
+.missionText:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== VALUES ===== */
+.valuesSection {
+  padding: var(--space-xl) var(--space-md) var(--space-2xl);
+  background: var(--color-bg-cream);
+}
+
+.valuesHeader {
+  max-width: var(--container-max);
+  margin: 0 auto var(--space-lg);
+}
+
+.valuesTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  text-align: center;
+}
+
+.valuesGrid {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.valueCard {
+  text-align: center;
+  padding: var(--space-md);
+}
+
+.valueIcon {
+  font-size: 1.5rem;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+.valueTitle {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+}
+
+.valueDesc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* ===== TEAM ===== */
+.teamSection {
+  padding: var(--space-2xl) var(--space-md);
+  background: var(--color-bg);
+}
+
+.teamHeader {
+  max-width: var(--container-max);
+  margin: 0 auto var(--space-lg);
+}
+
+.teamTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-top: 1rem;
+}
+
+.teamGrid {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.teamCard {
+  cursor: pointer;
+}
+
+.teamCard:hover .teamImage {
+  transform: scale(0.98);
+}
+
+.teamImage {
+  aspect-ratio: 3/4;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.teamInitial {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.02em;
+}
+
+.teamInfo {
+  padding: 1rem 0;
+}
+
+.teamName {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+}
+
+.teamRole {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ===== TESTIMONIAL ===== */
+.testimonialSection {
+  padding: var(--space-2xl) var(--space-md);
+  background: var(--color-bg-dark);
+}
+
+.testimonialContent {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quoteIcon {
+  font-family: var(--font-serif);
+  font-size: 5rem;
+  color: var(--color-accent);
+  line-height: 1;
+  margin-bottom: -1rem;
+}
+
+.quote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-md);
+  font-style: italic;
+}
+
+.quoteAuthor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.authorName {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+}
+
+.authorRole {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .missionContainer {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .valuesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+}

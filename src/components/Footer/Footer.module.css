@@ -1,0 +1,59 @@
+.footer {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  padding: 4rem 2rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.footerGiantText {
+  font-family: 'Anton', 'Oswald', 'Impact', sans-serif;
+  font-size: clamp(8rem, 25vw, 30rem);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--color-text-dark);
+  /* The letters span almost the entire width */
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.footerBottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1rem;
+}
+
+.footerCenter, .footerRight {
+  display: flex;
+  gap: 2rem;
+}
+
+.footerCenter a, .footerRight a {
+  transition: opacity 0.2s ease;
+}
+
+.footerCenter a:hover, .footerRight a:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .footerBottomRow {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .footerCenter, .footerRight {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
