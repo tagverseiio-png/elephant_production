@@ -38,11 +38,22 @@
   gap: 2rem;
 }
 
-.footerCenter a, .footerRight a {
+.footerCenter a, .footerRight a, .contactBtn {
   transition: opacity 0.2s ease;
 }
 
-.footerCenter a:hover, .footerRight a:hover {
+.contactBtn {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.footerCenter a:hover, .footerRight a:hover, .contactBtn:hover {
   opacity: 0.7;
 }
 
