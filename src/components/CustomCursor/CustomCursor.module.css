@@ -1,0 +1,62 @@
+.cursorRing {
+  position: fixed;
+  top: -15px;
+  left: -15px;
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: opacity 0.3s ease;
+}
+
+.cursorDot {
+  position: fixed;
+  top: -4px;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  mix-blend-mode: difference;
+  transition: opacity 0.3s ease;
+}
+
+.hideRing, .hideDot {
+  opacity: 0 !important;
+}
+
+.cursorImageContainer {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+  width: 200px;
+  height: 200px;
+  pointer-events: none;
+  z-index: 9998;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cursorImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hide default cursor globally */
+:global(body) {
+  cursor: none;
+}
+
+:global(a), :global(button) {
+  cursor: none;
+}

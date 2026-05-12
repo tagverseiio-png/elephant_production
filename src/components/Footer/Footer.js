@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerGiantText}>
-        The Elephant Production
+        THE ELEPHANT
       </div>
       <div className={styles.footerBottomRow}>
         <div className={styles.footerLeft}>

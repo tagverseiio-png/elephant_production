@@ -5,7 +5,7 @@
 /* HERO SECTION */
 .hero {
   background-color: var(--color-bg-dark);
-  padding: calc(var(--nav-height) + 6rem) 2rem 6rem 2rem;
+  padding: calc(var(--nav-height) + 6rem) 1.5vw 4rem 1.5vw;
   min-height: 40vh;
 }
 
@@ -13,15 +13,14 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  max-width: var(--container-max);
-  margin: 0 auto;
+  width: 100%;
 }
 
 .heroTitle {
   font-family: var(--font-serif);
-  font-size: clamp(6rem, 15vw, 15rem);
+  font-size: clamp(6rem, 20vw, 22rem);
   font-weight: 300;
-  line-height: 0.9;
+  line-height: 0.85;
   letter-spacing: -0.02em;
   color: var(--color-text-light);
 }
@@ -50,29 +49,34 @@
   }
 }
 
-/* WORK GRID */
+/* WORK SECTION & GRID */
+.workSection {
+  background-color: var(--color-bg);
+  padding: 0 1.5vw 6rem 1.5vw;
+}
+
 .workList {
-  padding: 1vw;
   display: flex;
   flex-direction: column;
-  gap: 1vw;
-  background-color: var(--color-bg-light);
+  gap: 1.5vw;
+  width: 100%;
+  padding-top: 1.5vw;
 }
 
 .workRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 45vw;
-  border-radius: 12px;
-  overflow: hidden;
+  min-height: 40vw;
+  gap: 0.5vw;
 }
 
 .workText {
-  padding: 4vw;
+  padding: 3vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   color: var(--color-text-light);
+  border-radius: 12px;
 }
 
 .workCategoryLabel {
@@ -86,87 +90,115 @@
 .workBrands {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
+}
+
+.brandLink {
+  text-decoration: none;
+  color: var(--color-text-light);
+  display: inline-block;
+  width: fit-content;
+  transition: opacity 0.2s ease;
+}
+
+.brandLink:hover {
+  opacity: 0.7;
 }
 
 .mainBrand {
   font-family: var(--font-serif);
-  font-size: clamp(3rem, 6vw, 6rem);
-  font-weight: 300;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 400;
   line-height: 1;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
+  margin: 0;
 }
 
 .arrowIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background: var(--color-text-light);
   color: var(--color-text-dark);
 }
 
+.otherBrandsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
 .otherBrand {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 4rem);
+  font-size: clamp(1.2rem, 2vw, 2.5rem);
   font-weight: 300;
-  line-height: 1;
-  opacity: 0.6;
+  line-height: 1.1;
+  opacity: 0.9;
+  margin: 0;
 }
 
 .workImage {
   background-color: var(--color-bg-dark);
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .imagePlaceholder {
   width: 100%;
   height: 100%;
   min-height: 400px;
+  background-size: cover;
+  background-position: center;
 }
 
 @media (max-width: 900px) {
   .workRow {
     grid-template-columns: 1fr;
-    min-height: 60vh;
+    min-height: auto;
   }
-  .workImage {
-    display: none;
+  .workText {
+    min-height: 50vh;
   }
 }
 
 /* WHAT WE OFFER */
+.offerSectionWrapper {
+  background-color: var(--color-bg);
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
 .offerSection {
-  padding: 8rem 2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  background-color: var(--color-bg-light);
+  width: 100%;
+  padding: 0 1.5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   color: var(--color-text-dark);
+  margin-bottom: 2rem;
 }
 
 .offerTitle {
   font-family: var(--font-serif);
-  font-size: clamp(4rem, 8vw, 8rem);
-  font-weight: 300;
-  line-height: 0.9;
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 400;
+  line-height: 1;
 }
 
 .offerRight {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  max-width: 400px;
-}
-
-.offerDesc {
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
+  align-items: flex-end;
 }
 
 .offerBtn {
@@ -191,9 +223,30 @@
   color: var(--color-text-light);
 }
 
+.giantTextContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.giantText {
+  font-family: var(--font-sans);
+  font-size: 18vw;
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  color: var(--color-text-dark);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 @media (max-width: 900px) {
   .offerSection {
-    grid-template-columns: 1fr;
-    padding: 4rem 2rem;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .offerRight {
+    align-items: flex-start;
   }
 }

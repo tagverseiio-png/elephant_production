@@ -1,4 +1,5 @@
 import './globals.css';
+import CustomCursor from '@/components/CustomCursor/CustomCursor';
 
 export const metadata = {
   title: 'The Elephant Production | An Action-First Creative Communications Agency',
@@ -14,7 +15,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }

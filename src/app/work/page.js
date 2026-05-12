@@ -8,58 +8,74 @@ const WORK_CATEGORIES = [
   {
     category: 'FASHION',
     mainBrand: 'Lacoste',
+    hasIcon: true,
+    slug: 'lacoste',
     otherBrands: ['Mansur Gavriel', 'J. Crew', 'Madhappy'],
-    color: '#1A3B47',
-    imageGradient: 'linear-gradient(135deg, #1A3B47 0%, #295F72 100%)'
+    color: '#496A74',
+    imageUrl: 'https://images.unsplash.com/photo-1554200876-56c2f25224fa?q=80&w=1000&auto=format&fit=crop'
   },
   {
     category: 'BEAUTY',
     mainBrand: 'Kosas',
-    otherBrands: ['Alo Beauty', 'Living Proof', 'Sol de Janeiro'],
+    hasIcon: true,
+    slug: 'kosas',
+    otherBrands: ['Ilia Beauty', 'Living Proof', 'Sol de Janeiro'],
     color: '#2B4636',
-    imageGradient: 'linear-gradient(135deg, #E6D8CA 0%, #87715F 100%)'
+    imageUrl: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=1000&auto=format&fit=crop'
   },
   {
     category: 'WELLNESS',
     mainBrand: 'Sakara Life',
+    hasIcon: true,
+    slug: 'sakara-life',
     otherBrands: ['HigherDOSE', 'CorePower Yoga', 'Equinox'],
     color: '#1A4A5D',
-    imageGradient: 'linear-gradient(135deg, #6FA656 0%, #345B25 100%)'
+    imageUrl: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1000&auto=format&fit=crop'
   },
   {
     category: 'LIFESTYLE',
     mainBrand: 'Away',
-    otherBrands: ['Fender', 'Blueland', 'Aero'],
+    hasIcon: true,
+    slug: 'away',
+    otherBrands: ['Paravel', 'Rhode', 'Aero'],
     color: '#D48695',
-    imageGradient: 'linear-gradient(135deg, #E0E0E0 0%, #A3A3A3 100%)'
+    imageUrl: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=1000&auto=format&fit=crop'
   },
   {
     category: 'FOOD & BEVERAGE',
     mainBrand: 'Pressed',
-    otherBrands: ['Yasso', 'Sweetgreen', 'JAJA'],
+    hasIcon: true,
+    slug: 'pressed',
+    otherBrands: ['Yasso', 'Sweetgreen', 'TALA'],
     color: '#2C4A2D',
-    imageGradient: 'linear-gradient(135deg, #8DA881 0%, #46553F 100%)'
+    imageUrl: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=1000&auto=format&fit=crop'
   },
   {
     category: 'HOME',
-    mainBrand: 'Caraway',
+    mainBrand: 'Our Place',
+    hasIcon: true,
+    slug: 'our-place',
     otherBrands: ['Boy Smells', 'West Elm', 'Beast'],
     color: '#133D4F',
-    imageGradient: 'linear-gradient(135deg, #DCAF9A 0%, #8A6451 100%)'
+    imageUrl: 'https://images.unsplash.com/photo-1584990347449-a6ebbb56e297?q=80&w=1000&auto=format&fit=crop'
   },
   {
     category: 'FOOTWEAR',
     mainBrand: 'HOKA',
-    otherBrands: ['Havianas', 'Kizik', 'ALDO'],
-    color: '#8A3B1B',
-    imageGradient: 'linear-gradient(135deg, #74AED0 0%, #386A88 100%)'
+    hasIcon: true,
+    slug: 'hoka',
+    otherBrands: ['New Balance', 'Teva', 'UGG'],
+    color: '#4A3D36',
+    imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1000&auto=format&fit=crop'
   },
   {
     category: 'ACTIVEWEAR',
     mainBrand: 'Vuori',
-    otherBrands: ['Bandier', 'Outdoor Voices', 'Year of Ours'],
-    color: '#D48695',
-    imageGradient: 'linear-gradient(135deg, #4F7CA9 0%, #203A55 100%)'
+    hasIcon: true,
+    slug: 'vuori',
+    otherBrands: ['Alo Yoga', 'Lululemon', 'Gymshark'],
+    color: '#2A2D34',
+    imageUrl: 'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?q=80&w=1000&auto=format&fit=crop'
   }
 ];
 
@@ -80,50 +96,77 @@ export default function WorkPage() {
           </div>
         </section>
 
-        {/* WORK CATEGORIES GRID */}
-        <section className={styles.workList}>
-          {WORK_CATEGORIES.map((cat, idx) => (
-            <div className={styles.workRow} key={idx}>
-              <div className={styles.workText} style={{ backgroundColor: cat.color }}>
-                <span className={styles.workCategoryLabel}>{cat.category}</span>
-                <div className={styles.workBrands}>
-                  <h2 className={styles.mainBrand}>
-                    {cat.mainBrand}
-                    <span className={styles.arrowIcon}>
-                      <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
-                        <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.5" />
-                      </svg>
-                    </span>
-                  </h2>
-                  {cat.otherBrands.map((brand, i) => (
-                    <h3 className={styles.otherBrand} key={i}>{brand}</h3>
-                  ))}
+        {/* WORK GRID */}
+        <section className={styles.workSection}>
+          <div className={styles.workContainer}>
+            {WORK_CATEGORIES.map((cat, idx) => {
+              return (
+                <div className={styles.workRow} key={idx}>
+                  <div className={styles.workText} style={{ backgroundColor: cat.color }}>
+                    <div className={styles.workCategoryLabel}>
+                      <span>{cat.category}</span>
+                    </div>
+                    <div className={styles.workBrands}>
+                      {cat.slug ? (
+                        <Link href={`/work/${cat.slug}`} className={styles.brandLink}>
+                          <h2 className={styles.mainBrand}>
+                            {cat.mainBrand}
+                            {cat.hasIcon && (
+                              <span className={styles.arrowIcon}>
+                                <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+                                  <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.5" />
+                                </svg>
+                              </span>
+                            )}
+                          </h2>
+                        </Link>
+                      ) : (
+                        <h2 className={styles.mainBrand}>
+                          {cat.mainBrand}
+                          {cat.hasIcon && (
+                            <span className={styles.arrowIcon}>
+                              <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+                                <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.5" />
+                              </svg>
+                            </span>
+                          )}
+                        </h2>
+                      )}
+                      <div className={styles.otherBrandsWrapper}>
+                        {cat.otherBrands.map((brand, i) => (
+                          <h3 className={styles.otherBrand} key={i}>{brand}</h3>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.workImage}>
+                    <div 
+                      className={styles.imagePlaceholder} 
+                      style={{ backgroundImage: `url(${cat.imageUrl})` }}
+                    ></div>
+                  </div>
                 </div>
-              </div>
-              <div className={styles.workImage}>
-                <div className={styles.imagePlaceholder} style={{ background: cat.imageGradient }}></div>
-              </div>
-            </div>
-          ))}
+              );
+            })}
+          </div>
         </section>
 
         {/* WHAT WE OFFER SECTION */}
-        <section className={styles.offerSection}>
-          <div className={styles.offerLeft}>
-            <h2 className={styles.offerTitle}>What we offer</h2>
-          </div>
-          <div className={styles.offerRight}>
-            <p className={styles.offerDesc}>
-              We'll meet you at the apex of content creation, brand strategy, and visual and real-life creative endeavors.
-            </p>
-            <Link href="/services" className={styles.offerBtn}>
-              <span className={styles.offerBtnCircle}>
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                  <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.5" />
-                </svg>
-              </span>
-              <span>ADDITIVE SERVICES</span>
-            </Link>
+        <section className={styles.offerSectionWrapper}>
+          <div className={styles.offerSection}>
+            <div className={styles.offerLeft}>
+              <h2 className={styles.offerTitle}>What we offer</h2>
+            </div>
+            <div className={styles.offerRight}>
+              <Link href="/services" className={styles.offerBtn}>
+                <span className={styles.offerBtnCircle}>
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.5" />
+                  </svg>
+                </span>
+                <span>See Services</span>
+              </Link>
+            </div>
           </div>
         </section>
       </main>

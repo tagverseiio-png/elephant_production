@@ -1,11 +1,13 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import ContactSidebar from '../ContactSidebar/ContactSidebar';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,10 +39,18 @@ export default function Navbar() {
           <div className={styles.navLinksRight}>
             <Link href="/about" className={styles.navLink}>ABOUT</Link>
             <a href="https://www.instagram.com/theelephantproduction/" target="_blank" rel="noopener noreferrer" className={styles.navLink}>INSTAGRAM</a>
-            <Link href="/contact" className={styles.navLink}>CONTACT</Link>
+            <button 
+              className={styles.navLink} 
+              style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}
+              onClick={() => setContactOpen(true)}
+            >
+              CONTACT
+            </button>
           </div>
         </div>
       </nav>
+
+      <ContactSidebar isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </>
   );
 }

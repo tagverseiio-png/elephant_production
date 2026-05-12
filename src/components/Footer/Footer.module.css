@@ -8,14 +8,14 @@
 }
 
 .footerGiantText {
-  font-family: 'Anton', 'Oswald', 'Impact', sans-serif;
-  font-size: clamp(8rem, 25vw, 30rem);
-  font-weight: 700;
+  font-family: var(--font-hero);
+  font-size: 11vw;
+  font-weight: 800;
   line-height: 0.8;
   letter-spacing: -0.02em;
   text-align: center;
   color: var(--color-text-dark);
-  /* The letters span almost the entire width */
+  white-space: nowrap;
   width: 100%;
   margin-bottom: 2rem;
 }

@@ -2,6 +2,8 @@
 import Link from 'next/link';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
+import LiquidMetalText from '@/components/LiquidMetalText/LiquidMetalText';
+import { motion } from 'framer-motion';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -14,29 +16,55 @@ export default function Home() {
         {/* ═══════════════ HERO ═══════════════ */}
         <section className={styles.hero}>
           <div className={styles.heroBackground}>
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline 
+              className={styles.heroVideo}
+            >
+              <source src="https://cdn.dribbble.com/userupload/47649503/file/f9562b477f17db6f6383731afafee870.mp4" type="video/mp4" />
+            </video>
             <div className={styles.heroOverlay}></div>
           </div>
+          
           <div className={styles.heroContent}>
-            <span className={styles.heroEyebrow}>Creative · Production · Strategy</span>
-            <h1 className={styles.heroTitle}>The Elephant Production</h1>
-            <p className={styles.heroSubtitle}>An action-first creative communications agency.</p>
-            <Link href="/work" className={styles.heroBtn}>
-              <span className={styles.heroBtnCircle}>
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                  <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.5" />
-                </svg>
-              </span>
-              <span>VIEW WORK</span>
-            </Link>
+            <div className={styles.heroTitleGroup}>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className={styles.liquidTextWrapper}
+              >
+                <LiquidMetalText textLines={['THE ELEPHANT', 'PRODUCTION']} />
+              </motion.div>
+            </div>
+            <motion.p 
+              className={styles.heroSubtitle}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+            >
+              An action-first creative communications agency
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.4 }}
+            >
+              <Link href="/work" className={styles.heroBtn}>
+                <span>↗ VIEW WORK</span>
+              </Link>
+            </motion.div>
           </div>
 
           <div className={styles.marqueeContainer}>
             <div className={styles.marqueeTrack}>
               <span className={styles.marqueeText}>
-                Photography &amp; Film • Brand Campaigns • Social Strategy • Event Coverage • Influencer Partnerships • Concert Production • Photography &amp; Film • Brand Campaigns • Social Strategy • Event Coverage • Influencer Partnerships • Concert Production •&nbsp;
+                J.Crew • REI • Fender • Sweetgreen • HOKA • Away • J.Crew • REI • Fender • Sweetgreen • HOKA • Away •&nbsp;
               </span>
               <span className={styles.marqueeText}>
-                Photography &amp; Film • Brand Campaigns • Social Strategy • Event Coverage • Influencer Partnerships • Concert Production • Photography &amp; Film • Brand Campaigns • Social Strategy • Event Coverage • Influencer Partnerships • Concert Production •&nbsp;
+                J.Crew • REI • Fender • Sweetgreen • HOKA • Away • J.Crew • REI • Fender • Sweetgreen • HOKA • Away •&nbsp;
               </span>
             </div>
           </div>
@@ -46,7 +74,13 @@ export default function Home() {
         <section className={styles.bentoSection}>
 
           {/* Row 1 — Image | Text */}
-          <div className={styles.bentoRow}>
+          <motion.div
+            className={styles.bentoRow}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <div className={`${styles.bentoItem} ${styles.imageItem}`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -56,13 +90,18 @@ export default function Home() {
               />
             </div>
             <div className={`${styles.bentoItem} ${styles.textItem}`} style={{ backgroundColor: 'var(--color-accent)' }}>
-              <div>
-                <span className={styles.bentoLabel}>Who We Are</span>
-                <h2 className={styles.bentoTitle}>Infusing creative<br/>alchemy into<br/>today&apos;s brands</h2>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              >
+                <span className={styles.bentoLabel}>Who we are</span>
+                <h2 className={styles.bentoTitle}>Infusing creative alchemy into today&apos;s brands</h2>
                 <p className={styles.bentoDesc}>
                   We increase brand visibility and awareness to attract new customers through thoughtful storytelling and distinct, adaptable communications strategies. With an unmatched consumer understanding and a true collaborative spirit, we create magic for brands.
                 </p>
-              </div>
+              </motion.div>
               <Link href="/services" className={styles.bentoBtn}>
                 <span className={styles.bentoBtnCircle}>
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -72,18 +111,29 @@ export default function Home() {
                 <span>OUR SERVICES</span>
               </Link>
             </div>
-          </div>
+          </motion.div>
 
           {/* Row 2 — Text | Image */}
-          <div className={styles.bentoRow}>
+          <motion.div
+            className={styles.bentoRow}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+          >
             <div className={`${styles.bentoItem} ${styles.textItem}`} style={{ backgroundColor: 'var(--color-accent2)' }}>
-              <div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              >
                 <span className={styles.bentoLabel}>Influencer Strategy</span>
-                <h2 className={styles.bentoTitle}>Maximizing<br/>your orbit</h2>
+                <h2 className={styles.bentoTitle}>Engage with cultural tastemakers</h2>
                 <p className={styles.bentoDesc}>
-                  We connect your brand with the right talent, VIPs, and influencers to ensure the relationship with your community is a powerful lever in the overall communications strategy — cultivating genuine relationships and memorable campaigns.
+                  Our dedicated influencer team manages everything from macro-ambassador programs to hyper-local micro-influencer campaigns, ensuring authentic alignment and measurable impact.
                 </p>
-              </div>
+              </motion.div>
               <Link href="/influencers" className={styles.bentoBtn}>
                 <span className={styles.bentoBtnCircle}>
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -101,26 +151,41 @@ export default function Home() {
                 className={styles.imagePlaceholder}
               />
             </div>
-          </div>
+          </motion.div>
 
-          {/* Row 3 — Image | Text */}
-          <div className={styles.bentoRow}>
-            <div className={`${styles.bentoItem} ${styles.imageItem}`}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200"
-                alt="Event production"
+          {/* Row 3 — Video | Text */}
+          <motion.div
+            className={styles.bentoRow}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+          >
+            <div className={`${styles.bentoItem} ${styles.imageItem}`} style={{ overflow: 'hidden' }}>
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
                 className={styles.imagePlaceholder}
-              />
+                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+              >
+                <source src="https://cdn.dribbble.com/userupload/47649503/file/f9562b477f17db6f6383731afafee870.mp4" type="video/mp4" />
+              </video>
             </div>
             <div className={`${styles.bentoItem} ${styles.textItem}`} style={{ backgroundColor: 'var(--color-accent3)' }}>
-              <div>
-                <span className={styles.bentoLabel}>Full-Service Production</span>
-                <h2 className={styles.bentoTitle}>Everything you<br/>want and more</h2>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              >
+                <span className={styles.bentoLabel}>Experiential</span>
+                <h2 className={styles.bentoTitle}>Experiences that leave a mark</h2>
                 <p className={styles.bentoDesc}>
-                  From A-Z brand building to photoshoot conception, commercial ad production, event coverage, and concert production — we offer multifaceted creative solutions to support your brand at every stage of growth.
+                  From intimate press dinners to massive consumer activations, we handle end-to-end event production that amplifies your message and creates lasting impressions.
                 </p>
-              </div>
+              </motion.div>
               <Link href="/services" className={styles.bentoBtn}>
                 <span className={styles.bentoBtnCircle}>
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -130,7 +195,7 @@ export default function Home() {
                 <span>ALL SERVICES</span>
               </Link>
             </div>
-          </div>
+          </motion.div>
 
         </section>
 
@@ -142,12 +207,27 @@ export default function Home() {
               @theelephantproduction
             </a>
           </div>
-          <div className={styles.instaGrid}>
-            {[
-              '#C4A882', '#8B7355', '#6B4F35', '#A0856A', '#D4B896', '#7A6045', '#B89070'
-            ].map((color, i) => (
-              <div key={i} className={styles.instaBox} style={{ backgroundColor: color }}></div>
-            ))}
+          <div className={styles.instaCarousel}>
+            <div className={styles.instaCarouselTrack}>
+              {[
+                'https://images.unsplash.com/photo-1554200876-56c2f25224fa?q=80&w=600&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=600&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=600&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=600&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1554200876-56c2f25224fa?q=80&w=600&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=600&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=600&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=600&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop'
+              ].map((src, i) => (
+                <div key={i} className={styles.instaBox}>
+                  <img src={src} alt="Instagram post" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </main>
