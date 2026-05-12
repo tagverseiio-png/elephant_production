@@ -10,6 +10,7 @@
   align-items: center;
   transition: background 0.4s ease, backdrop-filter 0.4s ease;
   background: transparent;
+  will-change: background, backdrop-filter;
 }
 
 .navbar.scrolled {
@@ -66,6 +67,18 @@
   color: var(--color-text-light);
   text-transform: uppercase;
   white-space: nowrap;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.logoVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.logoHidden {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
 }
 
 /* Mobile */

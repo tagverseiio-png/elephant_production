@@ -45,7 +45,9 @@ export default function LiquidMetalText({ textLines }) {
     });
 
     let rafId;
+    let isVisible = true;
     const render = () => {
+      if (!isVisible) return;
       time += 0.01;
       
       // Smooth mouse follow
@@ -87,12 +89,27 @@ export default function LiquidMetalText({ textLines }) {
         }
       });
 
-      rafId = requestAnimationFrame(render);
+      if (isVisible) {
+        rafId = requestAnimationFrame(render);
+      }
     };
 
-    render();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          render();
+        } else {
+          cancelAnimationFrame(rafId);
+        }
+      });
+    }, { threshold: 0 });
+    
+    observer.observe(svg);
 
+    render();
     return () => {
+      observer.disconnect();
       window.removeEventListener('mousemove', handleMouseMove);
       cancelAnimationFrame(rafId);
     };

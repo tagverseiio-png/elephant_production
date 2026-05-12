@@ -53,6 +53,7 @@
 .workSection {
   background-color: var(--color-bg);
   padding: 0 1.5vw 6rem 1.5vw;
+  position: relative;
 }
 
 .workList {

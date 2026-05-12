@@ -61,12 +61,12 @@ export default function Cookie3DSection() {
       </div>
       
       <div className={styles.canvasContainer}>
-        <Canvas shadows>
+        <Canvas shadows dpr={[1, 1.5]} gl={{ powerPreference: 'high-performance', antialias: false }}>
           <PerspectiveCamera makeDefault position={[0, -0.5, 8]} fov={45} />
           <ambientLight intensity={1.2} />
           <directionalLight position={[5, 10, 5]} intensity={2.5} castShadow />
           <directionalLight position={[-5, -10, -5]} intensity={0.5} />
-          <Environment preset="sunset" />
+          <Environment preset="sunset" resolution={256} />
           
           <Float speed={2} rotationIntensity={0.2} floatIntensity={1.5}>
             <ProceduralCookie />

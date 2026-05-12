@@ -1,7 +1,7 @@
 'use client';
-import { useEffect } from 'react';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
+import { motion } from 'framer-motion';
 import styles from './services.module.css';
 
 const SERVICES = [
@@ -140,23 +140,6 @@ const SERVICES = [
 ];
 
 export default function ServicesPage() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(styles.visible);
-          }
-        });
-      },
-      { threshold: 0.07 }
-    );
-
-    const reveals = document.querySelectorAll(`.${styles.reveal}`);
-    reveals.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <>
       <Navbar />
@@ -178,10 +161,13 @@ export default function ServicesPage() {
           {SERVICES.map((service, i) => {
             const isReversed = i % 2 !== 0;
             return (
-              <div
+              <motion.div
                 key={service.number}
-                className={`${styles.serviceRow} ${isReversed ? styles.reversed : ''} ${styles.reveal}`}
-                style={{ transitionDelay: `0.05s` }}
+                className={`${styles.serviceRow} ${isReversed ? styles.reversed : ''}`}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 {/* Image */}
                 <div className={styles.serviceImageWrap}>
@@ -208,19 +194,25 @@ export default function ServicesPage() {
                   </ul>
                   <div className={styles.serviceLine}></div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </section>
 
         {/* CTA */}
-        <section className={`${styles.ctaSection} ${styles.reveal}`}>
-          <div className={styles.ctaContent}>
+        <section className={styles.ctaSection}>
+          <motion.div 
+            className={styles.ctaContent}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <h2 className={styles.ctaTitle}>Ready to create<br />something extraordinary?</h2>
             <a href="mailto:info@theelephantproduction.com" className={styles.ctaBtn}>
               <span>Get In Touch</span>
             </a>
-          </div>
+          </motion.div>
         </section>
       </main>
       <Footer />

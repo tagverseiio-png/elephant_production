@@ -1,20 +1,32 @@
 'use client';
+import { useRef } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
-import LiquidMetalText from '@/components/LiquidMetalText/LiquidMetalText';
-import { motion } from 'framer-motion';
+import SnowParticles from '@/components/SnowParticles/SnowParticles';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './page.module.css';
 
 export default function Home() {
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+
+  // As scroll progresses from 0 to 1, shrink the title
+  const titleScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.12]);
+  const titleY = useTransform(scrollYProgress, [0, 0.5], [0, -200]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.35, 0.5], [1, 0.6, 0]);
+
   return (
     <>
-      <Navbar />
+      <Navbar isHome />
 
       <main className={styles.main}>
 
         {/* ═══════════════ HERO ═══════════════ */}
-        <section className={styles.hero}>
+        <section className={styles.hero} ref={heroRef}>
           <div className={styles.heroBackground}>
             <video 
               autoPlay 
@@ -26,31 +38,37 @@ export default function Home() {
               <source src="https://cdn.dribbble.com/userupload/47649503/file/f9562b477f17db6f6383731afafee870.mp4" type="video/mp4" />
             </video>
             <div className={styles.heroOverlay}></div>
+            <SnowParticles />
           </div>
           
+          {/* Giant full-width title — shrinks on scroll */}
+          <motion.h1 
+            className={styles.heroGiantTitle}
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              scale: titleScale,
+              y: titleY,
+              opacity: titleOpacity,
+            }}
+          >
+            THE ELEPHANT PRODUCTION
+          </motion.h1>
+
           <div className={styles.heroContent}>
-            <div className={styles.heroTitleGroup}>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                className={styles.liquidTextWrapper}
-              >
-                <LiquidMetalText textLines={['THE ELEPHANT', 'PRODUCTION']} />
-              </motion.div>
-            </div>
             <motion.p 
               className={styles.heroSubtitle}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.2 }}
+              transition={{ duration: 1, delay: 0.4 }}
             >
               An action-first creative communications agency
             </motion.p>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.4 }}
+              transition={{ duration: 1, delay: 0.6 }}
             >
               <Link href="/work" className={styles.heroBtn}>
                 <span>↗ VIEW WORK</span>
@@ -87,6 +105,8 @@ export default function Home() {
                 src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200"
                 alt="Creative production shoot"
                 className={styles.imagePlaceholder}
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className={`${styles.bentoItem} ${styles.textItem}`} style={{ backgroundColor: 'var(--color-accent)' }}>
@@ -149,6 +169,8 @@ export default function Home() {
                 src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200"
                 alt="Influencer collaboration"
                 className={styles.imagePlaceholder}
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </motion.div>
@@ -166,7 +188,8 @@ export default function Home() {
                 autoPlay 
                 loop 
                 muted 
-                playsInline 
+                playsInline
+                preload="none"
                 className={styles.imagePlaceholder}
                 style={{ objectFit: 'cover', width: '100%', height: '100%' }}
               >
@@ -210,21 +233,22 @@ export default function Home() {
           <div className={styles.instaCarousel}>
             <div className={styles.instaCarouselTrack}>
               {[
-                'https://images.unsplash.com/photo-1554200876-56c2f25224fa?q=80&w=600&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=600&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=600&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=600&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1554200876-56c2f25224fa?q=80&w=600&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=600&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=600&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=600&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop'
+                'https://images.unsplash.com/photo-1554200876-56c2f25224fa?q=80&w=400&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=400&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=400&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=400&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=400&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1554200876-56c2f25224fa?q=80&w=400&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=400&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=400&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=400&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=400&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400&auto=format&fit=crop'
               ].map((src, i) => (
                 <div key={i} className={styles.instaBox}>
-                  <img src={src} alt="Instagram post" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={src} alt="Instagram post" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
                 </div>
               ))}
             </div>

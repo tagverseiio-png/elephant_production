@@ -1,6 +1,7 @@
 'use client';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
+import { motion } from 'framer-motion';
 import styles from './influencers.module.css';
 
 const INFLUENCERS_DATA = [
@@ -69,16 +70,24 @@ export default function InfluencersPage() {
         <section className={styles.contentSection}>
           {/* GRID */}
           <div className={styles.grid}>
-            {INFLUENCERS_DATA.map((item) => (
-              <div key={item.id} className={styles.gridItem}>
+            {INFLUENCERS_DATA.map((item, idx) => (
+              <motion.div 
+                key={item.id} 
+                className={styles.gridItem}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 * (idx % 2) }}
+              >
                 <div className={styles.imageWrapper}>
-                  <img src={item.imageUrl} alt={item.title} />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={item.imageUrl} alt={item.title} loading="lazy" decoding="async" />
                 </div>
                 <div className={styles.itemInfo}>
                   <p className={styles.itemBrand}>{item.brand}</p>
                   <h3 className={styles.itemTitle}>{item.title}</h3>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>

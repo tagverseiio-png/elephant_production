@@ -203,12 +203,12 @@ export default function Camera3DLayer() {
       pointerEvents: 'none',
       zIndex: 100
     }}>
-      <Canvas shadows>
+      <Canvas shadows dpr={[1, 1.5]} gl={{ powerPreference: 'high-performance', antialias: false }}>
         <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={45} />
         <ambientLight intensity={1.5} />
         <directionalLight position={[5, 10, 5]} intensity={2.5} castShadow />
         <directionalLight position={[-5, -10, -5]} intensity={1} />
-        <Environment preset="city" />
+        <Environment preset="city" resolution={256} />
         
         <ScrollCamera />
       </Canvas>

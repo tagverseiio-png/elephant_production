@@ -2,6 +2,8 @@
 import Link from 'next/link';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
+import SnowParticles from '@/components/SnowParticles/SnowParticles';
+import { motion } from 'framer-motion';
 import styles from './work.module.css';
 
 const WORK_CATEGORIES = [
@@ -98,10 +100,18 @@ export default function WorkPage() {
 
         {/* WORK GRID */}
         <section className={styles.workSection}>
-          <div className={styles.workContainer}>
+          <SnowParticles />
+          <div className={styles.workList}>
             {WORK_CATEGORIES.map((cat, idx) => {
               return (
-                <div className={styles.workRow} key={idx}>
+                <motion.div 
+                  className={styles.workRow} 
+                  key={idx}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 * (idx % 2) }}
+                >
                   <div className={styles.workText} style={{ backgroundColor: cat.color }}>
                     <div className={styles.workCategoryLabel}>
                       <span>{cat.category}</span>
@@ -145,7 +155,7 @@ export default function WorkPage() {
                       style={{ backgroundImage: `url(${cat.imageUrl})` }}
                     ></div>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>

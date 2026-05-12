@@ -4,18 +4,29 @@ import Link from 'next/link';
 import ContactSidebar from '../ContactSidebar/ContactSidebar';
 import styles from './Navbar.module.css';
 
-export default function Navbar() {
+export default function Navbar({ isHome = false }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
+  const [logoVisible, setLogoVisible] = useState(!isHome);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        setScrolled(y > 50);
+        if (isHome) {
+          setLogoVisible(y > window.innerHeight * 0.35);
+        }
+        ticking = false;
+      });
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHome]);
 
   const closeMenu = () => {
     setMenuOpen(false);
@@ -33,7 +44,9 @@ export default function Navbar() {
           </div>
 
           <Link href="/" className={styles.logo} onClick={closeMenu}>
-            <span className={styles.logoText}>The Elephant Production</span>
+            <span className={`${styles.logoText} ${logoVisible ? styles.logoVisible : styles.logoHidden}`}>
+              The Elephant Production
+            </span>
           </Link>
 
           <div className={styles.navLinksRight}>

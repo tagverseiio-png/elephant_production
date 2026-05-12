@@ -1,7 +1,7 @@
 'use client';
-import { useEffect } from 'react';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
+import { motion } from 'framer-motion';
 import styles from './about.module.css';
 
 const VALUES = [
@@ -37,23 +37,6 @@ const TEAM = [
 ];
 
 export default function AboutPage() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(styles.visible);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
-    );
-
-    const reveals = document.querySelectorAll(`.${styles.reveal}`);
-    reveals.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <>
       <Navbar />
@@ -71,37 +54,60 @@ export default function AboutPage() {
         {/* Mission */}
         <section className={styles.missionSection}>
           <div className={styles.missionContainer}>
-            <div className={`${styles.missionLeft} ${styles.reveal}`}>
+            <motion.div 
+              className={styles.missionLeft}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
               <span className={styles.labelLine}></span>
               <span className={styles.sectionLabel}>Who We Are</span>
-            </div>
-            <div className={`${styles.missionRight} ${styles.reveal}`}>
+            </motion.div>
+            <motion.div 
+              className={styles.missionRight}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            >
               <p className={styles.missionText}>
                 The Elephant Production is an action-first creative communications agency. We increase brand visibility and awareness to attract new customers through thoughtful storytelling and distinct and adaptable communications strategies.
               </p>
               <p className={styles.missionText}>
                 With an unmatched consumer understanding and a true collaborative spirit, we create magic for brands by bringing their authenticity and differentiated perspective to the forefront. Our team brings decades of combined experience across media, fashion, lifestyle, and consumer brands.
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Values */}
         <section className={styles.valuesSection}>
           <div className={styles.valuesHeader}>
-            <h2 className={`${styles.valuesTitle} ${styles.reveal}`}>Our Values</h2>
+            <motion.h2 
+              className={styles.valuesTitle}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              Our Values
+            </motion.h2>
           </div>
           <div className={styles.valuesGrid}>
             {VALUES.map((value, i) => (
-              <div
+              <motion.div
                 key={i}
-                className={`${styles.valueCard} ${styles.reveal}`}
-                style={{ transitionDelay: `${i * 0.1}s` }}
+                className={styles.valueCard}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: i * 0.1 }}
               >
                 <div className={styles.valueIcon}>{value.icon}</div>
                 <h3 className={styles.valueTitle}>{value.title}</h3>
                 <p className={styles.valueDesc}>{value.description}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
@@ -109,20 +115,35 @@ export default function AboutPage() {
         {/* Team */}
         <section className={styles.teamSection}>
           <div className={styles.teamHeader}>
-            <div className={`${styles.sectionLabelWrap} ${styles.reveal}`}>
+            <motion.div 
+              className={styles.sectionLabelWrap}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
               <span className={styles.labelLine}></span>
               <span className={styles.sectionLabel}>The Team</span>
-            </div>
-            <h2 className={`${styles.teamTitle} ${styles.reveal}`}>
+            </motion.div>
+            <motion.h2 
+              className={styles.teamTitle}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            >
               Meet the people behind<br />the magic
-            </h2>
+            </motion.h2>
           </div>
           <div className={styles.teamGrid}>
             {TEAM.map((member, i) => (
-              <div
+              <motion.div
                 key={i}
-                className={`${styles.teamCard} ${styles.reveal}`}
-                style={{ transitionDelay: `${i * 0.08}s` }}
+                className={styles.teamCard}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: i * 0.08 }}
               >
                 <div className={styles.teamImage} style={{ background: member.gradient }}>
                   <div className={styles.teamInitial}>
@@ -133,14 +154,20 @@ export default function AboutPage() {
                   <h3 className={styles.teamName}>{member.name}</h3>
                   <span className={styles.teamRole}>{member.role}</span>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
 
         {/* Testimonial */}
         <section className={styles.testimonialSection}>
-          <div className={`${styles.testimonialContent} ${styles.reveal}`}>
+          <motion.div 
+            className={styles.testimonialContent}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <div className={styles.quoteIcon}>&ldquo;</div>
             <blockquote className={styles.quote}>
               The Elephant Production has been a transformative partner for our brand. Their strategic vision combined with flawless execution has elevated our presence in ways we never thought possible.
@@ -149,7 +176,7 @@ export default function AboutPage() {
               <span className={styles.authorName}>Brand Partner</span>
               <span className={styles.authorRole}>Fortune 500 Company</span>
             </div>
-          </div>
+          </motion.div>
         </section>
       </main>
       <Footer />
