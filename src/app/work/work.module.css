@@ -166,114 +166,122 @@
   }
 }
 
-/* ---------- Closing approach section ---------- */
-.approach {
+/* ---------- Client wall + logo marquee ---------- */
+.clients {
   border-top: 1px solid var(--dk-border);
   padding: 4.5rem 1.5rem 6rem;
   max-width: 1280px;
   margin: 0 auto;
 }
 
-.approachEyebrow {
+.clientsEyebrow {
   color: var(--dk-accent);
   display: block;
   margin-bottom: 1.25rem;
 }
 
-.approachTitle {
+.clientsTitle {
   font-family: var(--font-sans);
   font-size: clamp(1.8rem, 4vw, 3.2rem);
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.01em;
   max-width: 760px;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-.approachGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  margin-bottom: 2.5rem;
-}
-
-.approachCard {
-  border: 1px solid var(--dk-border);
-  border-radius: 16px;
-  padding: 1.75rem;
-  background: var(--dk-surface);
-  transition: border-color 0.3s ease;
-}
-
-.approachCard:hover {
-  border-color: rgba(255, 107, 0, 0.5);
-}
-
-.approachCardTitle {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--dk-accent);
-  margin-bottom: 0.85rem;
-}
-
-.approachCardText {
+.clientsSubline {
   font-family: var(--font-sans);
   font-size: 0.92rem;
   font-weight: 300;
   line-height: 1.7;
   color: var(--dk-text-muted);
+  max-width: 560px;
+  margin-bottom: 2.5rem;
 }
 
-.approachCtas {
+.marquee {
+  position: relative;
+  overflow: hidden;
+}
+
+.marqueeTrack {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.ctaPrimary,
-.ctaSecondary {
-  display: inline-flex;
   align-items: center;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  border-radius: 100px;
-  padding: 0.9rem 1.8rem;
-  transition: background-color 0.3s ease, color 0.3s ease,
-    border-color 0.3s ease;
+  gap: 1rem;
+  width: max-content;
+  animation: marquee-scroll 42s linear infinite;
 }
 
-.ctaPrimary {
-  background: var(--dk-accent);
-  color: #15110f;
+.marquee:hover .marqueeTrack {
+  animation-play-state: paused;
 }
 
-.ctaPrimary:hover {
-  background: var(--dk-accent-deep);
-  opacity: 1;
-}
-
-.ctaSecondary {
+.marqueeItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 168px;
+  height: 88px;
+  padding: 0.75rem 1.25rem;
   border: 1px solid var(--dk-border);
-  color: var(--dk-text);
+  border-radius: 12px;
+  background: var(--dk-surface);
+  opacity: 0.5;
+  transition: opacity 0.3s ease, border-color 0.3s ease;
 }
 
-.ctaSecondary:hover {
-  border-color: var(--dk-accent);
-  color: var(--dk-accent);
+.marqueeItem:hover {
   opacity: 1;
+  border-color: rgba(255, 107, 0, 0.5);
+}
+
+.marqueeItem img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.marqueeFadeLeft,
+.marqueeFadeRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 96px;
+  pointer-events: none;
+}
+
+.marqueeFadeLeft {
+  left: 0;
+  background: linear-gradient(to right, var(--dk-bg), transparent);
+}
+
+.marqueeFadeRight {
+  right: 0;
+  background: linear-gradient(to left, var(--dk-bg), transparent);
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
+  }
 }
 
 @media (max-width: 900px) {
-  .approachGrid {
-    grid-template-columns: 1fr;
-  }
-
   .rowPreview {
     display: none;
   }
@@ -281,5 +289,15 @@
   .rowArrow {
     width: 44px;
     height: 44px;
+  }
+
+  .marqueeItem {
+    width: 136px;
+    height: 72px;
+  }
+
+  .marqueeFadeLeft,
+  .marqueeFadeRight {
+    width: 56px;
   }
 }
