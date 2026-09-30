@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
@@ -12,113 +13,136 @@ import styles from './services.module.css';
 // can never be mistaken for a real address (same pattern as Footer.js).
 const CONTACT_EMAIL = 'hello@example.com';
 
-// Service lineup written for Elephant Media. Names and wording are original
-// and intentionally distinct from the structure-reference site's services.
-// Each entry follows the same anatomy: index, title, one-line description,
-// and 4–5 supporting points.
+// Service catalogue in live-data order. Titles, descriptions, feature
+// bullets, slugs and image URLs are reproduced as-is from the data file.
+// Only the surrounding page copy (eyebrow, subline, CTA) is authored here.
 const SERVICES = [
   {
     number: '01',
-    title: 'Brand Identity & Concept Development',
+    slug: 'creative-direction-concept-planning',
+    title: 'Creative Direction',
     description:
-      'A clear creative starting point for your brand, shaped around what you want to say and who you want to reach.',
+      'Your vision, structured into a bold and executable creative strategy. Every successful campaign starts with a clear direction. We work closely with your brand to understand your market, your audience, and your goals — then translate that understanding into a creative blueprint that every team member can execute against.',
     features: [
-      'Discovery conversations about goals and audience',
-      'Mood boards and visual reference collections',
-      'Written concept and messaging outline',
-      'Content pillars to guide later production',
+      'Brand & audience discovery sessions',
+      'Concept mood boards & visual references',
+      'Campaign brief & content strategy document',
+      'Shot list and production planning',
     ],
+    image:
+      'https://tsk-website.s3.eu-north-1.amazonaws.com/services/cab52a95-35d4-4cde-b01d-c46c13431b20.jpg',
   },
   {
     number: '02',
-    title: 'Web & Digital Experience Design',
+    slug: 'website-developement',
+    title: 'Website development',
     description:
-      'Websites and digital pages planned around your story, so visitors can find their way and get in touch.',
+      'Design and build responsive, high-performance websites optimized for user experience, speed, and conversions.',
     features: [
-      'Page structure and content planning',
-      'Design for desktop and mobile layouts',
-      'Contact and enquiry flow planning',
-      'Launch checks for readability and performance',
-      'Handover notes for ongoing updates',
+      'Responsive design',
+      'Custom development',
+      'SEO-friendly structure',
+      'Fast loading',
+      'CMS integration',
     ],
+    image:
+      'https://tsk-website.s3.eu-north-1.amazonaws.com/services/7e466581-9a16-4365-8b84-71b929ee0110.jpeg',
   },
   {
     number: '03',
-    title: 'Social Content & Community Management',
+    slug: 'social-media-marketing',
+    title: 'Social Media Marketing',
     description:
-      'Everyday content planned for the channels you use, with a consistent look and tone across posts.',
+      'Create and manage social media campaigns that increase brand awareness, audience engagement, and customer acquisition.',
     features: [
-      'Monthly content themes and calendars',
-      'Short-form video and reel planning',
-      'Static post and carousel design support',
-      'Caption drafting and posting guidance',
-      'Comment and message handling routines',
+      'Content planning',
+      'Platform management',
+      'Paid campaigns',
+      'Analytics',
+      'Community engagement',
     ],
+    image:
+      'https://tsk-website.s3.eu-north-1.amazonaws.com/services/6ed05afd-538e-4bf2-ba15-22dcd6d1fea3.webp',
   },
   {
     number: '04',
-    title: 'Film, Video & Motion Production',
+    slug: 'video-marketing',
+    title: 'Video Marketing',
     description:
-      'Planned, filmed, and edited video pieces for launches, events, and ongoing storytelling.',
+      'Produce and distribute engaging video content that helps businesses attract, educate, and convert their target audience.',
     features: [
-      'Treatment and shot planning before filming',
-      'Filming direction on the day',
-      'Editing, colour, and sound assembly',
-      'Cuts sized for web and social placements',
-      'Review rounds before final delivery',
+      'Promotional videos',
+      'Short-form content',
+      'Video ads',
+      'Editing',
+      'Distribution strategy',
     ],
+    image:
+      'https://tsk-website.s3.eu-north-1.amazonaws.com/services/af10d7a5-09d0-479a-8939-bff5c31c13e6.jpg',
   },
   {
     number: '05',
-    title: 'Paid Media & Campaign Management',
+    slug: 'performance-marketing',
+    title: 'Performance Marketing',
     description:
-      'Structured campaign support that pairs creative assets with a clear testing and review routine.',
+      'Run data-driven advertising campaigns focused on measurable outcomes such as leads, sales, and return on ad spend.',
     features: [
-      'Campaign structure and asset planning',
-      'Ad copy and message variations',
-      'Asset packs sized per placement',
-      'Creative testing and iteration notes',
-      'Plain-language summary of what ran',
+      'PPC advertising',
+      'Meta Ads',
+      'Google Ads',
+      'Conversion tracking',
+      'Campaign optimization',
     ],
+    image:
+      'https://tsk-website.s3.eu-north-1.amazonaws.com/services/1b76f689-82f9-445e-bf04-df0833fbc5c3.jpg',
   },
   {
     number: '06',
-    title: 'Audience Growth & Channel Optimization',
+    slug: 'account-growth-optimisation',
+    title: 'Account Growth & Optimisation',
     description:
-      'A steady review routine for your channels, so future content builds on what already resonates.',
+      'Improve digital account performance through strategic optimization, audience analysis, and ongoing growth initiatives.',
     features: [
-      'Channel review and content audit',
-      'Posting rhythm and format suggestions',
-      'Audience and topic research notes',
-      'Growth priorities for the next period',
-      'Simple reporting template your team can reuse',
+      'Profile optimization',
+      'Audience growth',
+      'Engagement improvement',
+      'Analytics review',
+      'Strategy refinement',
     ],
+    image:
+      'https://tsk-website.s3.eu-north-1.amazonaws.com/services/db3046dc-3251-4e3c-9729-11ca3cd61a60.png',
   },
   {
     number: '07',
-    title: 'Creator Collaborations & Partnerships',
+    slug: 'influencer-marketing',
+    title: 'Influencer Marketing',
     description:
-      'Help planning and running creator-led work, from first outreach through to published content.',
+      'Connect brands with relevant creators to build trust, increase visibility, and drive authentic customer engagement.',
     features: [
-      'Creator shortlisting against your brief',
-      'Outreach and briefing support',
-      'Content review against brand guidance',
-      'Posting schedule coordination',
-      'Wrap-up notes on deliverables received',
+      'Influencer discovery',
+      'Campaign management',
+      'Partnership coordination',
+      'Content collaboration',
+      'Performance reporting',
     ],
+    image:
+      'https://tsk-website.s3.eu-north-1.amazonaws.com/services/a1de9ebd-96c9-42a4-af6c-9f2949c0e8ba.jpg',
   },
   {
     number: '08',
-    title: 'Podcast & Audio Production Support',
+    slug: 'podcast-studio-recording-services',
+    title: 'Podcast Studio & Recording Services',
     description:
-      'Support for planning, recording, and shaping audio episodes you can publish with confidence.',
+      'Professional audio production in a fully equipped studio — crisp sound, cinematic visuals, ready to publish. Our podcast studio is built for creators who take their content seriously. Soundproofed, professionally lit, and fully equipped for both audio recording and video production, the studio gives your podcast the production quality it deserves. Book by the hour, half-day, or full day.',
     features: [
-      'Episode planning and run-of-show notes',
-      'Recording session guidance',
-      'Dialogue editing and cleanup coordination',
-      'Show notes and title drafting',
-      'Cover and thumbnail direction as an add-on',
+      'Studio rental — hourly, half-day, full-day packages',
+      'Professional audio recording and mixing',
+      'Video recording with podcast-ready lighting setup',
+      'Post-production and episode editing (add-on)',
+      'Thumbnail and cover art creation (add-on)',
     ],
+    image:
+      'https://tsk-website.s3.eu-north-1.amazonaws.com/services/25b2528f-bd43-4946-8b72-7b09ff742d3c.webp',
   },
 ];
 
@@ -139,43 +163,34 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Service list — one consistent anatomy per entry */}
+        {/* Service set — one consistent anatomy per entry, alternating media side */}
         <section className={styles.servicesSection} aria-label="Service list">
           <ol className={styles.serviceList}>
-            {SERVICES.map((service) => (
+            {SERVICES.map((service, index) => (
               <motion.li
-                key={service.number}
-                className={styles.serviceRow}
+                key={service.slug}
+                id={service.slug}
+                className={`${styles.serviceRow} ${index % 2 === 1 ? styles.serviceRowAlt : ''}`}
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
               >
                 <article className={styles.serviceArticle}>
-                  <div className={styles.serviceHead}>
-                    {/* Neutral CSS/SVG placeholder treatment — no photographic
-                        claims about facilities, gear, or output. */}
+                  <div className={styles.serviceMedia}>
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={800}
+                      height={600}
+                      unoptimized
+                      className={styles.serviceImage}
+                    />
+                  </div>
+                  <div className={styles.serviceText}>
                     <span className={styles.serviceIndex} aria-hidden="true">
                       {service.number}
                     </span>
-                    <svg
-                      className={styles.serviceMark}
-                      viewBox="0 0 48 48"
-                      aria-hidden="true"
-                      focusable="false"
-                    >
-                      <circle
-                        cx="24"
-                        cy="24"
-                        r="21"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                      />
-                      <circle cx="24" cy="24" r="5" fill="currentColor" />
-                    </svg>
-                  </div>
-                  <div className={styles.serviceText}>
                     <h2 className={styles.serviceTitle}>{service.title}</h2>
                     <p className={styles.serviceDesc}>{service.description}</p>
                     <ul className={styles.featureList}>
