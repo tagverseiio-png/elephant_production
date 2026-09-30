@@ -1,72 +1,143 @@
+/* Studio page — dark editorial bands (--dk-*) + light sections on existing tokens. */
+
 .main {
   width: 100%;
   background-color: var(--color-bg);
   color: var(--color-text-dark);
 }
 
+/* ── Hero: dark full-bleed band ── */
 .hero {
-  position: relative;
+  background: var(--dk-bg);
+  color: var(--dk-text);
   text-align: center;
-  padding: calc(var(--nav-height) + var(--space-xl)) var(--space-md) var(--space-2xl);
+  padding: calc(var(--nav-height) + var(--space-xl)) var(--space-md) var(--space-xl);
+  position: relative;
   overflow: hidden;
-  background: var(--color-bg-dark);
 }
 
-.heroBg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.35;
-}
-
-.heroShade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(14, 14, 14, 0.55), rgba(14, 14, 14, 0.92));
+.hero :global(.eyebrow) {
+  color: var(--dk-accent);
+  display: block;
+  margin-bottom: 1rem;
 }
 
 .heroInner {
   position: relative;
   z-index: 2;
-}
-
-.eyebrow {
-  font-family: var(--font-sans);
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  display: block;
-  margin-bottom: 1rem;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .title {
   font-family: var(--font-hero);
-  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-size: clamp(2.75rem, 7vw, 5.75rem);
   font-weight: 800;
-  line-height: 0.92;
+  line-height: 0.95;
   letter-spacing: -0.03em;
   margin-bottom: 1.5rem;
-  color: var(--color-text-light);
+  color: var(--dk-text);
   text-transform: uppercase;
 }
 
 .sub {
   font-size: 1rem;
-  color: rgba(245, 242, 238, 0.75);
+  color: var(--dk-text-muted);
   font-weight: 300;
-  max-width: 560px;
+  max-width: 580px;
   margin: 0 auto;
   line-height: 1.75;
 }
 
+/* ── Shared light-section heading pattern ── */
+.processSection,
 .wizardSection {
-  padding: var(--space-xl) var(--space-md) var(--space-2xl);
+  padding: var(--space-xl) var(--space-md);
   max-width: var(--container-max);
   margin: 0 auto;
+}
+
+.sectionHead {
+  max-width: 640px;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.sectionHead :global(.eyebrow) {
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-hero);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-dark);
+}
+
+.sectionSub {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--color-text-mid);
+}
+
+/* ── Process steps: structured list rhythm ── */
+.stepList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.stepRow {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: clamp(1.75rem, 3vw, 2.5rem) clamp(1.25rem, 2.5vw, 2rem);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stepRow:nth-child(odd) {
+  border-right: 1px solid var(--color-border);
+}
+
+.stepIndex {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--color-accent);
+  flex-shrink: 0;
+  padding-top: 0.3rem;
+}
+
+.stepTitle {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--color-text-dark);
+}
+
+.stepText {
+  font-family: var(--font-sans);
+  font-size: 0.87rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text-mid);
+}
+
+/* ── Booking: notes rail + wizard ── */
+.wizardSection {
+  border-top: 1px solid var(--color-border);
+}
+
+.wizardGrid {
   display: grid;
   grid-template-columns: 5fr 7fr;
   gap: clamp(1.5rem, 3vw, 3rem);
@@ -78,86 +149,176 @@
   top: calc(var(--nav-height) + 1.5rem);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  background: var(--color-bg-dark);
-  color: var(--color-text-light);
+  gap: 1.75rem;
+  background: var(--dk-bg);
+  color: var(--dk-text);
+  border: 1px solid var(--dk-border);
   border-radius: 20px;
-  padding: clamp(1.75rem, 3vw, 2.75rem);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
 }
 
 .railTitle {
-  font-family: var(--font-serif);
-  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-  font-weight: 300;
-  font-style: italic;
+  font-family: var(--font-hero);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--dk-text);
 }
 
-.perkList {
+.noteList {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
-.perk {
+.note {
   display: flex;
   gap: 1rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(245, 242, 238, 0.15);
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--dk-border);
 }
 
-.perkIndex {
-  font-family: var(--font-sans);
+.noteIndex {
+  font-family: var(--font-mono);
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.2em;
-  color: var(--color-accent);
+  color: var(--dk-accent);
   flex-shrink: 0;
   padding-top: 0.2rem;
 }
 
-.perkTitle {
+.noteTitle {
   font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
+  color: var(--dk-text);
 }
 
-.perkText {
+.noteText {
   font-family: var(--font-sans);
   font-size: 0.82rem;
   font-weight: 300;
   line-height: 1.7;
-  color: rgba(245, 242, 238, 0.65);
+  color: var(--dk-text-muted);
 }
 
-.railNote {
-  background: rgba(245, 242, 238, 0.06);
-  border: 1px solid rgba(245, 242, 238, 0.12);
+.railContact {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--dk-border);
   border-radius: 16px;
-  padding: 1.25rem 1.5rem;
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 300;
-  line-height: 1.7;
-  color: rgba(245, 242, 238, 0.7);
+  padding: 1.1rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
 }
 
-.railNoteLabel {
+.railContactLabel {
   display: block;
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--dk-accent);
   margin-bottom: 0.5rem;
+}
+
+.railContact a {
+  color: var(--dk-text);
+  word-break: break-all;
 }
 
 .wizardCol {
   min-width: 0;
 }
 
+/* ── Closing: dark full-bleed band ── */
+.closingSection {
+  background: var(--dk-bg);
+  color: var(--dk-text);
+  border-top: 1px solid var(--dk-border);
+  padding: var(--space-2xl) var(--space-md);
+  text-align: center;
+}
+
+.closingInner {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.closingEyebrow {
+  color: var(--dk-accent);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.closingTitle {
+  font-family: var(--font-hero);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--dk-text);
+  margin-bottom: 1rem;
+}
+
+.closingText {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--dk-text-muted);
+  margin-bottom: 2rem;
+}
+
+.closingActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.closingBtn {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  border: 1px solid var(--dk-accent);
+  color: var(--dk-text);
+  background: transparent;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.closingBtn:hover {
+  background: var(--dk-accent);
+  color: var(--dk-bg);
+  opacity: 1;
+}
+
+.closingLink {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--dk-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ── Responsive ── */
 @media (max-width: 900px) {
-  .wizardSection {
+  .stepList {
+    grid-template-columns: 1fr;
+  }
+
+  .stepRow:nth-child(odd) {
+    border-right: none;
+  }
+
+  .wizardGrid {
     grid-template-columns: 1fr;
   }
 
@@ -167,7 +328,8 @@
 }
 
 @media (max-width: 600px) {
+  .processSection,
   .wizardSection {
-    padding: var(--space-lg) 1rem var(--space-xl);
+    padding: var(--space-lg) var(--space-md);
   }
 }

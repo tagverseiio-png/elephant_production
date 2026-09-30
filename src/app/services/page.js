@@ -1,127 +1,124 @@
 'use client';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import { motion } from 'framer-motion';
 import styles from './services.module.css';
 
+// ── PLACEHOLDERS — owner: fill in real values before launch. ──
+// We have no verified contact details, so the CTA below uses an obvious
+// placeholder target instead of inventing a real-looking address.
+// CONTACT_EMAIL uses the RFC 2606 reserved `example.com` domain, so it
+// can never be mistaken for a real address (same pattern as Footer.js).
+const CONTACT_EMAIL = 'hello@example.com';
+
+// Service lineup written for Elephant Media. Names and wording are original
+// and intentionally distinct from the structure-reference site's services.
+// Each entry follows the same anatomy: index, title, one-line description,
+// and 4–5 supporting points.
 const SERVICES = [
   {
     number: '01',
-    title: 'Creative Direction & Concept Planning',
+    title: 'Brand Identity & Concept Development',
     description:
-      'Your vision, structured into a bold and executable creative strategy. We work closely with your brand to understand your market, your audience, and your goals — then translate that into a creative blueprint every team member can execute against. This is the foundation: strategy and ideas that drive everything else.',
+      'A clear creative starting point for your brand, shaped around what you want to say and who you want to reach.',
     features: [
-      'Brand & audience discovery sessions',
-      'Concept mood boards & visual references',
-      'Campaign brief & content strategy document',
-      'Shot list and production planning',
+      'Discovery conversations about goals and audience',
+      'Mood boards and visual reference collections',
+      'Written concept and messaging outline',
+      'Content pillars to guide later production',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1000',
-    imageAlt: 'Creative direction planning session',
   },
   {
     number: '02',
-    title: 'Website Development',
+    title: 'Web & Digital Experience Design',
     description:
-      'Fast, cinematic websites engineered to turn visitors into customers. From striking marketing sites to full portfolio and booking experiences, we design and build web presences that carry your brand story with polish — and perform flawlessly on every device.',
+      'Websites and digital pages planned around your story, so visitors can find their way and get in touch.',
     features: [
-      'Custom marketing and portfolio websites',
-      'Booking and contact flows that convert',
-      'Motion, interaction, and cinematic art direction',
-      'Performance, SEO, and mobile optimisation',
+      'Page structure and content planning',
+      'Design for desktop and mobile layouts',
+      'Contact and enquiry flow planning',
+      'Launch checks for readability and performance',
+      'Handover notes for ongoing updates',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1498050108023-c524df714b11?q=80&w=1000',
-    imageAlt: 'Website development workspace',
   },
   {
     number: '03',
-    title: 'Social Media Marketing',
+    title: 'Social Content & Community Management',
     description:
-      "Platform-native content that drives engagement and converts attention into loyal audiences. Each piece is built specifically for its platform, its audience, and its objective — from reels and carousels to story sequences and feed aesthetics.",
+      'Everyday content planned for the channels you use, with a consistent look and tone across posts.',
     features: [
-      'Monthly content calendars',
-      'Reel & short-form video creation',
-      'Carousel and static post design',
-      'Caption copywriting and hashtag strategy',
-      'Feed aesthetic planning and brand consistency',
+      'Monthly content themes and calendars',
+      'Short-form video and reel planning',
+      'Static post and carousel design support',
+      'Caption drafting and posting guidance',
+      'Comment and message handling routines',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1000',
-    imageAlt: 'Social media marketing content',
   },
   {
     number: '04',
-    title: 'Video Marketing',
+    title: 'Film, Video & Motion Production',
     description:
-      'High-end visual storytelling at cinematic standards — every frame intentional. From brand films and commercial spots to event coverage and live production, every video we produce is crafted to command attention and move your audience to act.',
+      'Planned, filmed, and edited video pieces for launches, events, and ongoing storytelling.',
     features: [
-      'Brand films and commercial video production (15s, 30s, 60s)',
-      'Event coverage and multi-camera live production',
-      'On-set creative direction throughout',
-      'Edited, colour-graded final deliverables',
-      'Platform-ready formats: Instagram, YouTube, web, screen',
+      'Treatment and shot planning before filming',
+      'Filming direction on the day',
+      'Editing, colour, and sound assembly',
+      'Cuts sized for web and social placements',
+      'Review rounds before final delivery',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=1000',
-    imageAlt: 'Video marketing production shoot',
   },
   {
     number: '05',
-    title: 'Performance Marketing',
+    title: 'Paid Media & Campaign Management',
     description:
-      'Bold campaigns built for recognition, reach, and measurable return. We pair striking creative with disciplined media thinking — launching paid social and campaign rollouts, then iterating on what the data tells us until every placement earns its keep.',
+      'Structured campaign support that pairs creative assets with a clear testing and review routine.',
     features: [
-      'Paid social campaign creative and setup',
-      'Ad copy and messaging frameworks',
-      'Multi-platform campaign asset packs',
-      'A/B testing and creative iteration',
-      'Performance review and optimisation reporting',
+      'Campaign structure and asset planning',
+      'Ad copy and message variations',
+      'Asset packs sized per placement',
+      'Creative testing and iteration notes',
+      'Plain-language summary of what ran',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000',
-    imageAlt: 'Performance marketing campaign',
   },
   {
     number: '06',
-    title: 'Account Growth & Optimisation',
+    title: 'Audience Growth & Channel Optimization',
     description:
-      "Data-backed strategy to scale your social presence with real, measurable growth. We analyse your account data, identify what's working, and build a strategic roadmap to accelerate follower growth, increase reach, and improve engagement rates.",
+      'A steady review routine for your channels, so future content builds on what already resonates.',
     features: [
-      'Monthly performance reports (reach, engagement, follower growth)',
-      'Content strategy adjustments based on analytics',
-      'Competitor benchmarking',
-      'Growth roadmap and milestone tracking',
-      'Platform algorithm insights and posting optimisation',
+      'Channel review and content audit',
+      'Posting rhythm and format suggestions',
+      'Audience and topic research notes',
+      'Growth priorities for the next period',
+      'Simple reporting template your team can reuse',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1000',
-    imageAlt: 'Analytics and growth strategy',
   },
   {
     number: '07',
-    title: 'Influencer Marketing',
+    title: 'Creator Collaborations & Partnerships',
     description:
-      "Strategic creator partnerships that extend your reach and drive authentic engagement at scale. We identify, brief, and manage creator partnerships aligned with your brand values — from micro-influencers to large-scale campaigns.",
+      'Help planning and running creator-led work, from first outreach through to published content.',
     features: [
-      'Influencer identification and vetting',
-      'Campaign brief creation and talent briefing',
-      'Content review and brand alignment',
-      'Campaign performance tracking',
-      'Long-term partnership management',
+      'Creator shortlisting against your brief',
+      'Outreach and briefing support',
+      'Content review against brand guidance',
+      'Posting schedule coordination',
+      'Wrap-up notes on deliverables received',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000',
-    imageAlt: 'Influencer marketing collaboration',
   },
   {
     number: '08',
-    title: 'Podcast Studio & Recording Services',
+    title: 'Podcast & Audio Production Support',
     description:
-      'Professional audio production in a fully equipped studio — crisp sound, cinematic visuals, ready to publish. Soundproofed, professionally lit, and fully equipped for both audio recording and video production.',
+      'Support for planning, recording, and shaping audio episodes you can publish with confidence.',
     features: [
-      'Studio rental — hourly, half-day, full-day packages',
-      'Professional audio recording and mixing',
-      'Video recording with podcast-ready lighting setup',
-      'Post-production and episode editing (add-on)',
-      'Thumbnail and cover art creation (add-on)',
+      'Episode planning and run-of-show notes',
+      'Recording session guidance',
+      'Dialogue editing and cleanup coordination',
+      'Show notes and title drafting',
+      'Cover and thumbnail direction as an add-on',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?q=80&w=1000',
-    imageAlt: 'Podcast studio recording',
   },
 ];
 
@@ -129,80 +126,97 @@ export default function ServicesPage() {
   return (
     <>
       <Navbar />
-      <main>
-
-        {/* Hero */}
+      <main className={styles.main}>
+        {/* Page header — dark editorial band */}
         <section className={styles.pageHero}>
           <div className={styles.heroContent}>
-            <span className={styles.heroLabel}>01 — What We Do</span>
-            <h1 className={styles.heroTitle}>Our Services</h1>
+            <span className="eyebrow">What we do</span>
+            <h1 className={styles.heroTitle}>Services</h1>
             <p className={styles.heroSub}>
-              Comprehensive creative solutions for your brand — from concept to camera, strategy to screen.
+              Creative and communications support from first idea to final delivery, scoped
+              around your goals.
             </p>
           </div>
         </section>
 
-        {/* Services */}
-        <section className={styles.servicesSection}>
-          <div className={styles.serviceGrid}>
-          {SERVICES.map((service, i) => {
-            const isWide = i % 2 === 0;
-            return (
-              <motion.article
+        {/* Service list — one consistent anatomy per entry */}
+        <section className={styles.servicesSection} aria-label="Service list">
+          <ol className={styles.serviceList}>
+            {SERVICES.map((service) => (
+              <motion.li
                 key={service.number}
-                className={`${styles.serviceCard} ${isWide ? styles.cardWide : styles.cardNarrow}`}
-                initial={{ opacity: 0, y: 50 }}
+                className={styles.serviceRow}
+                initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
               >
-                {/* Image header with number badge */}
-                <div className={styles.cardMedia}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={service.imageUrl}
-                    alt={service.imageAlt}
-                    className={styles.cardImage}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className={styles.cardShade}></div>
-                  <span className={styles.cardNumber}>{service.number}</span>
-                  <h2 className={styles.cardTitle}>{service.title}</h2>
-                </div>
-
-                {/* Body */}
-                <div className={styles.cardBody}>
-                  <p className={styles.serviceDesc}>{service.description}</p>
-                  <ul className={styles.featureList}>
-                    {service.features.map((feat, fi) => (
-                      <li key={fi} className={styles.featureItem}>
-                        <span className={styles.featureDot}></span>
-                        {feat}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className={styles.serviceLine}></div>
-                </div>
-              </motion.article>
-            );
-          })}
-          </div>
+                <article className={styles.serviceArticle}>
+                  <div className={styles.serviceHead}>
+                    {/* Neutral CSS/SVG placeholder treatment — no photographic
+                        claims about facilities, gear, or output. */}
+                    <span className={styles.serviceIndex} aria-hidden="true">
+                      {service.number}
+                    </span>
+                    <svg
+                      className={styles.serviceMark}
+                      viewBox="0 0 48 48"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <circle
+                        cx="24"
+                        cy="24"
+                        r="21"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      />
+                      <circle cx="24" cy="24" r="5" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <div className={styles.serviceText}>
+                    <h2 className={styles.serviceTitle}>{service.title}</h2>
+                    <p className={styles.serviceDesc}>{service.description}</p>
+                    <ul className={styles.featureList}>
+                      {service.features.map((feat) => (
+                        <li key={feat} className={styles.featureItem}>
+                          <span className={styles.featureDot} aria-hidden="true" />
+                          {feat}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              </motion.li>
+            ))}
+          </ol>
         </section>
 
-        {/* CTA */}
+        {/* Closing CTA — dark band */}
         <section className={styles.ctaSection}>
-          <motion.div 
+          <motion.div
             className={styles.ctaContent}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <h2 className={styles.ctaTitle}>Ready to create<br />something extraordinary?</h2>
-            <a href="mailto:info@elephantmedia.com" className={styles.ctaBtn}>
-              <span>Get In Touch</span>
-            </a>
+            <span className={`eyebrow ${styles.ctaEyebrow}`}>Next step</span>
+            <h2 className={styles.ctaTitle}>Tell us what you are working toward</h2>
+            <p className={styles.ctaText}>
+              Share a short outline of your project and we will reply with suggested next
+              steps.
+            </p>
+            <div className={styles.ctaActions}>
+              {/* PLACEHOLDER email — see CONTACT_EMAIL note above. */}
+              <a href={`mailto:${CONTACT_EMAIL}`} className={styles.ctaBtn}>
+                <span>{CONTACT_EMAIL.toUpperCase()}</span>
+              </a>
+              <Link href="/contact" className={styles.ctaLink}>
+                Go to the contact page
+              </Link>
+            </div>
           </motion.div>
         </section>
       </main>
