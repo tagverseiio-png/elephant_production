@@ -2,6 +2,13 @@
 import { useEffect } from 'react';
 import styles from './ContactSidebar.module.css';
 
+// ── PLACEHOLDER — owner: replace with a verified address before launch. ──
+// We have no verified contact details, so this intentionally uses an
+// obvious placeholder target instead of inventing a real-looking address.
+// CONTACT_EMAIL uses the RFC 2606 reserved `example.com` domain, so it
+// can never be mistaken for a real address.
+const CONTACT_EMAIL = 'hello@example.com';
+
 export default function ContactSidebar({ isOpen, onClose }) {
   useEffect(() => {
     if (isOpen) {
@@ -63,7 +70,8 @@ export default function ContactSidebar({ isOpen, onClose }) {
           </form>
 
           <div className={styles.emailContact}>
-            <a href="mailto:info@elephantmedia.com">info@elephantmedia.com</a>
+            {/* PLACEHOLDER email — see CONTACT_EMAIL note above. */}
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
           </div>
         </div>
       </div>

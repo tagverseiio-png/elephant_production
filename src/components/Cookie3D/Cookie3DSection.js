@@ -4,9 +4,29 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment, Float, PerspectiveCamera } from '@react-three/drei';
 import styles from './Cookie3DSection.module.css';
 
+// Generate random chips once per module load — not during render, so the
+// react-hooks/purity rule does not flag Math.random as an impure render call.
+// The result is stable across re-renders, same as the previous useMemo.
+function generateChips() {
+  return [...Array(40)].map(() => {
+    const u = Math.random();
+    const v = Math.random();
+    const theta = u * 2.0 * Math.PI;
+    const phi = Math.acos(2.0 * v - 1.0);
+    const r = 2.0;
+    const x = r * Math.sin(phi) * Math.cos(theta);
+    const y = r * Math.sin(phi) * Math.sin(theta);
+    const z = r * Math.cos(phi);
+    const size = 0.15 + Math.random() * 0.1;
+    return { pos: [x * 0.95, y * 0.95, z * 0.95], size };
+  });
+}
+
+const CHIPS = generateChips();
+
 function ProceduralCookie() {
   const group = useRef();
-  
+
   // Rotating the cookie slowly
   useFrame((state, delta) => {
     group.current.rotation.y += delta * 0.15;
@@ -14,20 +34,8 @@ function ProceduralCookie() {
     group.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
   });
 
-  // Generate random chips once
-  const chips = useMemo(() => {
-    return [...Array(40)].map(() => {
-      const u = Math.random();
-      const v = Math.random();
-      const theta = u * 2.0 * Math.PI;
-      const phi = Math.acos(2.0 * v - 1.0);
-      const r = 2.0; 
-      const x = r * Math.sin(phi) * Math.cos(theta);
-      const y = r * Math.sin(phi) * Math.sin(theta);
-      const z = r * Math.cos(phi);
-      return [x * 0.95, y * 0.95, z * 0.95];
-    });
-  }, []);
+  // Stable chip data generated once at module load.
+  const chips = useMemo(() => CHIPS, []);
 
   return (
     <group ref={group} scale={[1.2, 1.2, 0.4]}>
@@ -41,9 +49,9 @@ function ProceduralCookie() {
       </mesh>
       
       {/* Chocolate Chips */}
-      {chips.map((pos, i) => (
-        <mesh key={i} position={pos} scale={[1, 1, 2.5]} castShadow>
-          <sphereGeometry args={[0.15 + Math.random() * 0.1, 16, 16]} />
+      {chips.map((chip, i) => (
+        <mesh key={i} position={chip.pos} scale={[1, 1, 2.5]} castShadow>
+          <sphereGeometry args={[chip.size, 16, 16]} />
           <meshStandardMaterial color="#2d1305" roughness={0.8} />
         </mesh>
       ))}
