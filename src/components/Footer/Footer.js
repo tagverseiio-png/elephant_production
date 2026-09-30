@@ -15,13 +15,12 @@ const CONTACT_EMAIL = 'hello@example.com';
 const INSTAGRAM_URL = 'https://www.instagram.com/';
 
 // Every internal href below maps to a real route directory under src/app:
-//   /  /work  /services  /about  /studio  /influencers  /contact
+//   /  /work  /services  /about  /influencers  /contact
 const SITE_LINKS = [
   { href: '/', label: 'HOME' },
   { href: '/work', label: 'WORK' },
   { href: '/services', label: 'SERVICES' },
   { href: '/about', label: 'ABOUT' },
-  { href: '/studio', label: 'STUDIO' },
   { href: '/influencers', label: 'INFLUENCERS' },
   { href: '/contact', label: 'CONTACT' },
 ];
