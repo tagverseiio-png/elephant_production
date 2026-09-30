@@ -13,7 +13,7 @@ const INSTAGRAM_URL = 'https://www.instagram.com/';
 
 // A small sample drawn from the shared project library. Slugs are matched
 // by name so no new project data is introduced here.
-const FEATURED_SLUGS = ['lacoste', 'kosas', 'sakara-life'];
+const FEATURED_SLUGS = ['the-madras-barber', 'chuan-watch', 'super-deluxe'];
 const FEATURED_WORK = CASE_STUDIES.filter((study) =>
   FEATURED_SLUGS.includes(study.slug)
 );

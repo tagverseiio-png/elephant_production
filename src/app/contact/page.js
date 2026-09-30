@@ -62,13 +62,13 @@ export default function ContactPage() {
               </a>
             </div>
             <div className={styles.railCard}>
-              <span className={styles.railLabel}>Prefer to talk studio?</span>
+              <span className={styles.railLabel}>Prefer to browse first?</span>
               <p className={styles.railText}>
-                Recording sessions with engineering included — see what the
-                room offers.
+                See what we offer before you write — from brand stories to
+                film and social.
               </p>
-              <a href="/studio" className={styles.railLink}>
-                Explore the studio →
+              <a href="/services" className={styles.railLink}>
+                Explore our services →
               </a>
             </div>
           </aside>
