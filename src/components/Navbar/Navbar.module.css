@@ -100,16 +100,145 @@
   pointer-events: none;
 }
 
+/* ── Mobile menu toggle (hidden on desktop) ── */
+.menuToggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  justify-self: end;
+}
+
+.menuBar {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--color-text-light);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menuToggleOpen .menuBar:first-child {
+  transform: translateY(4.5px) rotate(45deg);
+}
+
+.menuToggleOpen .menuBar:last-child {
+  transform: translateY(-4.5px) rotate(-45deg);
+}
+
+/* ── Mobile panel (hidden on desktop) ── */
+.mobilePanel {
+  display: none;
+}
+
+/* Visible focus for keyboard users */
+.navLink:focus-visible,
+.logo:focus-visible,
+.menuToggle:focus-visible,
+.mobileLink:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 /* Mobile */
 @media (max-width: 900px) {
+  .navbar {
+    padding: 0 1.25rem;
+  }
+
   .navLinksLeft,
   .navLinksRight { display: none; }
 
   .navContainer {
-    grid-template-columns: 1fr;
-    justify-content: center;
-    text-align: center;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    text-align: left;
+  }
+
+  .logo {
+    justify-content: flex-start;
   }
 
   .logoText { font-size: 1rem; }
+
+  .menuToggle {
+    display: flex;
+  }
+
+  .mobilePanel:not([hidden]) {
+    display: block;
+  }
+
+  .mobilePanel {
+    /* Absolute (not fixed): the navbar's backdrop-filter creates a
+       containing block, which would mis-anchor fixed descendants. */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100vw;
+    max-height: calc(100dvh - var(--nav-height, 70px));
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: rgba(14, 14, 14, 0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 1.5rem 1.25rem 3rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  }
+
+  .mobilePanelOpen {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Keep the bar readable while the menu is open, even at scroll top */
+  .navbar.menuOpen {
+    background: rgba(14, 14, 14, 0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .mobileLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .mobileLink {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(245, 242, 238, 0.92);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(245, 242, 238, 0.12);
+    padding: 1rem 0.25rem;
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+  }
+
+  .mobileLink:hover {
+    color: var(--color-text-light);
+  }
 }
