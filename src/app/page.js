@@ -79,10 +79,10 @@ export default function Home() {
           <div className={styles.marqueeContainer}>
             <div className={styles.marqueeTrack}>
               <span className={styles.marqueeText}>
-                J.Crew • REI • Fender • Sweetgreen • HOKA • Away • J.Crew • REI • Fender • Sweetgreen • HOKA • Away •&nbsp;
+                Maison Solstice • Lumen Skincare • Atelier Verdant • Northbound Films • Harbour &amp; Vale • Solace Home • Cobalt Athletics • Ridgeline Outfitters •&nbsp;
               </span>
               <span className={styles.marqueeText}>
-                J.Crew • REI • Fender • Sweetgreen • HOKA • Away • J.Crew • REI • Fender • Sweetgreen • HOKA • Away •&nbsp;
+                Maison Solstice • Lumen Skincare • Atelier Verdant • Northbound Films • Harbour &amp; Vale • Solace Home • Cobalt Athletics • Ridgeline Outfitters •&nbsp;
               </span>
             </div>
           </div>

@@ -1,0 +1,330 @@
+.wizard {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  border-radius: 16px;
+  padding: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* STEP INDICATOR */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.stepItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(245, 242, 238, 0.15);
+  opacity: 0.45;
+}
+
+.stepItem.active {
+  opacity: 1;
+  border-bottom-color: var(--color-text-light);
+}
+
+.stepItem.done {
+  opacity: 0.8;
+}
+
+.stepNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.stepItem.done .stepNumber {
+  background-color: var(--color-text-light);
+  color: var(--color-text-dark);
+  border-color: var(--color-text-light);
+}
+
+.stepLabel {
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* PANELS */
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.panelTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.panelSub {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(245, 242, 238, 0.7);
+  margin-top: -1.25rem;
+}
+
+/* FORM — mirrors ContactSidebar input/label language */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+}
+
+.asterisk {
+  color: #ff4a4a;
+  margin-left: 0.2rem;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  color: var(--color-text-light);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  transition: border-color 0.3s ease;
+  outline: none;
+  color-scheme: dark;
+}
+
+.input:focus {
+  border-bottom-color: rgba(255, 255, 255, 1);
+}
+
+.input::placeholder {
+  color: rgba(245, 242, 238, 0.35);
+}
+
+.error {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: #ff8a8a;
+}
+
+/* OPTION CARDS */
+.optionList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  border: 1px solid rgba(245, 242, 238, 0.2);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.option:hover {
+  border-color: rgba(245, 242, 238, 0.6);
+}
+
+.option.selected {
+  border-color: var(--color-text-light);
+  background: rgba(245, 242, 238, 0.06);
+}
+
+.hiddenInput {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.optionLabel {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.optionHint {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: rgba(245, 242, 238, 0.6);
+}
+
+/* REVIEW */
+.reviewList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(245, 242, 238, 0.15);
+}
+
+.reviewRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(245, 242, 238, 0.15);
+}
+
+.reviewRow dt {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 238, 0.6);
+}
+
+.reviewRow dd {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-align: right;
+}
+
+.requestBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  align-self: flex-start;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-text-light);
+  padding: 1rem 2rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.requestBtn:hover {
+  background: var(--color-text-light);
+  color: var(--color-bg-dark);
+  opacity: 1;
+}
+
+.requestIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: #fff;
+  font-size: 0.75rem;
+}
+
+.disclaimer {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(245, 242, 238, 0.55);
+}
+
+/* NAV ROW */
+.navRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(245, 242, 238, 0.15);
+}
+
+.backBtn {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 238, 0.7);
+}
+
+.nextBtn {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--color-text-light);
+  color: var(--color-text-dark);
+  padding: 1rem 2.5rem;
+  border-radius: 100px;
+  transition: opacity 0.2s ease;
+}
+
+.nextBtn:hover {
+  opacity: 0.85;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .wizard {
+    border-radius: 12px;
+    padding: 1.75rem 1.25rem;
+  }
+
+  .steps {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stepLabel {
+    font-size: 0.52rem;
+  }
+
+  .navRow {
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+  }
+
+  .nextBtn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .reviewRow {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .reviewRow dd {
+    text-align: left;
+  }
+}

@@ -7,43 +7,43 @@ import styles from './influencers.module.css';
 const INFLUENCERS_DATA = [
   {
     id: 1,
-    brand: "KIEHL'S",
-    title: "KIEHL'S Acne Liquid Patch Launch",
+    brand: 'LUMEN SKINCARE',
+    title: 'Lumen Skincare Glow Ritual Launch',
     category: 'BEAUTY',
     imageUrl: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=1200&auto=format&fit=crop'
   },
   {
     id: 2,
-    brand: 'SUNDAYS FURNITURE',
-    title: 'Sundays Furniture Ambassador Program',
+    brand: 'SOLACE HOME',
+    title: 'Solace Home Ambassador Program',
     category: 'HOME',
     imageUrl: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=1200&auto=format&fit=crop'
   },
   {
     id: 3,
-    brand: 'FARMACY',
-    title: 'Farmacy',
+    brand: 'PETAL & PINE',
+    title: 'Petal & Pine Seasonal Drop',
     category: 'BEAUTY',
     imageUrl: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop'
   },
   {
     id: 4,
-    brand: 'ALDO',
-    title: 'ALDO VIP Dressing',
+    brand: 'MAISON SOLSTICE',
+    title: 'Maison Solstice Atelier Preview',
     category: 'FASHION',
     imageUrl: 'https://images.unsplash.com/photo-1554200876-56c2f25224fa?q=80&w=1200&auto=format&fit=crop'
   },
   {
     id: 5,
-    brand: "TRAVISMATHEW WOMEN'S",
-    title: "TravisMathew Women's Ojai Content Trip",
+    brand: 'NORTHBOUND FILMS',
+    title: 'Northbound Films Field Diaries Trip',
     category: 'LIFESTYLE',
     imageUrl: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=1200&auto=format&fit=crop'
   },
   {
     id: 6,
-    brand: 'REI',
-    title: 'REI Influencer Programming',
+    brand: 'RIDGELINE OUTFITTERS',
+    title: 'Ridgeline Outfitters Community Programming',
     category: 'ACTIVEWEAR',
     imageUrl: 'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?q=80&w=1200&auto=format&fit=crop'
   }

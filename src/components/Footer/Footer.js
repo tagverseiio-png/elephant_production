@@ -21,7 +21,9 @@ export default function Footer() {
             <Link href="/work">WORK</Link>
             <Link href="/services">SERVICES</Link>
             <Link href="/influencers">INFLUENCERS</Link>
+            <Link href="/studio">STUDIO</Link>
             <Link href="/about">ABOUT</Link>
+            <Link href="/contact">CONTACT</Link>
             <a href="https://www.instagram.com/theelephantproduction/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
           </div>
           <div className={styles.footerRight}>
@@ -30,7 +32,7 @@ export default function Footer() {
               className={styles.contactBtn}
               onClick={() => setContactOpen(true)}
             >
-              CONTACT
+              SAY HELLO
             </button>
           </div>
         </div>

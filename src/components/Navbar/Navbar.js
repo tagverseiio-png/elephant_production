@@ -41,6 +41,7 @@ export default function Navbar({ isHome = false }) {
             <Link href="/work" className={styles.navLink}>WORK</Link>
             <Link href="/services" className={styles.navLink}>SERVICES</Link>
             <Link href="/influencers" className={styles.navLink}>INFLUENCER COLLABORATIONS</Link>
+            <Link href="/studio" className={styles.navLink}>STUDIO</Link>
           </div>
 
           <Link href="/" className={styles.logo} onClick={closeMenu}>

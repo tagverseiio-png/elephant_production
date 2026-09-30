@@ -13,16 +13,34 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  gap: 2rem;
   width: 100%;
+  overflow: hidden;
+}
+
+.heroContent > div {
+  min-width: 0;
+}
+
+.heroEyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
 }
 
 .heroTitle {
   font-family: var(--font-serif);
-  font-size: clamp(6rem, 20vw, 22rem);
+  font-size: clamp(3.5rem, 9vw, 12rem);
   font-weight: 300;
   line-height: 0.85;
   letter-spacing: -0.02em;
   color: var(--color-text-light);
+  text-transform: uppercase;
 }
 
 .heroSubtitle {
@@ -31,6 +49,7 @@
   font-weight: 400;
   color: var(--color-text-light);
   max-width: 300px;
+  flex-shrink: 0;
   line-height: 1.4;
   text-align: right;
   padding-bottom: 2rem;
@@ -86,6 +105,15 @@
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.workNumber {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  opacity: 0.7;
 }
 
 .workBrands {
@@ -166,6 +194,77 @@
   }
   .workText {
     min-height: 50vh;
+  }
+}
+
+/* CLIENTS */
+.clientsSection {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  padding: 6rem 1.5vw;
+  text-align: center;
+}
+
+.clientsEyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+}
+
+.clientsTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.15;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+}
+
+.clientStrip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 2.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.clientWordmark {
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 300;
+  font-style: italic;
+  opacity: 0.75;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.clientWordmark:hover {
+  opacity: 1;
+}
+
+/* CLOSING STATEMENT */
+.closingStatement {
+  font-family: var(--font-hero);
+  font-size: clamp(1.2rem, 3vw, 2.2rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  text-align: center;
+  padding: 0 1.5vw 5rem 1.5vw;
+  color: var(--color-text-dark);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .clientStrip {
+    gap: 0.75rem 1.5rem;
   }
 }
 

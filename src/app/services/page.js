@@ -9,7 +9,7 @@ const SERVICES = [
     number: '01',
     title: 'Creative Direction & Concept Planning',
     description:
-      'Your vision, structured into a bold and executable creative strategy. We work closely with your brand to understand your market, your audience, and your goals — then translate that into a creative blueprint every team member can execute against.',
+      'Your vision, structured into a bold and executable creative strategy. We work closely with your brand to understand your market, your audience, and your goals — then translate that into a creative blueprint every team member can execute against. This is the foundation: strategy and ideas that drive everything else.',
     features: [
       'Brand & audience discovery sessions',
       'Concept mood boards & visual references',
@@ -21,21 +21,21 @@ const SERVICES = [
   },
   {
     number: '02',
-    title: 'Professional Photography & Videography',
+    title: 'Website Development',
     description:
-      'High-end visual storytelling at cinematic standards — every frame intentional. From product photography and portrait sessions to brand campaigns and commercial video, every visual we produce is crafted to command attention.',
+      'Fast, cinematic websites engineered to turn visitors into customers. From striking marketing sites to full portfolio and booking experiences, we design and build web presences that carry your brand story with polish — and perform flawlessly on every device.',
     features: [
-      'Full-day or half-day photography & video shoots',
-      'On-set creative direction throughout',
-      'Edited, colour-graded final deliverables',
-      'Platform-ready formats: Instagram, YouTube, web, print',
+      'Custom marketing and portfolio websites',
+      'Booking and contact flows that convert',
+      'Motion, interaction, and cinematic art direction',
+      'Performance, SEO, and mobile optimisation',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000',
-    imageAlt: 'Professional photography shoot',
+    imageUrl: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1000',
+    imageAlt: 'Website development workspace',
   },
   {
     number: '03',
-    title: 'Social Media Content Creation',
+    title: 'Social Media Marketing',
     description:
       "Platform-native content that drives engagement and converts attention into loyal audiences. Each piece is built specifically for its platform, its audience, and its objective — from reels and carousels to story sequences and feed aesthetics.",
     features: [
@@ -46,25 +46,40 @@ const SERVICES = [
       'Feed aesthetic planning and brand consistency',
     ],
     imageUrl: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000',
-    imageAlt: 'Social media content creation',
+    imageAlt: 'Social media marketing content',
   },
   {
     number: '04',
-    title: 'High-End Commercial Ads & Brand Campaigns',
+    title: 'Video Marketing',
     description:
-      'Bold, market-dominating campaigns built for recognition, reach, and lasting brand equity. From 15-second product spots to full brand campaign rollouts — content that stands out in a saturated feed and drives measurable results.',
+      'High-end visual storytelling at cinematic standards — every frame intentional. From brand films and commercial spots to event coverage and live production, every video we produce is crafted to command attention and move your audience to act.',
     features: [
-      'Commercial ad video production (15s, 30s, 60s)',
-      'Brand campaign photography series',
-      'Ad copy and messaging frameworks',
-      'Multi-platform campaign assets',
-      'Performance review and creative optimisation',
+      'Brand films and commercial video production (15s, 30s, 60s)',
+      'Event coverage and multi-camera live production',
+      'On-set creative direction throughout',
+      'Edited, colour-graded final deliverables',
+      'Platform-ready formats: Instagram, YouTube, web, screen',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=1000',
-    imageAlt: 'Commercial brand campaign',
+    imageUrl: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000',
+    imageAlt: 'Video marketing production shoot',
   },
   {
     number: '05',
+    title: 'Performance Marketing',
+    description:
+      'Bold campaigns built for recognition, reach, and measurable return. We pair striking creative with disciplined media thinking — launching paid social and campaign rollouts, then iterating on what the data tells us until every placement earns its keep.',
+    features: [
+      'Paid social campaign creative and setup',
+      'Ad copy and messaging frameworks',
+      'Multi-platform campaign asset packs',
+      'A/B testing and creative iteration',
+      'Performance review and optimisation reporting',
+    ],
+    imageUrl: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=1000',
+    imageAlt: 'Performance marketing campaign',
+  },
+  {
+    number: '06',
     title: 'Account Growth & Optimisation',
     description:
       "Data-backed strategy to scale your social presence with real, measurable growth. We analyse your account data, identify what's working, and build a strategic roadmap to accelerate follower growth, increase reach, and improve engagement rates.",
@@ -79,22 +94,8 @@ const SERVICES = [
     imageAlt: 'Analytics and growth strategy',
   },
   {
-    number: '06',
-    title: 'Event Coverage',
-    description:
-      "Capturing the energy and essence of live moments — from intimate events to large-scale productions. Whether it's a product launch, brand activation, or corporate event, we deliver a full photo and video package that brings the experience to life.",
-    features: [
-      'Event photography — full coverage',
-      'Event highlight reel video',
-      'Same-day content for live social posting',
-      'Edited gallery delivered within agreed timeline',
-    ],
-    imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1000',
-    imageAlt: 'Event coverage and photography',
-  },
-  {
     number: '07',
-    title: 'Influencer & Digital Marketing Collaborations',
+    title: 'Influencer Marketing',
     description:
       "Strategic creator partnerships that extend your reach and drive authentic engagement at scale. We identify, brief, and manage creator partnerships aligned with your brand values — from micro-influencers to large-scale campaigns.",
     features: [
@@ -122,21 +123,6 @@ const SERVICES = [
     imageUrl: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=1000',
     imageAlt: 'Podcast studio recording',
   },
-  {
-    number: '09',
-    title: 'Concert & Live Production',
-    description:
-      'The ultimate authority in live experience production — from pre-production to the final curtain call. We handle the full production pipeline for concerts, live shows, and large-scale events.',
-    features: [
-      'Pre-production planning and shot list',
-      'Multi-camera live video coverage',
-      'Concert and event photography',
-      'Post-production highlight reel and full edit',
-      'Social content cut-downs for digital distribution',
-    ],
-    imageUrl: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=1000',
-    imageAlt: 'Concert and live production',
-  },
 ];
 
 export default function ServicesPage() {
@@ -148,10 +134,10 @@ export default function ServicesPage() {
         {/* Hero */}
         <section className={styles.pageHero}>
           <div className={styles.heroContent}>
-            <span className={styles.heroLabel}>What We Do</span>
-            <h1 className={styles.heroTitle}>Services</h1>
+            <span className={styles.heroLabel}>01 — What We Do</span>
+            <h1 className={styles.heroTitle}>Our Services</h1>
             <p className={styles.heroSub}>
-              From concept to camera, strategy to screen — we handle every dimension of your brand&apos;s creative output.
+              Comprehensive creative solutions for your brand — from concept to camera, strategy to screen.
             </p>
           </div>
         </section>
