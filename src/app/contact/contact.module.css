@@ -1,52 +1,48 @@
+/* Contact page — dark editorial theme using the shared --dk-* tokens. */
+
 .main {
   width: 100%;
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-light);
-  padding-top: var(--nav-height);
+  background-color: var(--dk-bg);
+  color: var(--dk-text);
 }
 
-/* HERO */
-.hero {
+/* ---------- Header ---------- */
+.header {
   text-align: center;
-  padding: calc(var(--space-xl)) var(--space-md) var(--space-lg);
+  padding: calc(var(--nav-height) + 4rem) 1.5rem 3rem;
   max-width: 720px;
   margin: 0 auto;
 }
 
-.eyebrow {
-  font-family: var(--font-sans);
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--color-accent);
+.headerEyebrow {
+  color: var(--dk-accent);
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .title {
-  font-family: var(--font-hero);
-  font-size: clamp(3rem, 8vw, 6.5rem);
-  font-weight: 800;
-  line-height: 0.92;
-  letter-spacing: -0.03em;
+  font-family: var(--font-mono);
+  font-size: clamp(2.6rem, 7vw, 5.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
 }
 
-.sub {
+.subline {
+  font-family: var(--font-sans);
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.75;
-  color: rgba(245, 242, 238, 0.7);
-  margin-bottom: 2.5rem;
+  color: var(--dk-text-muted);
 }
 
-/* FORM + RAIL */
+/* ---------- Form + rail ---------- */
 .formSection {
-  max-width: var(--container-max);
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 var(--space-md) var(--space-xl);
+  padding: 0 1.5rem 5rem;
   display: grid;
   grid-template-columns: 7fr 5fr;
   gap: clamp(1.5rem, 3vw, 3rem);
@@ -55,13 +51,17 @@
 
 .formCol {
   min-width: 0;
+  border: 1px solid var(--dk-border);
+  border-radius: 20px;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--dk-surface);
 }
 
 .formTitle {
-  font-family: var(--font-serif);
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-  font-weight: 300;
-  font-style: italic;
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
   margin-bottom: 1.5rem;
 }
 
@@ -74,26 +74,27 @@
 }
 
 .railCard {
-  border: 1px solid var(--color-border-light);
+  border: 1px solid var(--dk-border);
   border-radius: 20px;
   padding: 1.75rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  transition: background 0.3s ease;
+  background: var(--dk-surface);
+  transition: border-color 0.3s ease;
 }
 
 .railCard:hover {
-  background: rgba(245, 242, 238, 0.04);
+  border-color: rgba(255, 107, 0, 0.5);
 }
 
 .railLabel {
-  font-family: var(--font-sans);
-  font-size: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--dk-accent);
 }
 
 .railText {
@@ -101,125 +102,113 @@
   font-size: 0.85rem;
   font-weight: 300;
   line-height: 1.7;
-  color: rgba(245, 242, 238, 0.7);
+  color: var(--dk-text-muted);
 }
 
 .railLink {
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 600;
+  color: var(--dk-text);
+}
+
+.railLink:hover {
+  color: var(--dk-accent);
+  opacity: 1;
 }
 
 .mailLink {
-  font-family: var(--font-serif);
-  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-  font-weight: 300;
-  color: var(--color-text-light);
-}
-
-/* INFO BLOCKS */
-.block {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: var(--space-lg) var(--space-md);
-}
-
-.blockTitle {
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  margin-bottom: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--color-border-light);
+  color: var(--dk-text);
+  overflow-wrap: anywhere;
 }
 
-.entryList {
+.mailLink:hover {
+  color: var(--dk-accent);
+  opacity: 1;
+}
+
+/* ---------- What-to-include guide ---------- */
+.guide {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+}
+
+.guideEyebrow {
+  color: var(--dk-accent);
+  display: block;
+  margin-bottom: 1.25rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--dk-border);
+}
+
+.guideTitle {
+  font-family: var(--font-sans);
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin-bottom: 2rem;
+  max-width: 640px;
+}
+
+.guideList {
   display: flex;
   flex-direction: column;
+  border-top: 1px solid var(--dk-border);
 }
 
-.entry {
+.guideItem {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1.5rem;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
   padding: 1.75rem 0;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--dk-border);
+  align-items: baseline;
 }
 
-.entryRole {
-  font-family: var(--font-serif);
-  font-size: clamp(1.3rem, 2.5vw, 2rem);
-  font-weight: 400;
-  line-height: 1.2;
-}
-
-.entryTeam {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(245, 242, 238, 0.6);
-  margin-top: 0.4rem;
-}
-
-.entryEmail {
-  font-family: var(--font-sans);
+.guideIndex {
+  font-family: var(--font-mono);
   font-size: 0.8rem;
-  font-weight: 400;
-  white-space: nowrap;
+  letter-spacing: 0.1em;
+  color: var(--dk-text-muted);
 }
 
-.entryNote {
+.guideItemTitle {
   font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 300;
-  line-height: 1.6;
-  color: rgba(245, 242, 238, 0.6);
-  max-width: 320px;
-  text-align: right;
-}
-
-/* SOCIAL + WORDMARK */
-.socialBlock {
-  text-align: center;
-  padding: var(--space-xl) var(--space-md) var(--space-lg);
-}
-
-.socialHandle {
-  display: inline-block;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
   font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 3rem;
+  margin-bottom: 0.4rem;
+}
+
+.guideItemText {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--dk-text-muted);
+  max-width: 560px;
+}
+
+/* ---------- Closing wordmark ---------- */
+.closing {
+  text-align: center;
+  padding: 2rem 1.5rem 5rem;
 }
 
 .wordmark {
-  font-family: var(--font-hero);
-  font-size: clamp(2.5rem, 10vw, 9rem);
-  font-weight: 800;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 9vw, 7rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
-  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.copyright {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(245, 242, 238, 0.5);
-}
-
-/* RESPONSIVE */
+/* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .formSection {
     grid-template-columns: 1fr;
@@ -227,27 +216,5 @@
 
   .railCol {
     position: static;
-  }
-
-  .entry {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .entryNote {
-    text-align: left;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 600px) {
-  .block {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
-
-  .entryEmail {
-    white-space: normal;
-    overflow-wrap: anywhere;
   }
 }

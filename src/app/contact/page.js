@@ -6,143 +6,119 @@ import styles from './contact.module.css';
 export const metadata = {
   title: 'Contact | Elephant Media',
   description:
-    'Get in touch with Elephant Media — leadership contacts, studio availability, and collaboration enquiries.',
+    'Get in touch with Elephant Media — send an enquiry about brand campaigns, production, or studio sessions.',
 };
 
-const LEADERSHIP = [
-  {
-    role: 'Founder & Director',
-    team: 'Leadership Team',
-    email: 'info@elephantmedia.com',
-  },
-  {
-    role: 'Creative & Production',
-    team: 'Production Team',
-    email: 'info@elephantmedia.com',
-  },
-  {
-    role: 'Partnerships & Growth',
-    team: 'Partnerships Team',
-    email: 'info@elephantmedia.com',
-  },
-];
-
-const MARKETS = [
-  {
-    market: 'In-Studio',
-    region: 'Visits by appointment',
-    note: 'Podcast recording, campaign shoots, and client sessions at our studio.',
-  },
-  {
-    market: 'On Location',
-    region: 'Available for travel',
-    note: 'Event coverage, brand activations, and productions wherever you are.',
-  },
-  {
-    market: 'Remote',
-    region: 'Worldwide',
-    note: 'Strategy, editing, and creative direction from anywhere.',
-  },
-];
+// ── PLACEHOLDERS — owner: fill in real values before launch. ──
+// We have no verified contact details or social accounts, so the links
+// below intentionally use obvious placeholder targets instead of
+// inventing real-looking addresses or handles (same pattern as Footer.js).
+//   • CONTACT_EMAIL uses the RFC 2606 reserved `example.com` domain, so it
+//     can never be mistaken for a real address.
+//   • INSTAGRAM_URL points at the platform root with no handle.
+const CONTACT_EMAIL = 'hello@example.com';
+const INSTAGRAM_URL = 'https://www.instagram.com/';
 
 export default function ContactPage() {
   return (
     <>
       <Navbar />
       <main className={styles.main}>
-        {/* HERO */}
-        <section className={styles.hero}>
-          <span className={styles.eyebrow}>03 — Contact</span>
-          <h1 className={styles.title}>Say Hello</h1>
-          <p className={styles.sub}>
-            Tell us about your brand and what you want to build. We reply to every
-            serious enquiry — usually within two working days.
+        {/* HEADER */}
+        <section className={styles.header}>
+          <span className={`eyebrow ${styles.headerEyebrow}`}>Contact</span>
+          <h1 className={styles.title}>Start a conversation</h1>
+          <p className={styles.subline}>
+            Tell us what you are making and where it needs to live. Send the
+            form below, or reach out directly — we reply to every serious
+            enquiry.
           </p>
         </section>
 
         {/* FORM + DIRECT RAIL */}
         <section className={styles.formSection}>
           <div className={styles.formCol}>
-            <h2 className={styles.formTitle}>Start a project</h2>
+            <h2 className={styles.formTitle}>Send an enquiry</h2>
             <ContactForm />
           </div>
-          <aside className={styles.railCol}>
+          <aside className={styles.railCol} aria-label="Other ways to reach us">
             <div className={styles.railCard}>
               <span className={styles.railLabel}>Direct email</span>
-              <a href="mailto:info@elephantmedia.com" className={styles.mailLink}>
-                info@elephantmedia.com
+              {/* PLACEHOLDER email — see CONTACT_EMAIL note above. */}
+              <a href={`mailto:${CONTACT_EMAIL}`} className={styles.mailLink}>
+                {CONTACT_EMAIL}
               </a>
             </div>
             <div className={styles.railCard}>
               <span className={styles.railLabel}>Social</span>
+              {/* PLACEHOLDER — platform root with no handle, see note above. */}
               <a
-                href="https://www.instagram.com/elephantmedia/"
+                href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.railLink}
               >
-                @elephantmedia
+                Find us on Instagram
               </a>
             </div>
             <div className={styles.railCard}>
               <span className={styles.railLabel}>Prefer to talk studio?</span>
               <p className={styles.railText}>
-                Hourly, half-day, and full-day recording sessions with engineering included.
+                Recording sessions with engineering included — see what the
+                room offers.
               </p>
               <a href="/studio" className={styles.railLink}>
-                Book the studio →
+                Explore the studio →
               </a>
             </div>
           </aside>
         </section>
 
-        {/* LEADERSHIP */}
-        <section className={styles.block}>
-          <h2 className={styles.blockTitle}>Leadership</h2>
-          <ul className={styles.entryList}>
-            {LEADERSHIP.map((entry) => (
-              <li key={entry.role} className={styles.entry}>
-                <div>
-                  <p className={styles.entryRole}>{entry.role}</p>
-                  <p className={styles.entryTeam}>{entry.team}</p>
-                </div>
-                <a href={`mailto:${entry.email}`} className={styles.entryEmail}>
-                  {entry.email}
-                </a>
-              </li>
-            ))}
-          </ul>
+        {/* WHAT TO INCLUDE — honest guidance, no invented facts */}
+        <section className={styles.guide}>
+          <span className={`eyebrow ${styles.guideEyebrow}`}>
+            What to include
+          </span>
+          <h2 className={styles.guideTitle}>
+            Three things that help us reply well.
+          </h2>
+          <ol className={styles.guideList}>
+            <li className={styles.guideItem}>
+              <span className={styles.guideIndex} aria-hidden="true">01</span>
+              <div>
+                <h3 className={styles.guideItemTitle}>What you are making</h3>
+                <p className={styles.guideItemText}>
+                  A campaign, a launch, a series — and the story it needs to tell.
+                </p>
+              </div>
+            </li>
+            <li className={styles.guideItem}>
+              <span className={styles.guideIndex} aria-hidden="true">02</span>
+              <div>
+                <h3 className={styles.guideItemTitle}>Where it needs to live</h3>
+                <p className={styles.guideItemText}>
+                  Web, social, in-store, broadcast — each placement shapes how
+                  we plan the shoot.
+                </p>
+              </div>
+            </li>
+            <li className={styles.guideItem}>
+              <span className={styles.guideIndex} aria-hidden="true">03</span>
+              <div>
+                <h3 className={styles.guideItemTitle}>Your timing</h3>
+                <p className={styles.guideItemText}>
+                  When you need it, and whether there is a launch date we
+                  should plan around.
+                </p>
+              </div>
+            </li>
+          </ol>
         </section>
 
-        {/* MARKETS */}
-        <section className={styles.block}>
-          <h2 className={styles.blockTitle}>Markets</h2>
-          <ul className={styles.entryList}>
-            {MARKETS.map((entry) => (
-              <li key={entry.market} className={styles.entry}>
-                <div>
-                  <p className={styles.entryRole}>{entry.market}</p>
-                  <p className={styles.entryTeam}>{entry.region}</p>
-                </div>
-                <p className={styles.entryNote}>{entry.note}</p>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* SOCIAL + WORDMARK */}
-        <section className={styles.socialBlock}>
-          <a
-            href="https://www.instagram.com/elephantmedia/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.socialHandle}
-          >
-            @elephantmedia
-          </a>
-          <p className={styles.wordmark}>Elephant Media</p>
-          <p className={styles.copyright}>
-            © 2026 Elephant Media. All rights reserved.
+        {/* CLOSING WORDMARK */}
+        <section className={styles.closing}>
+          <p className={styles.wordmark} aria-label="Elephant Media">
+            Elephant Media
           </p>
         </section>
       </main>
