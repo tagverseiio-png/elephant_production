@@ -2,6 +2,13 @@
 import { useState } from 'react';
 import styles from './ContactForm.module.css';
 
+// ── PLACEHOLDER — owner: replace with a verified address before launch. ──
+// We have no verified contact details, so this intentionally uses an
+// obvious placeholder target instead of inventing a real-looking address.
+// CONTACT_EMAIL uses the RFC 2606 reserved `example.com` domain, so it
+// can never be mistaken for a real address.
+const CONTACT_EMAIL = 'hello@example.com';
+
 const TOPICS = [
   'Brand campaign',
   'Video & photo production',
@@ -27,7 +34,7 @@ export default function ContactForm() {
     const body = encodeURIComponent(
       [`Name: ${name}`, `Email: ${email}`, `Topic: ${topic}`, '', message].join('\n')
     );
-    return `mailto:info@elephantmedia.com?subject=${subject}&body=${body}`;
+    return `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -114,8 +121,9 @@ export default function ContactForm() {
         Send enquiry
       </button>
       <p className={styles.disclaimer}>
-        Sending opens your email app with a pre-addressed draft to
-        info@elephantmedia.com — nothing is submitted automatically.
+        {/* PLACEHOLDER email — see CONTACT_EMAIL note above. */}
+        Sending opens your email app with a pre-addressed draft to {CONTACT_EMAIL} —
+        nothing is submitted automatically.
       </p>
     </form>
   );

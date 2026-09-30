@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef } from 'react';
 import styles from './CustomCursor.module.css';
 
 export default function CustomCursor() {
@@ -13,26 +13,28 @@ export default function CustomCursor() {
   const rafId = useRef(null);
   const isHovering = useRef(false);
 
-  // Single rAF loop for cursor — no React re-renders
-  const tick = useCallback(() => {
-    // Ease the ring toward the cursor
-    springPos.current.x += (pos.current.x - springPos.current.x) * 0.15;
-    springPos.current.y += (pos.current.y - springPos.current.y) * 0.15;
-
-    if (ringRef.current) {
-      ringRef.current.style.transform = `translate3d(${springPos.current.x - 15}px, ${springPos.current.y - 15}px, 0)`;
-    }
-    if (dotRef.current) {
-      dotRef.current.style.transform = `translate3d(${pos.current.x - 4}px, ${pos.current.y - 4}px, 0)`;
-    }
-    if (imgContainerRef.current) {
-      imgContainerRef.current.style.transform = `translate3d(${springPos.current.x - 100}px, ${springPos.current.y - 100}px, 0)`;
-    }
-
-    rafId.current = requestAnimationFrame(tick);
-  }, []);
-
   useEffect(() => {
+    // Single rAF loop for cursor — no React re-renders.
+    // Defined inside the effect so the loop does not reference a hook value
+    // before it is declared, and ref writes happen in the effect, not render.
+    const tick = () => {
+      // Ease the ring toward the cursor
+      springPos.current.x += (pos.current.x - springPos.current.x) * 0.15;
+      springPos.current.y += (pos.current.y - springPos.current.y) * 0.15;
+
+      if (ringRef.current) {
+        ringRef.current.style.transform = `translate3d(${springPos.current.x - 15}px, ${springPos.current.y - 15}px, 0)`;
+      }
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate3d(${pos.current.x - 4}px, ${pos.current.y - 4}px, 0)`;
+      }
+      if (imgContainerRef.current) {
+        imgContainerRef.current.style.transform = `translate3d(${springPos.current.x - 100}px, ${springPos.current.y - 100}px, 0)`;
+      }
+
+      rafId.current = requestAnimationFrame(tick);
+    };
+
     const handleMove = (e) => {
       pos.current.x = e.clientX;
       pos.current.y = e.clientY;
@@ -72,7 +74,7 @@ export default function CustomCursor() {
       window.removeEventListener('mouseover', handleOver);
       cancelAnimationFrame(rafId.current);
     };
-  }, [tick]);
+  }, []);
 
   return (
     <>
