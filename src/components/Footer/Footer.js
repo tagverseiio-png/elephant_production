@@ -10,12 +10,17 @@ export default function Footer() {
   return (
     <>
       <footer className={styles.footer}>
+        <div className={styles.footerTagline}>
+          <span className={styles.taglineDot}></span>
+          Where strategy becomes culture
+          <span className={styles.taglineDot}></span>
+        </div>
         <div className={styles.footerGiantText}>
-          THE ELEPHANT
+          ELEPHANT MEDIA
         </div>
         <div className={styles.footerBottomRow}>
           <div className={styles.footerLeft}>
-            <span>© The Elephant Production 2026</span>
+            <span>© Elephant Media 2026</span>
           </div>
           <div className={styles.footerCenter}>
             <Link href="/work">WORK</Link>
@@ -24,10 +29,10 @@ export default function Footer() {
             <Link href="/studio">STUDIO</Link>
             <Link href="/about">ABOUT</Link>
             <Link href="/contact">CONTACT</Link>
-            <a href="https://www.instagram.com/theelephantproduction/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+            <a href="https://www.instagram.com/elephantmedia/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
           </div>
           <div className={styles.footerRight}>
-            <a href="mailto:info@theelephantproduction.com">INFO@THEELEPHANTPRODUCTION.COM</a>
+            <a href="mailto:info@elephantmedia.com">INFO@ELEPHANTMEDIA.COM</a>
             <button
               className={styles.contactBtn}
               onClick={() => setContactOpen(true)}

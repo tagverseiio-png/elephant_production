@@ -16,7 +16,7 @@ const SERVICES = [
       'Campaign brief & content strategy document',
       'Shot list and production planning',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1000',
+    imageUrl: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=1000',
     imageAlt: 'Creative direction planning session',
   },
   {
@@ -30,7 +30,7 @@ const SERVICES = [
       'Motion, interaction, and cinematic art direction',
       'Performance, SEO, and mobile optimisation',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1000',
+    imageUrl: 'https://images.unsplash.com/photo-1498050108023-c524df714b11?q=80&w=1000',
     imageAlt: 'Website development workspace',
   },
   {
@@ -45,7 +45,7 @@ const SERVICES = [
       'Caption copywriting and hashtag strategy',
       'Feed aesthetic planning and brand consistency',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000',
+    imageUrl: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1000',
     imageAlt: 'Social media marketing content',
   },
   {
@@ -60,7 +60,7 @@ const SERVICES = [
       'Edited, colour-graded final deliverables',
       'Platform-ready formats: Instagram, YouTube, web, screen',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000',
+    imageUrl: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?q=80&w=1000',
     imageAlt: 'Video marketing production shoot',
   },
   {
@@ -75,7 +75,7 @@ const SERVICES = [
       'A/B testing and creative iteration',
       'Performance review and optimisation reporting',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=1000',
+    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000',
     imageAlt: 'Performance marketing campaign',
   },
   {
@@ -90,7 +90,7 @@ const SERVICES = [
       'Growth roadmap and milestone tracking',
       'Platform algorithm insights and posting optimisation',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000',
+    imageUrl: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1000',
     imageAlt: 'Analytics and growth strategy',
   },
   {
@@ -105,7 +105,7 @@ const SERVICES = [
       'Campaign performance tracking',
       'Long-term partnership management',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1000',
+    imageUrl: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000',
     imageAlt: 'Influencer marketing collaboration',
   },
   {
@@ -120,7 +120,7 @@ const SERVICES = [
       'Post-production and episode editing (add-on)',
       'Thumbnail and cover art creation (add-on)',
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=1000',
+    imageUrl: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?q=80&w=1000',
     imageAlt: 'Podcast studio recording',
   },
 ];
@@ -144,31 +144,35 @@ export default function ServicesPage() {
 
         {/* Services */}
         <section className={styles.servicesSection}>
+          <div className={styles.serviceGrid}>
           {SERVICES.map((service, i) => {
-            const isReversed = i % 2 !== 0;
+            const isWide = i % 2 === 0;
             return (
-              <motion.div
+              <motion.article
                 key={service.number}
-                className={`${styles.serviceRow} ${isReversed ? styles.reversed : ''}`}
+                className={`${styles.serviceCard} ${isWide ? styles.cardWide : styles.cardNarrow}`}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
-                {/* Image */}
-                <div className={styles.serviceImageWrap}>
+                {/* Image header with number badge */}
+                <div className={styles.cardMedia}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={service.imageUrl}
                     alt={service.imageAlt}
-                    className={styles.serviceImage}
+                    className={styles.cardImage}
+                    loading="lazy"
+                    decoding="async"
                   />
+                  <div className={styles.cardShade}></div>
+                  <span className={styles.cardNumber}>{service.number}</span>
+                  <h2 className={styles.cardTitle}>{service.title}</h2>
                 </div>
 
-                {/* Text */}
-                <div className={styles.serviceTextWrap}>
-                  <span className={styles.serviceNumber}>{service.number}</span>
-                  <h2 className={styles.serviceTitle}>{service.title}</h2>
+                {/* Body */}
+                <div className={styles.cardBody}>
                   <p className={styles.serviceDesc}>{service.description}</p>
                   <ul className={styles.featureList}>
                     {service.features.map((feat, fi) => (
@@ -180,9 +184,10 @@ export default function ServicesPage() {
                   </ul>
                   <div className={styles.serviceLine}></div>
                 </div>
-              </motion.div>
+              </motion.article>
             );
           })}
+          </div>
         </section>
 
         {/* CTA */}
@@ -195,7 +200,7 @@ export default function ServicesPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h2 className={styles.ctaTitle}>Ready to create<br />something extraordinary?</h2>
-            <a href="mailto:info@theelephantproduction.com" className={styles.ctaBtn}>
+            <a href="mailto:info@elephantmedia.com" className={styles.ctaBtn}>
               <span>Get In Touch</span>
             </a>
           </motion.div>

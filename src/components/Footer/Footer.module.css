@@ -9,15 +9,42 @@
 
 .footerGiantText {
   font-family: var(--font-hero);
-  font-size: 11vw;
+  font-size: 9vw;
   font-weight: 800;
   line-height: 0.8;
   letter-spacing: -0.02em;
   text-align: center;
-  color: var(--color-text-dark);
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-text-dark);
   white-space: nowrap;
   width: 100%;
   margin-bottom: 2rem;
+  transition: color 0.5s ease;
+}
+
+.footerGiantText:hover {
+  color: var(--color-text-dark);
+}
+
+.footerTagline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+}
+
+.taglineDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
 }
 
 .footerBottomRow {

@@ -29,7 +29,7 @@ export default function CursorResponsiveText({ text }) {
     <motion.h1 
       className={styles.heroTitle}
       style={{
-        backgroundImage: "url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200')",
+        backgroundImage: "url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200')",
         backgroundSize: "140%", // larger than 100% to allow panning
         WebkitBackgroundClip: "text",
         backgroundClip: "text",

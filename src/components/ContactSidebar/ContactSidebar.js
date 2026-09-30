@@ -63,7 +63,7 @@ export default function ContactSidebar({ isOpen, onClose }) {
           </form>
 
           <div className={styles.emailContact}>
-            <a href="mailto:info@theelephantproduction.com">info@theelephantproduction.com</a>
+            <a href="mailto:info@elephantmedia.com">info@elephantmedia.com</a>
           </div>
         </div>
       </div>

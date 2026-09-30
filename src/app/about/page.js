@@ -28,12 +28,12 @@ const VALUES = [
 ];
 
 const TEAM = [
-  { name: 'Founder & CEO', role: 'Leadership', gradient: 'linear-gradient(135deg, #e8ddd0, #c4a882)' },
-  { name: 'VP of Communications', role: 'Strategy', gradient: 'linear-gradient(135deg, #d4c5b2, #a8956e)' },
-  { name: 'Director of Influencer', role: 'Partnerships', gradient: 'linear-gradient(135deg, #a8c5a0, #6b9e5e)' },
-  { name: 'Creative Director', role: 'Creative', gradient: 'linear-gradient(135deg, #c9b99a, #8fb573)' },
-  { name: 'Senior Account Manager', role: 'Client Services', gradient: 'linear-gradient(135deg, #c4a882, #8b6d4f)' },
-  { name: 'Digital Strategist', role: 'Digital', gradient: 'linear-gradient(135deg, #e0d5c7, #c4a882)' },
+  { name: 'Founder & CEO', role: 'Leadership', imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop' },
+  { name: 'VP of Communications', role: 'Strategy', imageUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop' },
+  { name: 'Director of Influencer', role: 'Partnerships', imageUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop' },
+  { name: 'Creative Director', role: 'Creative', imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop' },
+  { name: 'Senior Account Manager', role: 'Client Services', imageUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop' },
+  { name: 'Digital Strategist', role: 'Digital', imageUrl: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop' },
 ];
 
 export default function AboutPage() {
@@ -43,18 +43,28 @@ export default function AboutPage() {
       <main>
         {/* Hero */}
         <section className={styles.pageHero}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?q=80&w=1600&auto=format&fit=crop"
+            alt="City lights at night"
+            className={styles.heroBg}
+          />
+          <div className={styles.heroShade}></div>
           <div className={styles.heroContent}>
-            <span className={styles.heroLabel}>About The Elephant Production</span>
+            <span className={styles.heroLabel}>About Elephant Media</span>
             <h1 className={styles.heroTitle}>
               We create magic<br />for brands
             </h1>
+            <p className={styles.heroSub}>
+              A crew of strategists, filmmakers, and culture obsessives — built for brands that refuse to blend in.
+            </p>
           </div>
         </section>
 
         {/* Mission */}
         <section className={styles.missionSection}>
           <div className={styles.missionContainer}>
-            <motion.div 
+            <motion.div
               className={styles.missionLeft}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +74,7 @@ export default function AboutPage() {
               <span className={styles.labelLine}></span>
               <span className={styles.sectionLabel}>Who We Are</span>
             </motion.div>
-            <motion.div 
+            <motion.div
               className={styles.missionRight}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -72,13 +82,31 @@ export default function AboutPage() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             >
               <p className={styles.missionText}>
-                The Elephant Production is an action-first creative communications agency. We increase brand visibility and awareness to attract new customers through thoughtful storytelling and distinct and adaptable communications strategies.
+                Elephant Media is an action-first creative communications agency. We increase brand visibility and awareness to attract new customers through thoughtful storytelling and distinct and adaptable communications strategies.
               </p>
               <p className={styles.missionText}>
                 With an unmatched consumer understanding and a true collaborative spirit, we create magic for brands by bringing their authenticity and differentiated perspective to the forefront. Our team brings decades of combined experience across media, fashion, lifestyle, and consumer brands.
               </p>
             </motion.div>
           </div>
+          <motion.div
+            className={styles.missionBanner}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop"
+              alt="Elephant Media team planning a campaign"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className={styles.missionBannerCaption}>
+              <span>Strategy first — every shoot starts at the whiteboard</span>
+            </div>
+          </motion.div>
         </section>
 
         {/* Values */}
@@ -145,10 +173,15 @@ export default function AboutPage() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: i * 0.08 }}
               >
-                <div className={styles.teamImage} style={{ background: member.gradient }}>
-                  <div className={styles.teamInitial}>
-                    {member.name.charAt(0)}
-                  </div>
+                <div className={styles.teamImage}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={member.imageUrl}
+                    alt={member.name}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span className={styles.teamRoleChip}>{member.role}</span>
                 </div>
                 <div className={styles.teamInfo}>
                   <h3 className={styles.teamName}>{member.name}</h3>
@@ -170,7 +203,7 @@ export default function AboutPage() {
           >
             <div className={styles.quoteIcon}>&ldquo;</div>
             <blockquote className={styles.quote}>
-              The Elephant Production has been a transformative partner for our brand. Their strategic vision combined with flawless execution has elevated our presence in ways we never thought possible.
+              Elephant Media has been a transformative partner for our brand. Their strategic vision combined with flawless execution has elevated our presence in ways we never thought possible.
             </blockquote>
             <div className={styles.quoteAuthor}>
               <span className={styles.authorName}>Brand Partner</span>

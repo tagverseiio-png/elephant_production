@@ -60,7 +60,7 @@ export default function StudioWizard() {
     const subject = encodeURIComponent(`Studio booking request — ${fullName || 'New enquiry'}`);
     const body = encodeURIComponent(
       [
-        'Hello The Elephant Production,',
+        'Hello Elephant Media,',
         '',
         'I would like to request a studio slot with the following details:',
         '',
@@ -74,7 +74,7 @@ export default function StudioWizard() {
         'Thank you!',
       ].join('\n')
     );
-    return `mailto:info@theelephantproduction.com?subject=${subject}&body=${body}`;
+    return `mailto:info@elephantmedia.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -264,7 +264,7 @@ export default function StudioWizard() {
             Request via email
           </a>
           <p className={styles.disclaimer}>
-            This opens a draft email to info@theelephantproduction.com. Your slot is only
+            This opens a draft email to info@elephantmedia.com. Your slot is only
             confirmed once our team replies — nothing is submitted automatically.
           </p>
         </div>

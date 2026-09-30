@@ -61,42 +61,98 @@
   color: var(--color-text-dark);
 }
 
-/* GRID */
+/* STAGGERED GRID */
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5vw;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem 1.5vw;
+  align-items: start;
 }
 
-.gridItem {
+.card {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.1rem;
   cursor: pointer;
 }
 
+/* Offset every middle column for a staggered rhythm */
+.card:nth-child(3n + 2) {
+  margin-top: 4rem;
+}
+
 .imageWrapper {
+  position: relative;
   width: 100%;
-  aspect-ratio: 2.2 / 1;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 20px;
+  background: var(--color-bg-dark);
+}
+
+.card:nth-child(3n) .imageWrapper {
+  aspect-ratio: 1 / 1;
 }
 
 .imageWrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.gridItem:hover .imageWrapper img {
-  transform: scale(1.03);
+.card:hover .imageWrapper img {
+  transform: scale(1.06);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card {
+  transition: transform 0.4s ease;
+}
+
+.cardShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.55) 0%, transparent 40%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover .cardShade {
+  opacity: 1;
+}
+
+.cardCategory {
+  position: absolute;
+  left: 1.1rem;
+  bottom: 1.1rem;
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-dark);
+  background: var(--color-text-light);
+  border-radius: 100px;
+  padding: 0.5rem 1rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.card:hover .cardCategory {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .itemInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 0.2rem 1rem;
 }
 
 .itemBrand {
@@ -109,14 +165,42 @@
 
 .itemTitle {
   font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
   font-weight: 400;
-  line-height: 1.1;
+  font-style: italic;
+  line-height: 1.15;
+  grid-column: 1;
+}
+
+.itemIndex {
+  font-family: var(--font-hero);
+  font-size: 1rem;
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-accent);
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
 }
 
 @media (max-width: 900px) {
   .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 1rem;
+  }
+  .card:nth-child(3n + 2) {
+    margin-top: 0;
+  }
+  .card:nth-child(2n) {
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+  }
+  .card:nth-child(2n) {
+    margin-top: 0;
   }
 }

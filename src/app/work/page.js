@@ -15,7 +15,7 @@ const WORK_CATEGORIES = [
     slug: 'lacoste',
     otherBrands: ['Alder & Ash', 'Marlowe Goods', 'Opal & Ember'],
     color: '#496A74',
-    imageUrl: 'https://images.unsplash.com/photo-1554200876-56c2f25224fa?q=80&w=1000&auto=format&fit=crop'
+    imageUrl: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000&auto=format&fit=crop'
   },
   {
     category: 'BEAUTY',
@@ -24,7 +24,7 @@ const WORK_CATEGORIES = [
     slug: 'kosas',
     otherBrands: ['Petal & Pine', 'Gilded Hour', 'Bare Botanica'],
     color: '#2B4636',
-    imageUrl: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=1000&auto=format&fit=crop'
+    imageUrl: 'https://images.unsplash.com/photo-1526947425960-377c54e15e42?q=80&w=1000&auto=format&fit=crop'
   },
   {
     category: 'WELLNESS',
@@ -33,7 +33,7 @@ const WORK_CATEGORIES = [
     slug: 'sakara-life',
     otherBrands: ['Fern & Fable', 'Halcyon Goods', 'Juniper & Oak'],
     color: '#1A4A5D',
-    imageUrl: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1000&auto=format&fit=crop'
+    imageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1000&auto=format&fit=crop'
   },
   {
     category: 'LIFESTYLE',
@@ -42,7 +42,7 @@ const WORK_CATEGORIES = [
     slug: 'away',
     otherBrands: ['Fieldnote Studio', 'Junction Works', 'Cinder Studio'],
     color: '#D48695',
-    imageUrl: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=1000&auto=format&fit=crop'
+    imageUrl: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1000&auto=format&fit=crop'
   },
   {
     category: 'FOOD & BEVERAGE',
@@ -51,7 +51,7 @@ const WORK_CATEGORIES = [
     slug: 'pressed',
     otherBrands: ['The Copper Room', 'Setter & Stone', 'Ostro Studio'],
     color: '#2C4A2D',
-    imageUrl: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=1000&auto=format&fit=crop'
+    imageUrl: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1000&auto=format&fit=crop'
   },
   {
     category: 'HOME',
@@ -60,7 +60,7 @@ const WORK_CATEGORIES = [
     slug: 'our-place',
     otherBrands: ['Hearth & Hollow', 'Linen & Lark', 'Dune House'],
     color: '#133D4F',
-    imageUrl: 'https://images.unsplash.com/photo-1584990347449-a6ebbb56e297?q=80&w=1000&auto=format&fit=crop'
+    imageUrl: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1000&auto=format&fit=crop'
   },
   {
     category: 'FOOTWEAR',
@@ -69,7 +69,7 @@ const WORK_CATEGORIES = [
     slug: 'hoka',
     otherBrands: ['Stride Society', 'Pace & Pine', 'Forwardline'],
     color: '#4A3D36',
-    imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1000&auto=format&fit=crop'
+    imageUrl: 'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1000&auto=format&fit=crop'
   },
   {
     category: 'ACTIVEWEAR',
@@ -78,7 +78,7 @@ const WORK_CATEGORIES = [
     slug: 'vuori',
     otherBrands: ['Trailhead Supply', 'Motion Club', 'Highline Goods'],
     color: '#2A2D34',
-    imageUrl: 'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?q=80&w=1000&auto=format&fit=crop'
+    imageUrl: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1000&auto=format&fit=crop'
   }
 ];
 
@@ -111,7 +111,7 @@ export default function WorkPage() {
             </div>
             <p className={styles.heroSubtitle}>
               Bold campaigns. Cinematic visuals. Real results.<br />
-              A selection of Elephant-grown projects across fashion,
+              A selection of Elephant Media projects across fashion,
               beauty, lifestyle, and beyond.
             </p>
           </div>
@@ -123,60 +123,44 @@ export default function WorkPage() {
           <div className={styles.workList}>
             {WORK_CATEGORIES.map((cat, idx) => {
               const number = String(idx + 1).padStart(2, '0');
+              const flipped = idx % 2 !== 0;
               return (
-                <motion.div 
-                  className={styles.workRow} 
+                <motion.article
+                  className={`${styles.workCard} ${flipped ? styles.flipped : ''}`}
                   key={cat.slug}
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 60 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 * (idx % 2) }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                  <div className={styles.workText} style={{ backgroundColor: cat.color }}>
-                    <div className={styles.workCategoryLabel}>
-                      <span className={styles.workNumber}>{number}</span>
-                      <span>{cat.category}</span>
-                    </div>
-                    <div className={styles.workBrands}>
-                      {cat.slug ? (
-                        <Link href={`/work/${cat.slug}`} className={styles.brandLink}>
-                          <h2 className={styles.mainBrand}>
-                            {cat.mainBrand}
-                            {cat.hasIcon && (
-                              <span className={styles.arrowIcon}>
-                                <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
-                                  <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.5" />
-                                </svg>
-                              </span>
-                            )}
-                          </h2>
-                        </Link>
-                      ) : (
-                        <h2 className={styles.mainBrand}>
-                          {cat.mainBrand}
-                          {cat.hasIcon && (
-                            <span className={styles.arrowIcon}>
-                              <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
-                                <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.5" />
-                              </svg>
-                            </span>
-                          )}
-                        </h2>
-                      )}
-                      <div className={styles.otherBrandsWrapper}>
-                        {cat.otherBrands.map((brand, i) => (
-                          <h3 className={styles.otherBrand} key={i}>{brand}</h3>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <div className={styles.workImage}>
-                    <div 
-                      className={styles.imagePlaceholder} 
+                  <Link href={`/work/${cat.slug}`} className={styles.workCardMedia}>
+                    <div
+                      className={styles.workCardImage}
                       style={{ backgroundImage: `url(${cat.imageUrl})` }}
                     ></div>
+                    <div className={styles.workCardShade}></div>
+                    <span className={styles.workCardIndex}>{number}</span>
+                    <span className={styles.workCardChip}>{cat.category}</span>
+                  </Link>
+                  <div className={styles.workCardPanel} style={{ backgroundColor: cat.color }}>
+                    <Link href={`/work/${cat.slug}`} className={styles.brandLink}>
+                      <h2 className={styles.mainBrand}>
+                        {cat.mainBrand}
+                        <span className={styles.arrowIcon}>
+                          <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+                            <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.5" />
+                          </svg>
+                        </span>
+                      </h2>
+                    </Link>
+                    <div className={styles.otherBrandsWrapper}>
+                      {cat.otherBrands.map((brand, i) => (
+                        <h3 className={styles.otherBrand} key={i}>{brand}</h3>
+                      ))}
+                    </div>
+                    <span className={styles.viewCase}>View case study</span>
                   </div>
-                </motion.div>
+                </motion.article>
               );
             })}
           </div>
@@ -185,7 +169,7 @@ export default function WorkPage() {
         {/* CLIENTS */}
         <section className={styles.clientsSection}>
           <span className={styles.clientsEyebrow}>Our Clients</span>
-          <h2 className={styles.clientsTitle}>Trusted by Elephant-grown brands across every category.</h2>
+          <h2 className={styles.clientsTitle}>Trusted by Elephant Media brands across every category.</h2>
           <div className={styles.clientStrip}>
             {CLIENT_WORDMARKS.map((name) => (
               <span key={name} className={styles.clientWordmark}>{name}</span>
@@ -211,7 +195,7 @@ export default function WorkPage() {
             </div>
           </div>
           <p className={styles.closingStatement}>
-            The Elephant Production — where strategy becomes culture.
+            Elephant Media — where strategy becomes culture.
           </p>
         </section>
       </main>

@@ -46,11 +46,30 @@
   color: rgba(245, 242, 238, 0.88);
   text-transform: uppercase;
   transition: color 0.2s ease;
+  position: relative;
+  padding-bottom: 0.35rem;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
 .navLink:hover {
   color: var(--color-text-light);
   opacity: 1;
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
 }
 
 .logo {
