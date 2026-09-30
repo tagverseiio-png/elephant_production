@@ -1,261 +1,621 @@
-// Shared case-study data for all /work/<slug> routes.
-// All project names are fictional, Elephant-owned concepts — no real third-party brands.
+// Shared case-study catalogue for all /work/<slug> routes.
+// Project names, categories, years, taglines, descriptions, services,
+// media URLs and captions are TSK catalogue data, kept exactly as received.
+// Eyebrows, sublines, headings and labels elsewhere in the UI are our own words.
 export const CASE_STUDIES = [
   {
-    slug: 'lacoste',
-    index: '01',
-    category: 'FASHION',
-    projectName: 'Maison Solstice',
-    stackedTitle: ['MAISON', 'SOLSTICE'],
-    year: '2026',
-    statement:
-      'ENGINEERED A CINEMATIC BRAND FILM THAT ESTABLISHED MAISON SOLSTICE AS A VOICE OF MODERN COUTURE.',
-    impact:
-      'We built a full-funnel creative platform for Maison Solstice — from concept planning and art direction to a cinematic brand film and launch assets. The campaign unified the label\'s seasonal story across web, social, and in-store moments, lifting branded search interest and giving the in-house team a repeatable content system for future drops.',
-    services: ['Creative Direction', 'Brand Film Production', 'Campaign Photography'],
-    heroImage:
-      'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop',
+    slug: "the-madras-barber",
+    index: "01",
+    category: "Creative Direction",
+    projectName: "The Madras Barber",
+    stackedTitle: ["THE", "MADRAS", "BARBER"],
+    year: "2026",
+    statement: "ENGINEERED A CINEMATIC BRAND FILM THAT ESTABLISHED THE MADRAS BARBERS AS THE DEFINITIVE DESTINATION FOR PREMIUM GROOMING AND STYLING.",
+    impact: "A flagship cinematic video campaign positioning The Madras Barbers as the premier destination for precision haircuts and bespoke styling.",
+    services: ["Social media engagement"],
+    heroImage: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/8ndgejxezql888t0gpkkfb_poster.0000000.jpg",
     media: [
       {
-        title: 'MAISON SOLSTICE — BRAND FILM',
-        imageUrl:
-          'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200&auto=format&fit=crop',
-      },
-      {
-        title: 'MAISON SOLSTICE — CAMPAIGN STILLS',
-        imageUrl:
-          'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop',
-      },
-      {
-        title: 'MAISON SOLSTICE — BEHIND THE SCENES',
-        imageUrl:
-          'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop',
+        title: "The Madras Barber — Brand Film",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/8ndgejxezql888t0gpkkfb_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/8ndgejxezql888t0gpkkfb_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/8ndgejxezql888t0gpkkfb_poster.0000000.jpg",
       },
     ],
   },
   {
-    slug: 'kosas',
-    index: '02',
-    category: 'BEAUTY',
-    projectName: 'Lumen Skincare',
-    stackedTitle: ['LUMEN', 'SKINCARE'],
-    year: '2026',
-    statement:
-      'ENGINEERED A CINEMATIC BRAND FILM THAT ESTABLISHED LUMEN SKINCARE AS A RITUAL WORTH KEEPING.',
-    impact:
-      'Lumen Skincare needed launch content that felt clinical yet warm. We directed a macro-led product film, a founder story cut, and a library of social-first routines content. The result was a cohesive visual identity that carried across the website relaunch, paid social, and retail partner screens.',
-    services: ['Video Marketing', 'Social Media Marketing', 'Account Growth & Optimisation'],
-    heroImage:
-      'https://images.unsplash.com/photo-1526947425960-377c54e15e42?q=80&w=1600&auto=format&fit=crop',
+    slug: "sooraa",
+    index: "02",
+    category: "High-End Commercials",
+    projectName: "Sooraa",
+    stackedTitle: ["SOORAA"],
+    year: "2026",
+    statement: "SOORA LUXUARY PRODUCT CAMPAIGN",
+    impact: "Soora Luxury product and store campaign  shooting and production.",
+    services: ["Cinematography"],
+    heroImage: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/aslk2phnflv8iaw294jzjk_poster.0000000.jpg",
     media: [
       {
-        title: 'LUMEN SKINCARE — BRAND FILM',
-        imageUrl:
-          'https://images.unsplash.com/photo-1526947425960-377c54e15e42?q=80&w=1200&auto=format&fit=crop',
+        title: "Sooraa Intro",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/aslk2phnflv8iaw294jzjk_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/aslk2phnflv8iaw294jzjk_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/aslk2phnflv8iaw294jzjk_poster.0000000.jpg",
       },
       {
-        title: 'LUMEN SKINCARE — PRODUCT STILLS',
-        imageUrl:
-          'https://images.unsplash.com/photo-1487412947141-5cebbf640320?q=80&w=1200&auto=format&fit=crop',
+        title: "Sooraa reel vs Reality",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/6zeywpc8atswdsw3qaspf_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/6zeywpc8atswdsw3qaspf_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/6zeywpc8atswdsw3qaspf_poster.0000000.jpg",
       },
       {
-        title: 'LUMEN SKINCARE — ROUTINE SERIES',
-        imageUrl:
-          'https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1200&auto=format&fit=crop',
+        title: "sooraa Vadivelu",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/ktxs3nzik7bsqnmq40sc_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/ktxs3nzik7bsqnmq40sc_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/ktxs3nzik7bsqnmq40sc_poster.0000000.jpg",
       },
     ],
   },
   {
-    slug: 'sakara-life',
-    index: '03',
-    category: 'WELLNESS',
-    projectName: 'Atelier Verdant',
-    stackedTitle: ['ATELIER', 'VERDANT'],
-    year: '2026',
-    statement:
-      'ENGINEERED A CINEMATIC BRAND FILM THAT ESTABLISHED ATELIER VERDANT AS A SANCTUARY FOR SLOW LIVING.',
-    impact:
-      'For Atelier Verdant we designed a calm, editorial content world — a hero brand film, seasonal recipe stories, and a podcast mini-series recorded in our studio. The work gave the wellness label an ownable tone of voice and a content engine its team now runs independently.',
-    services: ['Creative Direction', 'Podcast Studio & Recording', 'Social Media Marketing'],
-    heroImage:
-      'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600&auto=format&fit=crop',
+    slug: "chuan-watch",
+    index: "03",
+    category: "Product Photography",
+    projectName: "Chuan Watch",
+    stackedTitle: ["CHUAN", "WATCH"],
+    year: "2024",
+    statement: "ENGINEERED A LUXURY PRODUCT PHOTOGRAPHY CAMPAIGN WITH 50+ CINEMATIC SHOTS THAT POSITIONED CHUAN WATCH AS A PREMIUM TIMEPIECE BRAND.",
+    impact: "Luxury product campaign — 50+ cinematic shots positioning Chuan Watch as a premium timepiece brand. Strongest visual card — place as hero / first card on the site.",
+    services: ["Product Photography", "Creative Direction", "Cinematic Lighting", "Post-Production"],
+    heroImage: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/55b31ccd-a962-42e8-8728-3fe24ea4457b.jpg",
     media: [
       {
-        title: 'ATELIER VERDANT — BRAND FILM',
-        imageUrl:
-          'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1200&auto=format&fit=crop',
+        title: "Rolex — Platinum",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/55b31ccd-a962-42e8-8728-3fe24ea4457b.jpg",
+        type: "image",
       },
       {
-        title: 'ATELIER VERDANT — EDITORIAL SERIES',
-        imageUrl:
-          'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop',
+        title: "Rolex — Prestige",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/b320808b-9aa3-4700-b7a4-c1c56ad5f490.jpg",
+        type: "image",
       },
       {
-        title: 'ATELIER VERDANT — STUDIO SESSIONS',
-        imageUrl:
-          'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?q=80&w=1200&auto=format&fit=crop',
+        title: "Rolex — Sky-Dweller",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/17f342ec-3054-40a8-a7d0-3dc413c77c8e.jpg",
+        type: "image",
+      },
+      {
+        title: "Richard Mille — RM Collection",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/2b1d3e32-6c0a-4477-8694-8f63702a09eb.jpg",
+        type: "image",
+      },
+      {
+        title: "Richard Mille — Black Edition",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/a54260e8-d660-4f11-807d-4b7239b8dc2e.jpg",
+        type: "image",
+      },
+      {
+        title: "Richard Mille — Gold Edition",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/699fcff2-57d7-4556-a2bf-3cc8184a6390.jpg",
+        type: "image",
+      },
+      {
+        title: "Richard Mille — Blue Edition",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/507f1aa6-aa6f-4dc4-965b-5b08e03ea2ca.jpg",
+        type: "image",
+      },
+      {
+        title: "Richard Mille — Signature Collection",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/9f55a09b-4d4b-4874-b632-38a1b17865b7.jpg",
+        type: "image",
+      },
+      {
+        title: "Red Ruby",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/93edd57a-628d-416e-8835-7bd2bade6d32.jpg",
+        type: "image",
+      },
+      {
+        title: "Rolex — Oyster Perpetual",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/93f8b3f7-35b5-4292-8a22-f5eae1628863.jpg",
+        type: "image",
+      },
+      {
+        title: "Richard Mille — RM Collection II",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/43544c9f-016b-44d3-96a1-476e13319e0e.jpg",
+        type: "image",
+      },
+      {
+        title: "Richard Mille — Blue Edition II",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/e677a872-49b7-45af-913a-d2ae18c4a10e.jpg",
+        type: "image",
+      },
+      {
+        title: "Rolex — Diamond Blue",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/c97b331d-9ed3-4ed6-a72a-6946e798e2b5.jpg",
+        type: "image",
+      },
+      {
+        title: "Rolex — Wimbledon",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/6b36e8ff-1ed7-447a-80d1-4763be24cc2b.jpg",
+        type: "image",
+      },
+      {
+        title: "Vacheron Constantin — Collection",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/298f2168-c36f-4494-a153-6e93f8e6be20.jpg",
+        type: "image",
+      },
+      {
+        title: "Roger Dubuis — Collection",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/c6a6250d-61f5-4b99-8706-628386e82157.jpg",
+        type: "image",
+      },
+      {
+        title: "Patek Philippe — Collection",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/74a3e8f1-b5dd-4fea-8e0b-f4a12f15c214.jpg",
+        type: "image",
+      },
+      {
+        title: "Richard Mille — Diamond Edition",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/d079f649-72f6-439b-93f3-981fa10b6942.jpg",
+        type: "image",
+      },
+      {
+        title: "Rolex — Gold Edition",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/f00dc086-bd75-4f7d-8bd9-6e5228f31a86.jpg",
+        type: "image",
+      },
+      {
+        title: "Richard Mille — Red Edition",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/3744beb4-d0bd-4e8c-8c8b-59f7cb3ae25e.jpg",
+        type: "image",
+      },
+      {
+        title: "A. Lange & Söhne — Collection",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/e1d2651d-c5b8-4edc-b226-2cec319be979.jpg",
+        type: "image",
       },
     ],
   },
   {
-    slug: 'away',
-    index: '04',
-    category: 'LIFESTYLE',
-    projectName: 'Northbound Films',
-    stackedTitle: ['NORTHBOUND', 'FILMS'],
-    year: '2026',
-    statement:
-      'ENGINEERED A CINEMATIC BRAND FILM THAT ESTABLISHED NORTHBOUND FILMS AS THE COMPANION FOR EVERY JOURNEY.',
-    impact:
-      'Northbound Films came to us with strong products and scattered storytelling. We created a travel-led narrative platform — hero film, creator trip content, and a refreshed website experience — that tied every touchpoint back to one idea: the journey is the destination.',
-    services: ['Website Development', 'Video Marketing', 'Influencer Marketing'],
-    heroImage:
-      'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1600&auto=format&fit=crop',
+    slug: "diamond-pearl",
+    index: "04",
+    category: "Brand Campaign",
+    projectName: "Diamond Pearl",
+    stackedTitle: ["DIAMOND", "PEARL"],
+    year: "2024",
+    statement: "BUILT A LUXURY BRAND IDENTITY THROUGH COMMERCIAL PHOTOGRAPHY AND ASPIRATIONAL VISUAL STORYTELLING.",
+    impact: "Luxury brand identity built through commercial photography and aspirational visual storytelling — elevating Diamond Pearl's market positioning.",
+    services: ["Brand Campaign Strategy", "Commercial Photography", "Video Production", "Creative Direction"],
+    heroImage: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/yeqh6ye8n1o223zu92wld1j_poster.0000000.jpg",
     media: [
       {
-        title: 'NORTHBOUND FILMS — BRAND FILM',
-        imageUrl:
-          'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1200&auto=format&fit=crop',
+        title: "Dance",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/yeqh6ye8n1o223zu92wld1j_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/yeqh6ye8n1o223zu92wld1j_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/yeqh6ye8n1o223zu92wld1j_poster.0000000.jpg",
       },
       {
-        title: 'NORTHBOUND FILMS — FIELD DIARIES',
-        imageUrl:
-          'https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=1200&auto=format&fit=crop',
+        title: "Goa Concert",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/0nwhl1cosb9p2l5isc1c8zj_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/0nwhl1cosb9p2l5isc1c8zj_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/0nwhl1cosb9p2l5isc1c8zj_poster.0000000.jpg",
       },
       {
-        title: 'NORTHBOUND FILMS — CREATOR TRIP',
-        imageUrl:
-          'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop',
+        title: "Loga",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/8tuk613wjquu9becpq4xa_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/8tuk613wjquu9becpq4xa_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/8tuk613wjquu9becpq4xa_poster.0000000.jpg",
+      },
+      {
+        title: "X-Aura",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/tmlt7ugqvm8v54elrs5vg_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/tmlt7ugqvm8v54elrs5vg_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/tmlt7ugqvm8v54elrs5vg_poster.0000000.jpg",
+      },
+      {
+        title: "Concert",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/7vwhq92pq7d2yfld7lp1h8_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/7vwhq92pq7d2yfld7lp1h8_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/7vwhq92pq7d2yfld7lp1h8_poster.0000000.jpg",
       },
     ],
   },
   {
-    slug: 'pressed',
-    index: '05',
-    category: 'FOOD & BEVERAGE',
-    projectName: 'Harbour & Vale',
-    stackedTitle: ['HARBOUR', '& VALE'],
-    year: '2026',
-    statement:
-      'ENGINEERED A CINEMATIC BRAND FILM THAT ESTABLISHED HARBOUR & VALE AS A TABLE WORTH GATHERING AROUND.',
-    impact:
-      'Harbour & Vale needed appetite appeal with editorial polish. We produced a sensory-driven menu film, daypart social content, and performance creative for delivery and dine-in offers — a full menu of assets that kept the brand appetising across every placement.',
-    services: ['Performance Marketing', 'Video Marketing', 'Social Media Marketing'],
-    heroImage:
-      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop',
+    slug: "dnet",
+    index: "05",
+    category: "Commercial Ads",
+    projectName: "DNet",
+    stackedTitle: ["DNET"],
+    year: "2024",
+    statement: "CRAFTED A COMPELLING COMMERCIAL CAMPAIGN THAT POSITIONED DNET AS THE AUTHORITY IN INTERIOR DESIGN.",
+    impact: "Compelling commercial campaign that positioned DNet as the authority in interior design — brand-aligned video production and strategy that drove recognition.",
+    services: ["Commercial Ads", "Video Production", "Brand Strategy", "Creative Direction"],
+    heroImage: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/v7055e604frjt6w4zn3lnr_poster.0000000.jpg",
     media: [
       {
-        title: 'HARBOUR & VALE — BRAND FILM',
-        imageUrl:
-          'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop',
+        title: "Smart Home",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/v7055e604frjt6w4zn3lnr_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/v7055e604frjt6w4zn3lnr_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/v7055e604frjt6w4zn3lnr_poster.0000000.jpg",
       },
       {
-        title: 'HARBOUR & VALE — MENU STORIES',
-        imageUrl:
-          'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop',
+        title: "Residential Project",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/3h3rqhmd6vb5qfmyp8m0pd_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/3h3rqhmd6vb5qfmyp8m0pd_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/3h3rqhmd6vb5qfmyp8m0pd_poster.0000000.jpg",
       },
       {
-        title: 'HARBOUR & VALE — GATHERINGS',
-        imageUrl:
-          'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop',
+        title: "Interior Showcase",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/46pgom1s3lqex6jzbelzka_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/46pgom1s3lqex6jzbelzka_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/46pgom1s3lqex6jzbelzka_poster.0000000.jpg",
+      },
+      {
+        title: "Sooraa Aaja",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/xrp25fpe5sjr0k5gwwq1kd_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/xrp25fpe5sjr0k5gwwq1kd_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/xrp25fpe5sjr0k5gwwq1kd_poster.0000000.jpg",
+      },
+      {
+        title: "Workshop Film",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/q9rvvr6gj0pq8uvobhi19c_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/q9rvvr6gj0pq8uvobhi19c_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/q9rvvr6gj0pq8uvobhi19c_poster.0000000.jpg",
+      },
+      {
+        title: "211D Residence",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/7ssazu4ur4b4xbo7tbuhzr_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/7ssazu4ur4b4xbo7tbuhzr_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/7ssazu4ur4b4xbo7tbuhzr_poster.0000000.jpg",
       },
     ],
   },
   {
-    slug: 'our-place',
-    index: '06',
-    category: 'HOME',
-    projectName: 'Solace Home',
-    stackedTitle: ['SOLACE', 'HOME'],
-    year: '2026',
-    statement:
-      'ENGINEERED A CINEMATIC BRAND FILM THAT ESTABLISHED SOLACE HOME AS THE HEART OF EVERY HOUSEHOLD.',
-    impact:
-      'Solace Home sells comfort, so we made comfort cinematic — a warm hero film, room-by-room photography, and creator-led hosting content. The campaign gave the homeware label a consistent seasonal playbook and assets that work as hard on product pages as they do on social.',
-    services: ['Creative Direction', 'Influencer Marketing', 'Account Growth & Optimisation'],
-    heroImage:
-      'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1600&auto=format&fit=crop',
+    slug: "kree",
+    index: "06",
+    category: "Content Creation",
+    projectName: "Kree",
+    stackedTitle: ["KREE"],
+    year: "2024",
+    statement: "DELIVERED CONSISTENT, HIGH-QUALITY CONTENT PRODUCTION ACROSS PHOTOGRAPHY AND SOCIAL MEDIA AT SCALE.",
+    impact: "Consistent, high-quality content production pipeline across photography and social media — built to maintain visual quality at scale from shoot to post.",
+    services: ["Social Media Content", "Professional Photography", "Creative Direction", "Post-Production"],
+    heroImage: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/n604wtb28drvwqya3pt6da_poster.0000000.jpg",
     media: [
       {
-        title: 'SOLACE HOME — BRAND FILM',
-        imageUrl:
-          'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1200&auto=format&fit=crop',
+        title: "Brand Film",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/n604wtb28drvwqya3pt6da_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/n604wtb28drvwqya3pt6da_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/n604wtb28drvwqya3pt6da_poster.0000000.jpg",
       },
       {
-        title: 'SOLACE HOME — ROOM STORIES',
-        imageUrl:
-          'https://images.unsplash.com/photo-1524758631624-e28264b0b92b?q=80&w=1200&auto=format&fit=crop',
+        title: "Kia Stinger",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/r9664iyg7aixwnbn81gki_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/r9664iyg7aixwnbn81gki_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/r9664iyg7aixwnbn81gki_poster.0000000.jpg",
       },
       {
-        title: 'SOLACE HOME — HOSTING SERIES',
-        imageUrl:
-          'https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=1200&auto=format&fit=crop',
+        title: "Blood Bond",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/io805ms63vena63iaurx3g_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/io805ms63vena63iaurx3g_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/io805ms63vena63iaurx3g_poster.0000000.jpg",
+      },
+      {
+        title: "Renovation Scams",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/q196sdd2smzx4od52xp1j_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/q196sdd2smzx4od52xp1j_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/q196sdd2smzx4od52xp1j_poster.0000000.jpg",
       },
     ],
   },
   {
-    slug: 'hoka',
-    index: '07',
-    category: 'FOOTWEAR',
-    projectName: 'Cobalt Athletics',
-    stackedTitle: ['COBALT', 'ATHLETICS'],
-    year: '2026',
-    statement:
-      'ENGINEERED A CINEMATIC BRAND FILM THAT ESTABLISHED COBALT ATHLETICS AS BUILT FOR THE LONG RUN.',
-    impact:
-      'Cobalt Athletics wanted to own the everyday-athlete story. We built a training-led content platform — an anthem film, athlete docu-shorts, and performance-tested paid creative — that turned product technology into human motivation.',
-    services: ['Video Marketing', 'Performance Marketing', 'Social Media Marketing'],
-    heroImage:
-      'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1600&auto=format&fit=crop',
+    slug: "ruchi",
+    index: "07",
+    category: "Social Media",
+    projectName: "Ruchi",
+    stackedTitle: ["RUCHI"],
+    year: "2024",
+    statement: "DROVE ORGANIC GROWTH THROUGH SOCIAL STRATEGY, CREATOR-LED CONTENT AND TARGETED INFLUENCER ACTIVATION.",
+    impact: "Organic growth driven through social strategy, creator-led content and targeted influencer activation — growing reach and driving authentic audience engagement.",
+    services: ["Social Media Strategy", "Content Creation", "Influencer Collaborations", "Account Growth"],
+    heroImage: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/qwesh1kj6kscyfauaapvlp_poster.0000000.jpg",
     media: [
       {
-        title: 'COBALT ATHLETICS — BRAND FILM',
-        imageUrl:
-          'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1200&auto=format&fit=crop',
+        title: "Brand Film",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/qwesh1kj6kscyfauaapvlp_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/qwesh1kj6kscyfauaapvlp_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/qwesh1kj6kscyfauaapvlp_poster.0000000.jpg",
       },
       {
-        title: 'COBALT ATHLETICS — TRAINING DIARIES',
-        imageUrl:
-          'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1200&auto=format&fit=crop',
+        title: "The Way",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/lwu5v8ao4wb18euoc2emsd_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/lwu5v8ao4wb18euoc2emsd_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/lwu5v8ao4wb18euoc2emsd_poster.0000000.jpg",
       },
       {
-        title: 'COBALT ATHLETICS — STREET SERIES',
-        imageUrl:
-          'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop',
+        title: "Cinematic Ambience",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/f33buskiy6g145li3hyuw_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/f33buskiy6g145li3hyuw_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/f33buskiy6g145li3hyuw_poster.0000000.jpg",
+      },
+      {
+        title: "Buffet Experience",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/z9kerztr72fwmv20j9kx6_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/z9kerztr72fwmv20j9kx6_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/z9kerztr72fwmv20j9kx6_poster.0000000.jpg",
       },
     ],
   },
   {
-    slug: 'vuori',
-    index: '08',
-    category: 'ACTIVEWEAR',
-    projectName: 'Ridgeline Outfitters',
-    stackedTitle: ['RIDGELINE', 'OUTFITTERS'],
-    year: '2026',
-    statement:
-      'ENGINEERED A CINEMATIC BRAND FILM THAT ESTABLISHED RIDGELINE OUTFITTERS AS GEAR FOR LIFE IN MOTION.',
-    impact:
-      'Ridgeline Outfitters lives at the intersection of training and everyday life. We crafted a movement-first campaign — hero film, social cutdowns, and a creator seeding programme — that positioned the range as the uniform for an active, design-conscious audience.',
-    services: ['Creative Direction', 'Influencer Marketing', 'Website Development'],
-    heroImage:
-      'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1600&auto=format&fit=crop',
+    slug: "super-deluxe",
+    index: "08",
+    category: "Brand Identity",
+    projectName: "Super Deluxe",
+    stackedTitle: ["SUPER", "DELUXE"],
+    year: "2024",
+    statement: "ELEVATED A HOMEGROWN KITCHEN BRAND INTO A PREMIUM COMMERCIAL IDENTITY WITH BOLD CAMPAIGN VISUALS.",
+    impact: "Homegrown kitchen brand elevated into a premium commercial identity — bold campaign visuals that turned a local favourite into a recognisable brand.",
+    services: ["Brand Campaign Strategy", "Commercial Photography", "Video Production", "Creative Direction"],
+    heroImage: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/9kuy9k79yyd84pr3tk5ew_poster.0000000.jpg",
     media: [
       {
-        title: 'RIDGELINE OUTFITTERS — BRAND FILM',
-        imageUrl:
-          'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1200&auto=format&fit=crop',
+        title: "Grab",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/9kuy9k79yyd84pr3tk5ew_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/9kuy9k79yyd84pr3tk5ew_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/9kuy9k79yyd84pr3tk5ew_poster.0000000.jpg",
       },
       {
-        title: 'RIDGELINE OUTFITTERS — MOTION SERIES',
-        imageUrl:
-          'https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1200&auto=format&fit=crop',
+        title: "Lion Dance",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/kduue6bamhlkg51zr7wjd_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/kduue6bamhlkg51zr7wjd_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/kduue6bamhlkg51zr7wjd_poster.0000000.jpg",
       },
       {
-        title: 'RIDGELINE OUTFITTERS — COMMUNITY RUNS',
-        imageUrl:
-          'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop',
+        title: "Thali Meals",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/950qn1z8859ojdd8uomc_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/950qn1z8859ojdd8uomc_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/950qn1z8859ojdd8uomc_poster.0000000.jpg",
+      },
+      {
+        title: "New Menu",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/euvh570g208fg1fhe5if9c_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/euvh570g208fg1fhe5if9c_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/euvh570g208fg1fhe5if9c_poster.0000000.jpg",
+      },
+      {
+        title: "SDK × Diamond Pearl — Collaboration",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/e8s5f78vanxl28wwqvn3_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/e8s5f78vanxl28wwqvn3_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/e8s5f78vanxl28wwqvn3_poster.0000000.jpg",
       },
     ],
+  },
+  {
+    slug: "goa",
+    index: "09",
+    category: "Uncategorized",
+    projectName: "GOA",
+    stackedTitle: ["GOA"],
+    year: "2024",
+    statement: "BUILT AN IMMERSIVE NIGHTLIFE STORY THAT CAPTURED GOA'S PARTY-FIRST BRAND ENERGY.",
+    impact: "Nightlife and bar-focused content — from bartender tips to bottle ads and party highlights — produced to capture Goa's high-energy atmosphere and convert social buzz into walk-in traffic.",
+    services: ["Content Production", "Social Media", "Video Production"],
+    heroImage: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/dnacztkqrhm1b8zpx9ksi2_poster.0000000.jpg",
+    media: [
+      {
+        title: "Goa — Bartender Tips",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/dnacztkqrhm1b8zpx9ksi2_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/dnacztkqrhm1b8zpx9ksi2_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/dnacztkqrhm1b8zpx9ksi2_poster.0000000.jpg",
+      },
+      {
+        title: "Goa — The Finale",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/7f6ruylrmuy2nbrbx8x08l_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/7f6ruylrmuy2nbrbx8x08l_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/7f6ruylrmuy2nbrbx8x08l_poster.0000000.jpg",
+      },
+      {
+        title: "Goa — Bottle Campaign",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/0mfwcfylhy6nvnj9oeuzra_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/0mfwcfylhy6nvnj9oeuzra_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/0mfwcfylhy6nvnj9oeuzra_poster.0000000.jpg",
+      },
+      {
+        title: "Goa — Customer Offer",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/k6a6v7dbq7jz30sj6w45uq_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/k6a6v7dbq7jz30sj6w45uq_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/k6a6v7dbq7jz30sj6w45uq_poster.0000000.jpg",
+      },
+      {
+        title: "Goa — Party Campaign",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/qhi9a5s0p6ii5o3h4myhn_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/qhi9a5s0p6ii5o3h4myhn_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/qhi9a5s0p6ii5o3h4myhn_poster.0000000.jpg",
+      },
+    ],
+  },
+  {
+    slug: "mix-master",
+    index: "10",
+    category: "Uncategorized",
+    projectName: "Mix Master",
+    stackedTitle: ["MIX", "MASTER"],
+    year: "2024",
+    statement: "DELIVERED HIGH-ENERGY EVENT CONTENT THAT AMPLIFIED MIX MASTER'S CLUB-LED BRAND PRESENCE.",
+    impact: "DJ announcements and shoutout-style content produced to fuel Mix Master's event promotion and social engagement, keeping the brand front-of-mind between nights out.",
+    services: ["Video Production", "Content Creation", "Social Media"],
+    heroImage: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/e93a5moymrciujjf821nvp_poster.0000000.jpg",
+    media: [
+      {
+        title: "DJ Announcement",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/e93a5moymrciujjf821nvp_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/e93a5moymrciujjf821nvp_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/e93a5moymrciujjf821nvp_poster.0000000.jpg",
+      },
+      {
+        title: "Shoutout",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/ls8s9c8d1phgl3jx6zhine_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/ls8s9c8d1phgl3jx6zhine_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/ls8s9c8d1phgl3jx6zhine_poster.0000000.jpg",
+      },
+    ],
+  },
+  {
+    slug: "best-perfume",
+    index: "11",
+    category: "Uncategorized",
+    projectName: "Best Perfume",
+    stackedTitle: ["BEST", "PERFUME"],
+    year: "2024",
+    statement: "CRAFTED A FESTIVE FRAGRANCE FILM THAT POSITIONED BEST PERFUME AS THE GO-TO SCENT FOR CHINESE NEW YEAR CELEBRATIONS.",
+    impact: "A festive product story built around Chinese New Year, pairing bold product-led content with celebratory brand moments to drive seasonal sales and top-of-mind recall for Best Perfume.",
+    services: ["Video Production", "Brand Storytelling", "Commercial Ads"],
+    heroImage: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/agn0avklz2espv2db80ef_poster.0000000.jpg",
+    media: [
+      {
+        title: "Boxer",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/agn0avklz2espv2db80ef_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/agn0avklz2espv2db80ef_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/agn0avklz2espv2db80ef_poster.0000000.jpg",
+      },
+      {
+        title: "Chinese New Year",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/7eccuv2j16idrgkfkna91_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/7eccuv2j16idrgkfkna91_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/7eccuv2j16idrgkfkna91_poster.0000000.jpg",
+      },
+      {
+        title: "Show piece",
+        imageUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/advs6tiojx8m9d2yhokv79_poster.0000000.jpg",
+        type: "video",
+        videoUrl: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/advs6tiojx8m9d2yhokv79_compressed.mp4",
+        poster: "https://tsk-website.s3.eu-north-1.amazonaws.com/works/advs6tiojx8m9d2yhokv79_poster.0000000.jpg",
+      },
+    ],
+  },
+];
+
+// Client roster for the /work logo marquee, kept exactly as received.
+export const CLIENTS = [
+  {
+    name: "Goa Night Club",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/3bec393e-804e-4b50-a34c-756c6d92500a.png",
+    order: 0,
+  },
+  {
+    name: "Erodu Amman Mess",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/9dd48c3e-d88a-4a00-80b0-dab29b31ab53.png",
+    order: 1,
+  },
+  {
+    name: "Krewpad Studio",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/a4ddd7c5-7161-4562-a58b-0d40cfb41630.png",
+    order: 2,
+  },
+  {
+    name: "Mix Master Club",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/ed32c043-7703-43c0-adb2-ec16730693ae.png",
+    order: 3,
+  },
+  {
+    name: "Soora Liquers",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/86fa57eb-e7f3-4df4-8041-79c2ab9fca3b.png",
+    order: 4,
+  },
+  {
+    name: "Sree Laxmi Vilas",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/84e38569-2aef-479c-8cb2-349f26b58396.png",
+    order: 5,
+  },
+  {
+    name: "STR8UP",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/e12300b7-fd72-4063-851e-700205c63038.png",
+    order: 6,
+  },
+  {
+    name: "A Star Motors PTE",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/a737d934-c085-4d67-8d1a-de5ff3e56d78.png",
+    order: 7,
+  },
+  {
+    name: "Ammakase",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/f4727e25-844c-4c71-befc-b374397ba7d8.png",
+    order: 8,
+  },
+  {
+    name: "Best Perfume",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/58c46d5d-cded-4a73-a789-6f9a54d9da15.png",
+    order: 9,
+  },
+  {
+    name: "Capital Insight Affluence",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/9fd1d8ea-a8c6-4c79-a6ec-4aa0f63e6f6b.png",
+    order: 10,
+  },
+  {
+    name: "Chuan Watch",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/b6710fc5-e7ae-45bd-a6bc-b42b2115d14b.png",
+    order: 11,
+  },
+  {
+    name: "Diamond Pearl",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/bcd9efbb-2c1d-42d5-8c54-272e7ebe0c13.png",
+    order: 12,
+  },
+  {
+    name: "Dnet Interior",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/bc4f6168-debe-477b-bc08-4d2397258071.png",
+    order: 13,
+  },
+  {
+    name: "Evoque Medical Aesthetics",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/2da64e36-a0e5-42ef-9627-a1b70a770a07.png",
+    order: 14,
+  },
+  {
+    name: "Game Hub",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/b378a26e-11bc-4a81-b28c-e8929768eeaa.png",
+    order: 15,
+  },
+  {
+    name: "Super Deluxe Kitchen",
+    logo: "https://tsk-website.s3.eu-north-1.amazonaws.com/clients/f940476e-b371-4b68-a752-dafde9bbc892.png",
+    order: 16,
   },
 ];
 

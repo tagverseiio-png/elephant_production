@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
-import { CASE_STUDIES } from '@/data/caseStudies';
+import { CASE_STUDIES, CLIENTS } from '@/data/caseStudies';
 import styles from './work.module.css';
 
 export const metadata = {
   title: 'Work | Elephant Media',
   description:
-    'Selected Elephant Media productions — brand films, campaign photography and content systems across fashion, beauty, lifestyle and beyond.',
+    'Recent Elephant Media productions — campaign films, product photography and content series, presented alongside the client teams we made them with.',
 };
 
 // Portfolio index driven entirely by src/data/caseStudies.js.
@@ -23,9 +23,9 @@ export default function WorkPage() {
           <span className={`eyebrow ${styles.headerEyebrow}`}>Selected Work</span>
           <h1 className={styles.title}>Work</h1>
           <p className={styles.subline}>
-            A selection of Elephant Media productions — brand films, campaign
-            photography and content systems, made together with the teams
-            behind them.
+            Striking films, crafted imagery and campaigns built to land with
+            real audiences — a tour through recent Elephant Media productions
+            and the stories behind them.
           </p>
         </section>
 
@@ -62,43 +62,34 @@ export default function WorkPage() {
           </ol>
         </section>
 
-        {/* CLOSING — approach statement (no client list: we publish no
-            verified client roster, so this section states how we work). */}
-        <section className={styles.approach}>
-          <span className={`eyebrow ${styles.approachEyebrow}`}>How we work</span>
-          <h2 className={styles.approachTitle}>
-            Every project starts from the idea, not the deliverable.
-          </h2>
-          <div className={styles.approachGrid}>
-            <div className={styles.approachCard}>
-              <h3 className={styles.approachCardTitle}>Concept first</h3>
-              <p className={styles.approachCardText}>
-                Direction and planning before anything is shot, so each asset
-                serves the same story.
-              </p>
+        {/* CLIENT MARQUEE — logo roster driven by CLIENTS in caseStudies.js */}
+        <section className={styles.clients} aria-label="Clients">
+          <span className={`eyebrow ${styles.clientsEyebrow}`}>Client Wall</span>
+          <h2 className={styles.clientsTitle}>In good company.</h2>
+          <p className={styles.clientsSubline}>
+            A few of the teams whose stories we have helped shape.
+          </p>
+          <div className={styles.marquee} role="presentation">
+            <div className={styles.marqueeTrack}>
+              {[...CLIENTS, ...CLIENTS].map((client, i) => (
+                <span
+                  key={`${client.name}-${i}`}
+                  className={styles.marqueeItem}
+                  title={client.name}
+                  aria-hidden={i >= CLIENTS.length}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={client.logo}
+                    alt={i < CLIENTS.length ? client.name : ''}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </span>
+              ))}
             </div>
-            <div className={styles.approachCard}>
-              <h3 className={styles.approachCardTitle}>Systems, not one-offs</h3>
-              <p className={styles.approachCardText}>
-                Hero films supported by cutdowns, stills and social formats —
-                built to be reused across placements.
-              </p>
-            </div>
-            <div className={styles.approachCard}>
-              <h3 className={styles.approachCardTitle}>Made with your team</h3>
-              <p className={styles.approachCardText}>
-                We work alongside in-house teams and hand over content they
-                can keep running independently.
-              </p>
-            </div>
-          </div>
-          <div className={styles.approachCtas}>
-            <Link href="/services" className={styles.ctaPrimary}>
-              See services
-            </Link>
-            <Link href="/contact" className={styles.ctaSecondary}>
-              Start a project
-            </Link>
+            <span className={styles.marqueeFadeLeft} aria-hidden="true" />
+            <span className={styles.marqueeFadeRight} aria-hidden="true" />
           </div>
         </section>
       </main>
