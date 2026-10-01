@@ -1,96 +1,124 @@
+'use client';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
+import SnowParticles from '@/components/SnowParticles/SnowParticles';
+import { motion } from 'framer-motion';
 import { CASE_STUDIES, CLIENTS } from '@/data/caseStudies';
 import styles from './work.module.css';
 
-export const metadata = {
-  title: 'Work | Elephant Media',
-  description:
-    'Recent Elephant Media productions — campaign films, product photography and content series, presented alongside the client teams we made them with.',
-};
+// Panel colours reuse existing globals.css tokens so consecutive cards differ.
+const PANEL_COLORS = [
+  'var(--color-accent2)',
+  'var(--color-accent3)',
+  'var(--color-accent)',
+  'var(--dk-surface)',
+  'var(--color-bg-dark)',
+];
 
-// Portfolio index driven entirely by src/data/caseStudies.js.
-// Project names, categories and images all come from that file —
-// nothing is hardcoded here, so no new project facts can drift in.
 export default function WorkPage() {
   return (
     <>
       <Navbar />
       <main className={styles.main}>
-        {/* PAGE HEADER */}
-        <section className={styles.header}>
-          <span className={`eyebrow ${styles.headerEyebrow}`}>Selected Work</span>
-          <h1 className={styles.title}>Work</h1>
-          <p className={styles.subline}>
-            Striking films, crafted imagery and campaigns built to land with
-            real audiences — a tour through recent Elephant Media productions
-            and the stories behind them.
-          </p>
-        </section>
-
-        {/* PROJECT LIST — thin-bordered rows with index, name, category */}
-        <section className={styles.listSection} aria-label="Projects">
-          <ol className={styles.list}>
-            {CASE_STUDIES.map((study) => (
-              <li key={study.slug} className={styles.row}>
-                <Link href={`/work/${study.slug}`} className={styles.rowLink}>
-                  <span className={styles.rowIndex} aria-hidden="true">
-                    {study.index}
-                  </span>
-                  <span className={styles.rowMain}>
-                    <span className={styles.rowName}>{study.projectName}</span>
-                    <span className={styles.rowCategory}>{study.category}</span>
-                  </span>
-                  {/* Hover preview thumbnail (revealed on hover, hidden on touch) */}
-                  <span className={styles.rowPreview} aria-hidden="true">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={study.heroImage} alt="" loading="lazy" decoding="async" />
-                  </span>
-                  <span className={styles.rowArrow} aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path
-                        d="M1 13L13 1M13 1H4M13 1V10"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                      />
-                    </svg>
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ol>
-        </section>
-
-        {/* CLIENT MARQUEE — logo roster driven by CLIENTS in caseStudies.js */}
-        <section className={styles.clients} aria-label="Clients">
-          <span className={`eyebrow ${styles.clientsEyebrow}`}>Client Wall</span>
-          <h2 className={styles.clientsTitle}>In good company.</h2>
-          <p className={styles.clientsSubline}>
-            A few of the teams whose stories we have helped shape.
-          </p>
-          <div className={styles.marquee} role="presentation">
-            <div className={styles.marqueeTrack}>
-              {[...CLIENTS, ...CLIENTS].map((client, i) => (
-                <span
-                  key={`${client.name}-${i}`}
-                  className={styles.marqueeItem}
-                  title={client.name}
-                  aria-hidden={i >= CLIENTS.length}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={client.logo}
-                    alt={i < CLIENTS.length ? client.name : ''}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </span>
-              ))}
+        {/* HERO SECTION */}
+        <section className={styles.hero}>
+          <div className={styles.heroContent}>
+            <div>
+              <span className={styles.heroEyebrow}>01</span>
+              <h1 className={styles.heroTitle}>Work That Moves People</h1>
             </div>
-            <span className={styles.marqueeFadeLeft} aria-hidden="true" />
-            <span className={styles.marqueeFadeRight} aria-hidden="true" />
+            <p className={styles.heroSubtitle}>
+              Films, stills and stories shaped with care.
+              <br />
+              A tour of recent Elephant Media collaborations and craft.
+            </p>
           </div>
+        </section>
+
+        {/* WORK GRID */}
+        <section className={styles.workSection}>
+          <SnowParticles />
+          <div className={styles.workList}>
+            {CASE_STUDIES.map((study, idx) => {
+              const number = String(idx + 1).padStart(2, '0');
+              const flipped = idx % 2 !== 0;
+              const panelColor = PANEL_COLORS[idx % PANEL_COLORS.length];
+              return (
+                <motion.article
+                  className={`${styles.workCard} ${flipped ? styles.flipped : ''}`}
+                  key={study.slug}
+                  initial={{ opacity: 0, y: 60 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: 'easeOut' }}
+                >
+                  <Link href={`/work/${study.slug}`} className={styles.workCardMedia}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      className={styles.workCardImage}
+                      src={study.heroImage}
+                      alt={study.projectName}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className={styles.workCardShade}></div>
+                    <span className={styles.workCardIndex}>{number}</span>
+                    <span className={styles.workCardChip}>{study.category}</span>
+                  </Link>
+                  <div className={styles.workCardPanel} style={{ backgroundColor: panelColor }}>
+                    <Link href={`/work/${study.slug}`} className={styles.brandLink}>
+                      <h2 className={styles.mainBrand}>
+                        {study.projectName}
+                        <span className={styles.arrowIcon}>
+                          <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+                            <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.5" />
+                          </svg>
+                        </span>
+                      </h2>
+                    </Link>
+                    <span className={styles.viewCase}>View case study</span>
+                  </div>
+                </motion.article>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* CLIENTS */}
+        <section className={styles.clientsSection}>
+          <span className={styles.clientsEyebrow}>Our Clients</span>
+          <h2 className={styles.clientsTitle}>Trusted by Elephant Media brands across every category.</h2>
+          <div className={styles.clientStrip}>
+            {CLIENTS.map((client) => (
+              <span key={client.name} className={styles.clientLogo} title={client.name}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={client.logo} alt={client.name} loading="lazy" decoding="async" />
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* WHAT WE OFFER SECTION */}
+        <section className={styles.offerSectionWrapper}>
+          <div className={styles.offerSection}>
+            <div className={styles.offerLeft}>
+              <h2 className={styles.offerTitle}>What we offer</h2>
+            </div>
+            <div className={styles.offerRight}>
+              <Link href="/services" className={styles.offerBtn}>
+                <span className={styles.offerBtnCircle}>
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.5" />
+                  </svg>
+                </span>
+                <span>See Services</span>
+              </Link>
+            </div>
+          </div>
+          <p className={styles.closingStatement}>
+            Elephant Media — where strategy becomes culture.
+          </p>
         </section>
       </main>
       <Footer />
