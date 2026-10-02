@@ -264,6 +264,9 @@
 }
 
 .sectionLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   flex-shrink: 0;
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -421,6 +424,12 @@
 }
 
 .textLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.625rem 1rem;
+  margin: -0.625rem -1rem;
+  vertical-align: middle;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 600;
@@ -466,6 +475,15 @@
   text-transform: uppercase;
   color: var(--dk-accent);
   margin-bottom: 2.5rem;
+}
+
+.contactLines a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.625rem 0.5rem;
+  margin: -0.625rem 0;
 }
 
 /* ── Responsive ──────────────────────────────────────────────── */

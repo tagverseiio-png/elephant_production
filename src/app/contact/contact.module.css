@@ -106,6 +106,9 @@
 }
 
 .railLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 600;
@@ -118,6 +121,9 @@
 }
 
 .mailLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-family: var(--font-sans);
   font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   font-weight: 600;

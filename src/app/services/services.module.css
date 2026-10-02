@@ -238,6 +238,11 @@
 }
 
 .ctaLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.625rem 1rem;
   font-family: var(--font-sans);
   font-size: 0.82rem;
   font-weight: 400;
