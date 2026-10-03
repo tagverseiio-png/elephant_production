@@ -3,6 +3,13 @@ import { useState } from 'react';
 import Link from 'next/link';
 import styles from './StudioWizard.module.css';
 
+// ── PLACEHOLDER — owner: replace with a verified address before launch. ──
+// We have no verified contact details, so this intentionally uses an
+// obvious placeholder target instead of inventing a real-looking address.
+// CONTACT_EMAIL uses the RFC 2606 reserved `example.com` domain, so it
+// can never be mistaken for a real address.
+const CONTACT_EMAIL = 'hello@example.com';
+
 const STEPS = ['YOUR DETAILS', 'SCHEDULE', 'SERVICES', 'REVIEW'];
 
 const PACKAGES = [
@@ -60,7 +67,7 @@ export default function StudioWizard() {
     const subject = encodeURIComponent(`Studio booking request — ${fullName || 'New enquiry'}`);
     const body = encodeURIComponent(
       [
-        'Hello The Elephant Production,',
+        'Hello Elephant Media,',
         '',
         'I would like to request a studio slot with the following details:',
         '',
@@ -74,7 +81,7 @@ export default function StudioWizard() {
         'Thank you!',
       ].join('\n')
     );
-    return `mailto:info@theelephantproduction.com?subject=${subject}&body=${body}`;
+    return `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -264,8 +271,9 @@ export default function StudioWizard() {
             Request via email
           </a>
           <p className={styles.disclaimer}>
-            This opens a draft email to info@theelephantproduction.com. Your slot is only
-            confirmed once our team replies — nothing is submitted automatically.
+            {/* PLACEHOLDER email — see CONTACT_EMAIL note above. */}
+            This opens a draft email to {CONTACT_EMAIL}. Your slot is only confirmed once
+            our team replies — nothing is submitted automatically.
           </p>
         </div>
       )}

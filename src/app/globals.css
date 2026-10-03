@@ -80,3 +80,68 @@ button {
   cursor: pointer;
   font-family: inherit;
 }
+
+/* ============================================================
+   PHASE B — SHARED SHELL ADDITIONS (ADDITIVE ONLY)
+   The light-theme tokens above are the live theme and must NOT
+   be renamed or removed — pages depend on them.
+   The block below adds opt-in tokens modelled on the structural
+   reference's palette (near-black + orange accent) under a
+   distinct `--dk-` prefix so they cannot collide. Later page
+   jobs opt into them page by page; nothing below changes the
+   current light appearance on its own.
+   ============================================================ */
+:root {
+  /* ── Dark theme tokens (reference palette, opt-in) ── */
+  --dk-bg:         #15110F;               /* near-black canvas */
+  --dk-surface:    #1E1814;               /* raised surface on dark canvas */
+  --dk-accent:     #FF6B00;               /* primary orange accent */
+  --dk-accent-deep:#F16920;               /* deep orange (hover / emphasis) */
+  --dk-text:       #FFFFFF;               /* primary text on dark */
+  --dk-text-muted: rgba(255, 255, 255, 0.45); /* muted text (~45% opacity) */
+  --dk-border:     rgba(255, 255, 255, 0.12); /* hairline border on dark */
+
+  /* ── Monospace stack for eyebrow / label type ── */
+  --font-mono: 'SFMono-Regular', ui-monospace, 'Cascadia Mono', Menlo,
+    Consolas, 'Liberation Mono', monospace;
+
+  /* ── Eyebrow / section-label convention ──
+     Monospace, uppercase, small, wide letter-spacing. Mirrors the
+     reference's typographic convention for section eyebrows. */
+  --eyebrow-size:    0.68rem;
+  --eyebrow-weight:  600;
+  --eyebrow-spacing: 0.32em;
+  --eyebrow-height:  1.5;
+}
+
+/* Reusable section eyebrow label. Pages opt in via className="eyebrow". */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-spacing);
+  line-height: var(--eyebrow-height);
+  text-transform: uppercase;
+}
+
+/* ── Baseline visible focus for keyboard users (shell-wide) ── */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Media guard: replaced elements never force horizontal overflow ── */
+img,
+video,
+svg {
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

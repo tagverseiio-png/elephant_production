@@ -1,52 +1,63 @@
-'use client';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
-import { motion } from 'framer-motion';
 import styles from './influencers.module.css';
 
-const INFLUENCERS_DATA = [
+export const metadata = {
+  title: 'Influencer Collaborations | Elephant Media',
+  description:
+    'How Elephant Media plans, produces and supports influencer collaborations — formats, process and what makes a good fit.',
+};
+
+// Offering page for influencer collaborations. The reference site has no
+// equivalent page, so this is built from our own structural patterns.
+// It describes formats and process only — no creator names, follower
+// counts, engagement rates, campaign results or brand partnerships are
+// asserted anywhere on this page.
+const FORMATS = [
   {
-    id: 1,
-    brand: 'LUMEN SKINCARE',
-    title: 'Lumen Skincare Glow Ritual Launch',
-    category: 'BEAUTY',
-    imageUrl: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=1200&auto=format&fit=crop'
+    index: '01',
+    title: 'Product storytelling',
+    text: 'Creators introduce a product the way they actually use it — filmed, edited and directed to match the brand’s wider campaign.',
   },
   {
-    id: 2,
-    brand: 'SOLACE HOME',
-    title: 'Solace Home Ambassador Program',
-    category: 'HOME',
-    imageUrl: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=1200&auto=format&fit=crop'
+    index: '02',
+    title: 'Launch moments',
+    text: 'Coordinated content around drops, openings and announcements, planned alongside the hero campaign assets.',
   },
   {
-    id: 3,
-    brand: 'PETAL & PINE',
-    title: 'Petal & Pine Seasonal Drop',
-    category: 'BEAUTY',
-    imageUrl: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop'
+    index: '03',
+    title: 'Ongoing series',
+    text: 'Recurring formats — routines, diaries, behind-the-scenes — that give audiences a reason to keep watching.',
   },
   {
-    id: 4,
-    brand: 'MAISON SOLSTICE',
-    title: 'Maison Solstice Atelier Preview',
-    category: 'FASHION',
-    imageUrl: 'https://images.unsplash.com/photo-1554200876-56c2f25224fa?q=80&w=1200&auto=format&fit=crop'
+    index: '04',
+    title: 'Events and activations',
+    text: 'On-the-ground coverage of gatherings, pop-ups and launches, cut for both immediate posting and longer-term reuse.',
+  },
+];
+
+const STEPS = [
+  {
+    index: '01',
+    title: 'Fit and briefing',
+    text: 'We start from the brand and the audience, then agree what a credible collaboration looks like before anyone is approached.',
   },
   {
-    id: 5,
-    brand: 'NORTHBOUND FILMS',
-    title: 'Northbound Films Field Diaries Trip',
-    category: 'LIFESTYLE',
-    imageUrl: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=1200&auto=format&fit=crop'
+    index: '02',
+    title: 'Shared concept',
+    text: 'Creators help shape the idea rather than reading a script — the concept is agreed by everyone involved.',
   },
   {
-    id: 6,
-    brand: 'RIDGELINE OUTFITTERS',
-    title: 'Ridgeline Outfitters Community Programming',
-    category: 'ACTIVEWEAR',
-    imageUrl: 'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?q=80&w=1200&auto=format&fit=crop'
-  }
+    index: '03',
+    title: 'Production support',
+    text: 'Our team handles direction, filming, editing and delivery, so the finished work meets the same bar as the rest of the campaign.',
+  },
+  {
+    index: '04',
+    title: 'Rollout and reuse',
+    text: 'Content is planned for each placement from the outset, and the best material is cut for reuse across channels.',
+  },
 ];
 
 export default function InfluencersPage() {
@@ -54,41 +65,72 @@ export default function InfluencersPage() {
     <>
       <Navbar />
       <main className={styles.main}>
-        {/* HERO SECTION */}
-        <section className={styles.heroSection}>
-          <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>Influencer Collaborations</h1>
-            <div className={styles.heroRight}>
-              <p className={styles.heroText}>
-                We fuel brand awareness, boost conversion, and create tangible ROI by fostering authentic partnerships between influencers and brands. Because influencers are changing the way we interact with brands, you might trust a post from your favorite creator more than a celebrity commercial.
-              </p>
-            </div>
-          </div>
+        {/* HEADER */}
+        <section className={styles.header}>
+          <span className={`eyebrow ${styles.headerEyebrow}`}>
+            Influencer Collaborations
+          </span>
+          <h1 className={styles.title}>Made with creators</h1>
+          <p className={styles.subline}>
+            People trust the creators they follow. We plan, produce and
+            support collaborations between brands and creators — treated with
+            the same care as any other campaign work.
+          </p>
         </section>
 
-        {/* CONTENT SECTION */}
-        <section className={styles.contentSection}>
-          {/* GRID */}
-          <div className={styles.grid}>
-            {INFLUENCERS_DATA.map((item, idx) => (
-              <motion.div 
-                key={item.id} 
-                className={styles.gridItem}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 * (idx % 2) }}
-              >
-                <div className={styles.imageWrapper}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={item.imageUrl} alt={item.title} loading="lazy" decoding="async" />
+        {/* FORMATS */}
+        <section className={styles.section} aria-label="Collaboration formats">
+          <h2 className={styles.sectionTitle}>What this covers</h2>
+          <ol className={styles.rows}>
+            {FORMATS.map((format) => (
+              <li key={format.index} className={styles.row}>
+                <span className={styles.rowIndex} aria-hidden="true">
+                  {format.index}
+                </span>
+                <div className={styles.rowBody}>
+                  <h3 className={styles.rowTitle}>{format.title}</h3>
+                  <p className={styles.rowText}>{format.text}</p>
                 </div>
-                <div className={styles.itemInfo}>
-                  <p className={styles.itemBrand}>{item.brand}</p>
-                  <h3 className={styles.itemTitle}>{item.title}</h3>
-                </div>
-              </motion.div>
+              </li>
             ))}
+          </ol>
+        </section>
+
+        {/* PROCESS */}
+        <section className={styles.section} aria-label="How collaborations take shape">
+          <h2 className={styles.sectionTitle}>How a collaboration takes shape</h2>
+          <ol className={styles.cards}>
+            {STEPS.map((step) => (
+              <li key={step.index} className={styles.card}>
+                <span className={styles.cardIndex} aria-hidden="true">
+                  {step.index}
+                </span>
+                <h3 className={styles.cardTitle}>{step.title}</h3>
+                <p className={styles.cardText}>{step.text}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        {/* FIT + CTA */}
+        <section className={styles.fit}>
+          <span className={`eyebrow ${styles.fitEyebrow}`}>Good fit</span>
+          <h2 className={styles.fitTitle}>
+            The best collaborations feel obvious in hindsight.
+          </h2>
+          <p className={styles.fitText}>
+            A creator whose audience already cares about the category, a
+            product they can speak about honestly, and a concept with room
+            for their voice. If those three are in place, the production
+            side is our job — direction, filming, editing and delivery.
+          </p>
+          <div className={styles.fitCtas}>
+            <Link href="/contact" className={styles.ctaPrimary}>
+              Discuss a collaboration
+            </Link>
+            <Link href="/work" className={styles.ctaSecondary}>
+              See our work
+            </Link>
           </div>
         </section>
       </main>

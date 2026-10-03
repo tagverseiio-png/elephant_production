@@ -1,184 +1,183 @@
-'use client';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
-import { motion } from 'framer-motion';
 import styles from './about.module.css';
 
-const VALUES = [
+// Placeholder contact targets. The owner replaces these with verified
+// details before launch, following the same pattern used in Footer.
+// The email uses a reserved example domain and the social link points
+// at the platform root, so neither can be mistaken for a real address.
+const CONTACT_EMAIL = 'hello@example.com';
+const INSTAGRAM_URL = 'https://www.instagram.com/';
+
+// How we work is described as principles, not as a timeline, so this
+// page makes no claims about dates, durations, or team size.
+const STEPS = [
   {
-    title: 'Action-First',
-    description: 'We don\'t just talk strategy — we execute. Every recommendation comes with a clear path to results.',
-    icon: '→',
+    title: 'Listen well',
+    text: 'We begin by understanding the brand, its audience, and the change it hopes to make, before any concept is proposed.',
   },
   {
-    title: 'Creative Alchemy',
-    description: 'We blend art and strategy, intuition and data, to create communications that truly resonate.',
-    icon: '✦',
+    title: 'Shape the story',
+    text: 'We agree on one central idea and the messages that support it, so every later decision has something to answer to.',
   },
   {
-    title: 'Authentic Storytelling',
-    description: 'We bring your brand\'s unique perspective and authenticity to the forefront of every narrative.',
-    icon: '◈',
+    title: 'Make with care',
+    text: 'We produce the work attentively across film, stills, social, and sound, keeping craft consistent at every step.',
   },
   {
-    title: 'Collaborative Spirit',
-    description: 'Your brand is our brand. We embed ourselves in your culture to deliver work that feels genuinely yours.',
-    icon: '◎',
+    title: 'Share and learn',
+    text: 'We release the work thoughtfully, watch how it is received, and carry what we learn into whatever comes next.',
   },
 ];
 
-const TEAM = [
-  { name: 'Founder & CEO', role: 'Leadership', gradient: 'linear-gradient(135deg, #e8ddd0, #c4a882)' },
-  { name: 'VP of Communications', role: 'Strategy', gradient: 'linear-gradient(135deg, #d4c5b2, #a8956e)' },
-  { name: 'Director of Influencer', role: 'Partnerships', gradient: 'linear-gradient(135deg, #a8c5a0, #6b9e5e)' },
-  { name: 'Creative Director', role: 'Creative', gradient: 'linear-gradient(135deg, #c9b99a, #8fb573)' },
-  { name: 'Senior Account Manager', role: 'Client Services', gradient: 'linear-gradient(135deg, #c4a882, #8b6d4f)' },
-  { name: 'Digital Strategist', role: 'Digital', gradient: 'linear-gradient(135deg, #e0d5c7, #c4a882)' },
+// Beliefs are stated as values, not as achievements, so nothing here
+// asserts awards, results, or recognition of any kind.
+const BELIEFS = [
+  {
+    title: 'Clarity outlasts noise.',
+    text: 'A simple idea, plainly told, stays with people longer than spectacle.',
+  },
+  {
+    title: 'Honesty holds attention.',
+    text: 'Audiences recognise what is genuine. We build stories a brand can stand behind.',
+  },
+  {
+    title: 'Craft shows respect.',
+    text: 'Care in sound, image, and word tells the audience that their time matters.',
+  },
+  {
+    title: 'Good ideas welcome company.',
+    text: 'The strongest work is improved by collaboration, candour, and fresh perspectives.',
+  },
 ];
 
 export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main>
-        {/* Hero */}
-        <section className={styles.pageHero}>
-          <div className={styles.heroContent}>
-            <span className={styles.heroLabel}>About The Elephant Production</span>
+
+      <main className={styles.main}>
+        {/* Opening statement: who this page is for and what it covers. */}
+        <section className={styles.hero} aria-label="About Elephant Media">
+          <div className={styles.heroGlow} aria-hidden="true" />
+          <div className={styles.heroInner}>
+            <p className={`eyebrow ${styles.heroEyebrow}`}>
+              About Elephant Media
+            </p>
             <h1 className={styles.heroTitle}>
-              We create magic<br />for brands
+              A studio for clear and honest brand stories.
             </h1>
+            <p className={styles.heroSub}>
+              Elephant Media is a creative communications agency. This page
+              describes who we are, how we work, and what guides our
+              choices &mdash; in plain language, without embellishment.
+            </p>
           </div>
+          <p className={styles.heroWordmark} aria-hidden="true">
+            Elephant Media
+          </p>
         </section>
 
-        {/* Mission */}
-        <section className={styles.missionSection}>
-          <div className={styles.missionContainer}>
-            <motion.div 
-              className={styles.missionLeft}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <span className={styles.labelLine}></span>
-              <span className={styles.sectionLabel}>Who We Are</span>
-            </motion.div>
-            <motion.div 
-              className={styles.missionRight}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            >
-              <p className={styles.missionText}>
-                The Elephant Production is an action-first creative communications agency. We increase brand visibility and awareness to attract new customers through thoughtful storytelling and distinct and adaptable communications strategies.
-              </p>
-              <p className={styles.missionText}>
-                With an unmatched consumer understanding and a true collaborative spirit, we create magic for brands by bringing their authenticity and differentiated perspective to the forefront. Our team brings decades of combined experience across media, fashion, lifestyle, and consumer brands.
-              </p>
-            </motion.div>
+        {/* Who we are. Stated in general terms; anything unverified
+            is left out on purpose rather than invented. */}
+        <section className={styles.light} aria-label="Who we are">
+          <div className={styles.narrow}>
+            <p className={`eyebrow ${styles.kicker}`}>Who we are</p>
+            <h2 className={styles.lead}>
+              People who care how stories land.
+            </h2>
+            <p className={styles.body}>
+              We are strategists, makers, and editors gathered around a
+              shared interest: helping brands communicate with care.
+              Strategy sits beside production here, so ideas are shaped by
+              the people who will bring them to life.
+            </p>
+            <p className={styles.body}>
+              We describe only what we can stand behind. Anything that
+              would require names, numbers, or addresses we do not hold is
+              left out of this page on purpose &mdash; what remains is how
+              we think and how we work.
+            </p>
           </div>
-        </section>
-
-        {/* Values */}
-        <section className={styles.valuesSection}>
-          <div className={styles.valuesHeader}>
-            <motion.h2 
-              className={styles.valuesTitle}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              Our Values
-            </motion.h2>
-          </div>
-          <div className={styles.valuesGrid}>
-            {VALUES.map((value, i) => (
-              <motion.div
-                key={i}
-                className={styles.valueCard}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: i * 0.1 }}
-              >
-                <div className={styles.valueIcon}>{value.icon}</div>
-                <h3 className={styles.valueTitle}>{value.title}</h3>
-                <p className={styles.valueDesc}>{value.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* Team */}
-        <section className={styles.teamSection}>
-          <div className={styles.teamHeader}>
-            <motion.div 
-              className={styles.sectionLabelWrap}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <span className={styles.labelLine}></span>
-              <span className={styles.sectionLabel}>The Team</span>
-            </motion.div>
-            <motion.h2 
-              className={styles.teamTitle}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            >
-              Meet the people behind<br />the magic
-            </motion.h2>
-          </div>
-          <div className={styles.teamGrid}>
-            {TEAM.map((member, i) => (
-              <motion.div
-                key={i}
-                className={styles.teamCard}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: i * 0.08 }}
-              >
-                <div className={styles.teamImage} style={{ background: member.gradient }}>
-                  <div className={styles.teamInitial}>
-                    {member.name.charAt(0)}
-                  </div>
-                </div>
-                <div className={styles.teamInfo}>
-                  <h3 className={styles.teamName}>{member.name}</h3>
-                  <span className={styles.teamRole}>{member.role}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
-
-        {/* Testimonial */}
-        <section className={styles.testimonialSection}>
-          <motion.div 
-            className={styles.testimonialContent}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className={styles.quoteIcon}>&ldquo;</div>
-            <blockquote className={styles.quote}>
-              The Elephant Production has been a transformative partner for our brand. Their strategic vision combined with flawless execution has elevated our presence in ways we never thought possible.
-            </blockquote>
-            <div className={styles.quoteAuthor}>
-              <span className={styles.authorName}>Brand Partner</span>
-              <span className={styles.authorRole}>Fortune 500 Company</span>
+          <div className={styles.narrow}>
+            <div className={styles.visual} aria-hidden="true">
+              <span className={styles.visualMark}>&ldquo;</span>
+              <span className={styles.visualText}>
+                Say it plainly, make it well
+              </span>
             </div>
-          </motion.div>
+          </div>
+        </section>
+
+        {/* How we work: a steady path from idea to release. */}
+        <section className={styles.dark} aria-label="How we work">
+          <div className={styles.wide}>
+            <p className={`eyebrow ${styles.kickerDark}`}>How we work</p>
+            <h2 className={styles.sectionTitle}>
+              A steady path from idea to release.
+            </h2>
+            <ol className={styles.steps}>
+              {STEPS.map((step) => (
+                <li key={step.title} className={styles.step}>
+                  <h3 className={styles.stepTitle}>{step.title}</h3>
+                  <p className={styles.stepText}>{step.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* What we believe: guiding principles. */}
+        <section className={styles.light} aria-label="What we believe">
+          <div className={styles.wide}>
+            <p className={`eyebrow ${styles.kicker}`}>What we believe</p>
+            <h2 className={styles.sectionTitleLight}>
+              Principles that guide the work.
+            </h2>
+            <ul className={styles.beliefs}>
+              {BELIEFS.map((belief) => (
+                <li key={belief.title} className={styles.belief}>
+                  <h3 className={styles.beliefTitle}>{belief.title}</h3>
+                  <p className={styles.beliefText}>{belief.text}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Concrete closing section with placeholder contact targets. */}
+        <section className={styles.closing} aria-label="Get in touch">
+          <div className={styles.narrowCenter}>
+            <p className={`eyebrow ${styles.kickerDark}`}>Get in touch</p>
+            <h2 className={styles.closingTitle}>
+              Tell us what you hope to make.
+            </h2>
+            <p className={styles.closingBody}>
+              If the way we work sounds like a fit, write to us through
+              the contact page. Bring whatever you have &mdash; a brief, a
+              sketch, or simply a question.
+            </p>
+            <p className={styles.contactLines}>
+              {/* Placeholder email; see CONTACT_EMAIL note above. */}
+              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              <span aria-hidden="true">&middot;</span>
+              {/* Placeholder social link; see INSTAGRAM_URL note above. */}
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+            </p>
+            <Link href="/contact" className={styles.btnSolid}>
+              Go to the contact page
+            </Link>
+          </div>
         </section>
       </main>
+
       <Footer />
     </>
   );

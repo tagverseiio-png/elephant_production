@@ -1,257 +1,209 @@
-'use client';
-import { useRef } from 'react';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
-import SnowParticles from '@/components/SnowParticles/SnowParticles';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { CASE_STUDIES } from '@/data/caseStudies';
 import styles from './page.module.css';
 
+// Placeholder contact targets. The owner replaces these with verified
+// details before launch, following the same pattern used in Footer.
+// The email uses a reserved example domain and the social link points
+// at the platform root, so neither can be mistaken for a real address.
+const CONTACT_EMAIL = 'hello@example.com';
+const INSTAGRAM_URL = 'https://www.instagram.com/';
+
+// A small sample drawn from the shared project library. Slugs are matched
+// by name so no new project data is introduced here.
+const FEATURED_SLUGS = ['the-madras-barber', 'chuan-watch', 'super-deluxe'];
+const FEATURED_WORK = CASE_STUDIES.filter((study) =>
+  FEATURED_SLUGS.includes(study.slug)
+);
+
+// A plain-language summary of the kinds of help we offer. The full detail
+// lives on the services page, which owns the canonical descriptions.
+const CAPABILITIES = [
+  {
+    title: 'Brand storytelling',
+    text: 'Positioning, messaging, and campaign ideas that give every asset a shared spine.',
+  },
+  {
+    title: 'Film and photography',
+    text: 'Concept-led shoots, edits, and stills composed for screens of every shape and size.',
+  },
+  {
+    title: 'Social and creator content',
+    text: 'Everyday formats and creative collaborations shaped for the feeds where audiences gather.',
+  },
+  {
+    title: 'Studio and audio',
+    text: 'Recorded conversations and voice work captured in a calm setting, ready to publish.',
+  },
+];
+
 export default function Home() {
-  const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"]
-  });
-
-  // As scroll progresses from 0 to 1, shrink the title
-  const titleScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.12]);
-  const titleY = useTransform(scrollYProgress, [0, 0.5], [0, -200]);
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.35, 0.5], [1, 0.6, 0]);
-
   return (
     <>
       <Navbar isHome />
 
       <main className={styles.main}>
-
-        {/* ═══════════════ HERO ═══════════════ */}
-        <section className={styles.hero} ref={heroRef}>
-          <div className={styles.heroBackground}>
-            <video 
-              autoPlay 
-              loop 
-              muted 
-              playsInline 
-              className={styles.heroVideo}
-            >
-              <source src="https://cdn.dribbble.com/userupload/47649503/file/f9562b477f17db6f6383731afafee870.mp4" type="video/mp4" />
-            </video>
-            <div className={styles.heroOverlay}></div>
-            <SnowParticles />
-          </div>
-          
-          {/* Giant full-width title — shrinks on scroll */}
-          <motion.h1 
-            className={styles.heroGiantTitle}
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            style={{
-              scale: titleScale,
-              y: titleY,
-              opacity: titleOpacity,
-            }}
-          >
-            THE ELEPHANT PRODUCTION
-          </motion.h1>
-
-          <div className={styles.heroContent}>
-            <motion.p 
-              className={styles.heroSubtitle}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.4 }}
-            >
-              An action-first creative communications agency
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.6 }}
-            >
-              <Link href="/work" className={styles.heroBtn}>
-                <span>↗ VIEW WORK</span>
+        {/* Immersive typographic hero. Type-led by design: no video
+            assets are used, so motion here is CSS animation only. */}
+        <section className={styles.hero} aria-label="Introduction">
+          <div className={styles.heroGlow} aria-hidden="true" />
+          <div className={styles.heroInner}>
+            <p className={`eyebrow ${styles.heroEyebrow}`}>
+              Elephant Media &middot; Creative communications
+            </p>
+            <h1 className={styles.heroTitle}>
+              Stories people
+              <br />
+              carry with them.
+            </h1>
+            <p className={styles.heroSub}>
+              Elephant Media shapes brand stories for film, social, and
+              studio &mdash; thoughtful work made to be remembered.
+            </p>
+            <div className={styles.heroCtas}>
+              <Link href="/work" className={styles.btnSolid}>
+                View our work
               </Link>
-            </motion.div>
-          </div>
-
-          <div className={styles.marqueeContainer}>
-            <div className={styles.marqueeTrack}>
-              <span className={styles.marqueeText}>
-                Maison Solstice • Lumen Skincare • Atelier Verdant • Northbound Films • Harbour &amp; Vale • Solace Home • Cobalt Athletics • Ridgeline Outfitters •&nbsp;
-              </span>
-              <span className={styles.marqueeText}>
-                Maison Solstice • Lumen Skincare • Atelier Verdant • Northbound Films • Harbour &amp; Vale • Solace Home • Cobalt Athletics • Ridgeline Outfitters •&nbsp;
-              </span>
+              <Link href="/contact" className={styles.btnGhost}>
+                Start a conversation
+              </Link>
             </div>
+          </div>
+          <p className={styles.heroWordmark} aria-hidden="true">
+            Elephant Media
+          </p>
+          <span className={styles.scrollCue} aria-hidden="true">
+            Scroll
+          </span>
+        </section>
+
+        {/* Short positioning statement. */}
+        <section className={styles.position} aria-label="Our position">
+          <div className={styles.narrow}>
+            <p className={`eyebrow ${styles.kicker}`}>Our position</p>
+            <h2 className={styles.lead}>
+              Attention is earned, never assumed.
+            </h2>
+            <p className={styles.body}>
+              We help brands say something worth hearing. Every engagement
+              begins with listening &mdash; to the people behind the brand
+              and the audience it hopes to reach &mdash; and ends with work
+              that feels honest wherever it appears.
+            </p>
+            <p className={styles.body}>
+              From early sketch to final cut, we keep one idea at the
+              center, so each film, post, or recording speaks in the same
+              clear voice.
+            </p>
           </div>
         </section>
 
-        {/* ═══════════════ BENTO GRID ═══════════════ */}
-        <section className={styles.bentoSection}>
-
-          {/* Row 1 — Image | Text */}
-          <motion.div
-            className={styles.bentoRow}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className={`${styles.bentoItem} ${styles.imageItem}`}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200"
-                alt="Creative production shoot"
-                className={styles.imagePlaceholder}
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div className={`${styles.bentoItem} ${styles.textItem}`} style={{ backgroundColor: 'var(--color-accent)' }}>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              >
-                <span className={styles.bentoLabel}>Who we are</span>
-                <h2 className={styles.bentoTitle}>Infusing creative alchemy into today&apos;s brands</h2>
-                <p className={styles.bentoDesc}>
-                  We increase brand visibility and awareness to attract new customers through thoughtful storytelling and distinct, adaptable communications strategies. With an unmatched consumer understanding and a true collaborative spirit, we create magic for brands.
+        {/* Selected-work preview, rendered from the shared project
+            library. Concept pieces only; nothing new is invented here. */}
+        <section className={styles.work} aria-label="Selected work">
+          <div className={styles.wide}>
+            <div className={styles.sectionHead}>
+              <div>
+                <p className={`eyebrow ${styles.kickerDark}`}>
+                  Selected work
                 </p>
-              </motion.div>
-              <Link href="/services" className={styles.bentoBtn}>
-                <span className={styles.bentoBtnCircle}>
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                    <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.5" />
-                  </svg>
-                </span>
-                <span>OUR SERVICES</span>
+                <h2 className={styles.sectionTitle}>
+                  A first look at our project library
+                </h2>
+                <p className={styles.sectionSub}>
+                  Concept pieces from our shared project library, shown here
+                  to illustrate how we approach an idea from brief to release.
+                </p>
+              </div>
+              <Link href="/work" className={styles.sectionLink}>
+                See all work <span aria-hidden="true">&rarr;</span>
               </Link>
             </div>
-          </motion.div>
-
-          {/* Row 2 — Text | Image */}
-          <motion.div
-            className={styles.bentoRow}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-          >
-            <div className={`${styles.bentoItem} ${styles.textItem}`} style={{ backgroundColor: 'var(--color-accent2)' }}>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              >
-                <span className={styles.bentoLabel}>Influencer Strategy</span>
-                <h2 className={styles.bentoTitle}>Engage with cultural tastemakers</h2>
-                <p className={styles.bentoDesc}>
-                  Our dedicated influencer team manages everything from macro-ambassador programs to hyper-local micro-influencer campaigns, ensuring authentic alignment and measurable impact.
-                </p>
-              </motion.div>
-              <Link href="/influencers" className={styles.bentoBtn}>
-                <span className={styles.bentoBtnCircle}>
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                    <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.5" />
-                  </svg>
-                </span>
-                <span>INFLUENCER SERVICES</span>
-              </Link>
-            </div>
-            <div className={`${styles.bentoItem} ${styles.imageItem}`}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1200"
-                alt="Influencer collaboration"
-                className={styles.imagePlaceholder}
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </motion.div>
-
-          {/* Row 3 — Video | Text */}
-          <motion.div
-            className={styles.bentoRow}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-          >
-            <div className={`${styles.bentoItem} ${styles.imageItem}`} style={{ overflow: 'hidden' }}>
-              <video 
-                autoPlay 
-                loop 
-                muted 
-                playsInline
-                preload="none"
-                className={styles.imagePlaceholder}
-                style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-              >
-                <source src="https://cdn.dribbble.com/userupload/47649503/file/f9562b477f17db6f6383731afafee870.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div className={`${styles.bentoItem} ${styles.textItem}`} style={{ backgroundColor: 'var(--color-accent3)' }}>
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              >
-                <span className={styles.bentoLabel}>Experiential</span>
-                <h2 className={styles.bentoTitle}>Experiences that leave a mark</h2>
-                <p className={styles.bentoDesc}>
-                  From intimate press dinners to massive consumer activations, we handle end-to-end event production that amplifies your message and creates lasting impressions.
-                </p>
-              </motion.div>
-              <Link href="/services" className={styles.bentoBtn}>
-                <span className={styles.bentoBtnCircle}>
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                    <path d="M1 9L9 1M9 1H2M9 1V8" stroke="currentColor" strokeWidth="1.5" />
-                  </svg>
-                </span>
-                <span>ALL SERVICES</span>
-              </Link>
-            </div>
-          </motion.div>
-
-        </section>
-
-        {/* ═══════════════ INSTAGRAM ═══════════════ */}
-        <section className={styles.instagramSection}>
-          <div className={styles.instaHeader}>
-            <h2 className={styles.instaTitle}>Follow Us</h2>
-            <a href="https://www.instagram.com/theelephantproduction/" target="_blank" rel="noopener noreferrer" className={styles.instaLink}>
-              @theelephantproduction
-            </a>
-          </div>
-          <div className={styles.instaCarousel}>
-            <div className={styles.instaCarouselTrack}>
-              {[
-                'https://images.unsplash.com/photo-1554200876-56c2f25224fa?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1554200876-56c2f25224fa?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=400&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400&auto=format&fit=crop'
-              ].map((src, i) => (
-                <div key={i} className={styles.instaBox}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={src} alt="Instagram post" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
-                </div>
+            <ul className={styles.workList}>
+              {FEATURED_WORK.map((study) => (
+                <li key={study.slug} className={styles.workRow}>
+                  <Link
+                    href={`/work/${study.slug}`}
+                    className={styles.workLink}
+                  >
+                    <span className={styles.workThumb} aria-hidden="true">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={study.heroImage}
+                        alt=""
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </span>
+                    <span className={styles.workMeta}>
+                      <span className={styles.workCat}>
+                        {study.category}
+                      </span>
+                      <span className={styles.workName}>
+                        {study.projectName}
+                      </span>
+                    </span>
+                    <span className={styles.workArrow} aria-hidden="true">
+                      &rarr;
+                    </span>
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
+          </div>
+        </section>
+
+        {/* Services teaser. Summaries only; canonical detail lives
+            on the services page. */}
+        <section className={styles.services} aria-label="How we can help">
+          <div className={styles.wide}>
+            <p className={`eyebrow ${styles.kicker}`}>How we can help</p>
+            <h2 className={styles.sectionTitleLight}>
+              Ideas carried through to release.
+            </h2>
+            <ul className={styles.capGrid}>
+              {CAPABILITIES.map((cap) => (
+                <li key={cap.title} className={styles.capCard}>
+                  <h3 className={styles.capTitle}>{cap.title}</h3>
+                  <p className={styles.capText}>{cap.text}</p>
+                </li>
+              ))}
+            </ul>
+            <Link href="/services" className={styles.textLink}>
+              Explore services <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
+        </section>
+
+        {/* Concrete closing section with placeholder contact targets. */}
+        <section className={styles.closing} aria-label="Get in touch">
+          <div className={styles.narrowCenter}>
+            <p className={`eyebrow ${styles.kickerDark}`}>Say hello</p>
+            <h2 className={styles.closingTitle}>
+              Have a story to tell? Let us shape it with you.
+            </h2>
+            <p className={styles.closingBody}>
+              Write to us about what you are making and what you hope it
+              could become. We read every thoughtful note and reply in kind.
+            </p>
+            <p className={styles.contactLines}>
+              {/* Placeholder email; see CONTACT_EMAIL note above. */}
+              <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              <span aria-hidden="true">&middot;</span>
+              {/* Placeholder social link; see INSTAGRAM_URL note above. */}
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+            </p>
+            <Link href="/contact" className={styles.btnSolid}>
+              Visit the contact page
+            </Link>
           </div>
         </section>
       </main>
